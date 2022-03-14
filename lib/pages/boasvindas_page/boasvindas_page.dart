@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sesi_fitness/widgets/sesiFitness_button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,13 +11,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/Tela de boas vindas.png'),
-            fit: BoxFit.fill,
-          ),
-        ),
+      body: Stack(
+        children: [
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage('assets/images/Tela de boas vindas.png'),
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
