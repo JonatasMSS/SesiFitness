@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:sesi_fitness/widgets/sesiFitness_form.dart';
+import 'package:get/get.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  runApp(const sesiFitnessMAIN());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+// ignore: camel_case_types
+class sesiFitnessMAIN extends StatelessWidget {
+  const sesiFitnessMAIN({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      home: Scaffold(
-        appBar: AppBar(),
-        body: SesifitnessForm(),
-      ),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'SESI FITNESS',
+      initialRoute: "/",
+      getPages: [],
     );
   }
 }
