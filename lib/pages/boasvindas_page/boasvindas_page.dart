@@ -15,14 +15,17 @@ class MyApp extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage('assets/images/Tela de boas vindas.png'),
                 ),
               ),
             ),
-          )
+          ),
+          Center(
+            child: SesifitnessButton(textDesc: "Logar-se"),
+          ),
         ],
       ),
     );
