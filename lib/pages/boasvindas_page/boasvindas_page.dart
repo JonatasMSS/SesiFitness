@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage('assets/images/Tela de boas vindas.png'),
@@ -24,7 +24,13 @@ class MyApp extends StatelessWidget {
               ),
             ),
           ),
+<<<<<<< HEAD
           Container(),
+=======
+          Center(
+            child: SesifitnessButton(textDesc: "Logar-se"),
+          ),
+>>>>>>> 3939c013153b346fbe367c0182bfe0838d576fc1
           Positioned(
             top: 450,
             left: 150,
