@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sesi_fitness/pages/boasvindas_page/boasvindas_page.dart';
 
 Future<void> main() async {
   runApp(const sesiFitnessMAIN());
@@ -12,10 +13,13 @@ class sesiFitnessMAIN extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'SESI FITNESS',
-      initialRoute: "/",
-      getPages: [],
+      initialRoute: '/',
+      getPages: [
+        GetPage(
+          name: '/',
+          page: () => const MyApp(),
+        )
+      ],
     );
   }
 }
