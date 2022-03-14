@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_button.dart';
+import 'package:sesi_fitness/widgets/sesiFitness_form.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +27,11 @@ class MyApp extends StatelessWidget {
           Center(
             child: SesifitnessButton(textDesc: "Logar-se"),
           ),
+          Positioned(
+            top: 450,
+            left: 150,
+            child: SesifitnessForm(),
+          )
         ],
       ),
     );
