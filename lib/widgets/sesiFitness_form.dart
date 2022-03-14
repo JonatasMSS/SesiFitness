@@ -5,8 +5,11 @@ class SesifitnessForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [],
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        color: const Color(0x00ffffff),
+      ),
     );
   }
 }
