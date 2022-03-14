@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sesi_fitness/pages/boasvindas_page/boasvindas_page.dart';
+import 'package:sesi_fitness/widgets/sesiFitness_button.dart';
 
 Future<void> main() async {
   runApp(const sesiFitnessMAIN());

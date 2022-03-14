@@ -10,11 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Container(
-        child: Image.asset(
-          'assets/images/Tela de boas vindas.png',
-          fit: BoxFit.contain,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/Tela de boas vindas.png'),
+            fit: BoxFit.fill,
+          ),
         ),
       ),
     );
