@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sesi_fitness/widgets/sesiFitness_appbar.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_button.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_form.dart';
 
@@ -25,9 +24,20 @@ class boasvindas_page extends StatelessWidget {
               ),
             ),
           ),
-          Center(
-            child: SesifitnessButton(),
-          ),
+          Container(
+            padding: const EdgeInsets.only(top: 280),
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SesifitnessForm(),
+                const SizedBox(
+                  height: 10,
+                ),
+                SesifitnessButton(textDesc: "Logar-se"),
+              ],
+            ),
+          )
         ],
       ),
     );
