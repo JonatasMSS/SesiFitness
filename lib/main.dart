@@ -1,3 +1,5 @@
+//Criado por Jonatas Miguel e Luiz Felipe
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sesi_fitness/pages/boasvindas_page/boasvindas_page.dart';
@@ -5,6 +7,8 @@ import 'package:sesi_fitness/pages/boasvindas_page/boasvindas_page.dart';
 Future<void> main() async {
   runApp(const sesiFitnessMAIN());
 }
+
+//Tela main de execução com uso do GetX para direcionamento de paginas
 
 // ignore: camel_case_types
 class sesiFitnessMAIN extends StatelessWidget {

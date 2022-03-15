@@ -13,7 +13,6 @@ class boasvindas_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SesifitnessAppbar(),
       body: Stack(
         children: [
           Expanded(
@@ -26,15 +25,9 @@ class boasvindas_page extends StatelessWidget {
               ),
             ),
           ),
-          Container(),
           Center(
-            child: SesifitnessButton(textDesc: "Logar-se"),
-          ),
-          Positioned(
-            top: 450,
-            left: 150,
             child: SesifitnessForm(),
-          )
+          ),
         ],
       ),
     );
