@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:validatorless/validatorless.dart';
 
 //Criação de formulário de inserção de CPF
 
@@ -18,6 +19,8 @@ class SesifitnessForm extends StatelessWidget {
       alignment: Alignment.center,
       child: Form(
         child: TextFormField(
+          keyboardType: TextInputType.number,
+          validator: Validatorless.cpf("CPF Inválido"),
           textAlign: TextAlign.center,
           decoration: InputDecoration(
             hintText: "Insira seu CPF",
