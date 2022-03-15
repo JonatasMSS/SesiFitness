@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SesifitnessButton extends StatelessWidget {
-  const SesifitnessButton({
+  SesifitnessButton({
     Key? key,
     this.textDesc = "TEXTO",
   }) : super(key: key);
@@ -11,15 +11,19 @@ class SesifitnessButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        color: const Color(0xFF0DFFA6),
+    return ElevatedButton(
+      onPressed: () {},
+      style: ElevatedButton.styleFrom(
+        shape: StadiumBorder(),
+        primary: Color(0xFF0DFFA6),
       ),
-      width: context.widthTransformer(reducedBy: 60),
-      height: 50,
-      alignment: Alignment.center,
-      child: Text(textDesc),
+      child: Container(
+        child: Text(
+          textDesc,
+          style: TextStyle(color: Color(0xFF005A6F)),
+        ),
+        margin: EdgeInsets.all(10),
+      ),
     );
   }
 }

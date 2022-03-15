@@ -26,7 +26,7 @@ class boasvindas_page extends StatelessWidget {
             ),
           ),
           Center(
-            child: SesifitnessForm(),
+            child: SesifitnessButton(),
           ),
         ],
       ),
