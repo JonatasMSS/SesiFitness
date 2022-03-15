@@ -12,7 +12,14 @@ class SesifitnessButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        Get.snackbar(
+          'Error',
+          "Usuário não encontrado",
+          colorText: Color(0xFFFFFFFF),
+          backgroundColor: Color(0xFFB41212),
+        );
+      },
       style: ElevatedButton.styleFrom(
         shape: StadiumBorder(),
         primary: Color(0xFF0DFFA6),
