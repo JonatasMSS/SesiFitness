@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+//Criação de formulário de inserção de CPF
+
 class SesifitnessForm extends StatelessWidget {
   const SesifitnessForm({Key? key}) : super(key: key);
 
@@ -16,9 +18,20 @@ class SesifitnessForm extends StatelessWidget {
       alignment: Alignment.center,
       child: Form(
         child: TextFormField(
+          textAlign: TextAlign.center,
           decoration: InputDecoration(
-            label: Center(
-              child: Text("Insira seu CPF"),
+            hintText: "Insira seu CPF",
+            hintStyle: const TextStyle(
+              color: Color(0xFF005A6F),
+            ),
+            alignLabelWithHint: true,
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: Colors.white),
             ),
           ),
         ),
