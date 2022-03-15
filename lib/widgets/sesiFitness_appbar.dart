@@ -6,7 +6,7 @@ class SesifitnessAppbar extends AppBar {
     double elevation = 2,
   }) : super(
             key: key,
-            backgroundColor: Colors.blue[700],
+            backgroundColor: Color(0xFF274776),
             elevation: elevation,
             centerTitle: true,
             title: const Text("SESI FITNESS"),

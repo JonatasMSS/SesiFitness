@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:sesi_fitness/widgets/sesiFitness_appbar.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_button.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_form.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const boasvindas_page());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class boasvindas_page extends StatelessWidget {
+  const boasvindas_page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: SesifitnessAppbar(),
       body: Stack(
         children: [
           Expanded(
