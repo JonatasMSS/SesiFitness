@@ -14,10 +14,10 @@ class SesifitnessButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {
         Get.snackbar(
-          'Error',
-          "Usuário não encontrado",
+          'Sucesso!',
+          "Login com sucesso!",
           colorText: const Color(0xFFFFFFFF),
-          backgroundColor: const Color(0xFFB41212),
+          backgroundColor: Color.fromARGB(255, 30, 109, 255),
         );
       },
       style: ElevatedButton.styleFrom(

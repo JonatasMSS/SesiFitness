@@ -22,7 +22,7 @@ class sesiFitnessMAIN extends StatelessWidget {
       getPages: [
         GetPage(
           name: '/',
-          page: () => const boasvindas_page(),
+          page: () => boasvindas_page(),
         )
       ],
     );
