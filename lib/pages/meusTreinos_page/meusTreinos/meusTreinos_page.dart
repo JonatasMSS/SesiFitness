@@ -22,6 +22,7 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
                     sizeH: 50,
                     descText: "Meus Treinos",
                     state: true,
+                    pageRoute: '',
                   ),
                 ),
                 Expanded(
@@ -29,6 +30,7 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
                     sizeH: 50,
                     descText: "Minhas Avaliações",
                     state: false,
+                    pageRoute: '',
                   ),
                 ),
               ],

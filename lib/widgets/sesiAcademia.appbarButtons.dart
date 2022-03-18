@@ -7,13 +7,15 @@ class SesiacademiaAppbarbuttons extends StatefulWidget {
       this.sizeH,
       this.descText,
       this.textColor = const Color(0xFFFFFFFF),
-      required this.state})
+      required this.state,
+      required this.pageRoute})
       : super(key: key);
 
   final double? sizeH;
   final String? descText;
   Color textColor;
   final bool state;
+  final String pageRoute;
 
   @override
   _SesiacademiaAppbarbuttonsState createState() =>
