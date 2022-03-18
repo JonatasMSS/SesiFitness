@@ -19,6 +19,7 @@ class SesifitnessButton extends StatelessWidget {
           colorText: const Color(0xFFFFFFFF),
           backgroundColor: Color.fromARGB(255, 30, 109, 255),
         );
+        Get.offAndToNamed('/meusTreinos');
       },
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),

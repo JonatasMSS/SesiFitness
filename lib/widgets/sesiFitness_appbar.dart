@@ -1,5 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:sesi_fitness/widgets/sesiAcademia.appbarButtons.dart';
 // Criando a APPBAR personalizada
 
 class SesifitnessAppbar extends AppBar {

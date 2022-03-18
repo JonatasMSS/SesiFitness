@@ -35,7 +35,7 @@ class boasvindas_page extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  SesifitnessButton(textDesc: "Logar-se"),
+                  const SesifitnessButton(textDesc: "Logar-se"),
                 ],
               ),
             ),

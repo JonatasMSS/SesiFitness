@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sesi_fitness/pages/boasvindas_page/boasvindas_page.dart';
+import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_bindings.dart';
+import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_page.dart';
 
 Future<void> main() async {
   runApp(const sesiFitnessMAIN());
@@ -23,6 +25,11 @@ class sesiFitnessMAIN extends StatelessWidget {
         GetPage(
           name: '/',
           page: () => boasvindas_page(),
+        ),
+        GetPage(
+          name: '/meusTreinos',
+          page: () => MeusTreinosPage(),
+          binding: MeusTreinosBindings(),
         )
       ],
     );
