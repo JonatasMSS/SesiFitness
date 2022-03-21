@@ -24,8 +24,8 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
                 children: [
                   Image(
                     image: AssetImage('assets/images/Ellipse 2.png'),
-                    width: 120,
-                    height: 120,
+                    width: 115,
+                    height: 115,
                   ),
                   Text('Fulana de Tal dos Santos')
                 ],
