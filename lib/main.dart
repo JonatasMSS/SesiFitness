@@ -35,6 +35,11 @@ class sesiFitnessMAIN extends StatelessWidget {
           page: () => MeusTreinosPage(),
           binding: MeusTreinosBindings(),
         ),
+        GetPage(
+          name: '/meusDados',
+          page: () => MeusdadosPagePage(),
+          binding: MeusdadosPageBindings(),
+        )
       ],
     );
   }

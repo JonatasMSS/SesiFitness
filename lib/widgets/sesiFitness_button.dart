@@ -17,6 +17,7 @@ class SesifitnessButton extends StatelessWidget {
           "Login com sucesso!",
           colorText: const Color(0xFFFFFFFF),
           backgroundColor: Color.fromARGB(255, 30, 109, 255),
+          duration: const Duration(seconds: 2),
         );
         Get.offAndToNamed('/meusTreinos');
       },
