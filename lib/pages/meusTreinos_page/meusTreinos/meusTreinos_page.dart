@@ -24,23 +24,38 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
                 children: [
                   Image(
                     image: AssetImage('assets/images/Ellipse 2.png'),
-                    width: 115,
-                    height: 115,
+                    width: 90,
+                    height: 90,
                   ),
-                  Text('Fulana de Tal dos Santos')
+                  Text(
+                    'Fulana de Tal dos Santos',
+                    style: TextStyle(fontSize: 30),
+                  )
                 ],
               ),
             ),
             ListTile(
-              leading: Icon(Icons.person),
-              title: const Text('Meus Dados'),
+              leading: Icon(
+                Icons.person,
+                color: Colors.black,
+              ),
+              title: const Text(
+                'Meus Dados',
+                style: TextStyle(fontSize: 30),
+              ),
               onTap: () {
                 Get.offAndToNamed('/meusDados');
               },
             ),
             ListTile(
-              leading: Icon(Icons.arrow_back_sharp),
-              title: const Text('Sair'),
+              leading: Icon(
+                Icons.arrow_back_sharp,
+                color: Colors.black,
+              ),
+              title: const Text(
+                'Sair',
+                style: TextStyle(fontSize: 30),
+              ),
               onTap: () {
                 Get.offAndToNamed('/');
               },
