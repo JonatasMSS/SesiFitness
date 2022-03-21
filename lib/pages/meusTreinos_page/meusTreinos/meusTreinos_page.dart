@@ -46,6 +46,7 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
           ],
         ),
       ),
+      backgroundColor: Color(0xFFDCDCDC),
       appBar: SesifitnessAppbar(),
       body: Container(
         child: Column(

@@ -69,6 +69,7 @@ class _SesiacademiaAppbarbuttonsState extends State<SesiacademiaAppbarbuttons> {
           widget.descText ?? "",
           style: TextStyle(
             color: widget.textColor,
+            fontSize: 30,
           ),
         ),
       ),

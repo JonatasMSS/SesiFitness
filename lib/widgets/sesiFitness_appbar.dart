@@ -13,7 +13,13 @@ class SesifitnessAppbar extends AppBar {
           backgroundColor: Color(0xFF274776),
           elevation: elevation,
           centerTitle: true,
-          title: const Text("SESI FITNESS"),
+          title: const Text(
+            "ACADEMIA SESI",
+            style: TextStyle(
+              fontFamily: 'Dongle',
+              fontSize: 35,
+            ),
+          ),
           iconTheme: const IconThemeData(
             color: Colors.black,
           ),
