@@ -11,6 +11,7 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFDCDCDC),
       appBar: SesifitnessAppbar(),
       body: Container(
         child: Column(

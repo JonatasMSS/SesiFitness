@@ -19,23 +19,29 @@ class SesifitnessForm extends StatelessWidget {
       width: context.widthTransformer(reducedBy: 50),
       height: 40,
       alignment: Alignment.center,
-      child: TextFormField(
-        keyboardType: TextInputType.number,
-        validator: Validatorless.cpf("CPF Inválido"),
-        textAlign: TextAlign.center,
-        decoration: InputDecoration(
-          hintText: "Insira seu CPF",
-          hintStyle: const TextStyle(
-            color: Color(0xFF005A6F),
-          ),
-          alignLabelWithHint: true,
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(color: Colors.white),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(color: Colors.white),
+      child: Container(
+        padding: const EdgeInsets.all(1),
+        child: TextFormField(
+          style: TextStyle(fontSize: 30),
+          keyboardType: TextInputType.number,
+          validator: Validatorless.cpf("CPF Inválido"),
+          textAlign: TextAlign.center,
+          decoration: InputDecoration(
+            hintText: "Insira seu CPF",
+            hintStyle: const TextStyle(
+              color: Color(0xFF005A6F),
+              fontSize: 30,
+              height: 2,
+            ),
+            alignLabelWithHint: true,
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: Colors.white),
+            ),
           ),
         ),
       ),

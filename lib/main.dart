@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sesi_fitness/pages/Theme/academiaSesi.dart';
 import 'package:sesi_fitness/pages/boasvindas_page/boasvindas_page.dart';
 import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_bindings.dart';
 import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_page.dart';
@@ -19,6 +20,7 @@ class sesiFitnessMAIN extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      theme: AcademiasesiTheme().Theme,
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       getPages: [
