@@ -12,23 +12,6 @@ class SesifitnessButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-<<<<<<< HEAD
-        if (cpf == "") {
-          Get.snackbar(
-            'Deu certo',
-            "Usuário  encontrado",
-            colorText: const Color(0xFFFFFFFF),
-            backgroundColor: const Color(0xFFB41212),
-          );
-        } else {
-          Get.snackbar(
-            'Error',
-            "Usuário não encontrado",
-            colorText: const Color(0xFFFFFFFF),
-            backgroundColor: const Color(0xFFB41212),
-          );
-        }
-=======
         Get.snackbar(
           'Sucesso!',
           "Login com sucesso!",
@@ -36,7 +19,6 @@ class SesifitnessButton extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 30, 109, 255),
         );
         Get.offAndToNamed('/meusTreinos');
->>>>>>> c4d7806ab5bda4acbbac9eb296eb01ecbd512ddb
       },
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),
