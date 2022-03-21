@@ -32,12 +32,14 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
               ),
             ),
             ListTile(
+              leading: Icon(Icons.person),
               title: const Text('Meus Dados'),
               onTap: () {
                 Get.offAndToNamed('/meusDados');
               },
             ),
             ListTile(
+              leading: Icon(Icons.arrow_back_sharp),
               title: const Text('Sair'),
               onTap: () {
                 Get.offAndToNamed('/');
