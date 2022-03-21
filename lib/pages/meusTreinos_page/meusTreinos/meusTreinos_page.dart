@@ -11,6 +11,41 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            // ignore: prefer_const_constructors
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xFF1D4A8C),
+              ),
+              child: Column(
+                children: [
+                  Image(
+                    image: AssetImage('assets/images/Ellipse 2.png'),
+                    width: 120,
+                    height: 120,
+                  ),
+                  Text('Fulana de Tal dos Santos')
+                ],
+              ),
+            ),
+            ListTile(
+              title: const Text('Meus Dados'),
+              onTap: () {
+                Get.offAndToNamed('/meusDados');
+              },
+            ),
+            ListTile(
+              title: const Text('Sair'),
+              onTap: () {
+                Get.offAndToNamed('/');
+              },
+            ),
+          ],
+        ),
+      ),
       backgroundColor: Color(0xFFDCDCDC),
       appBar: SesifitnessAppbar(),
       body: Container(

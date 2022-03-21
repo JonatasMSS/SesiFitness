@@ -6,6 +6,8 @@ import 'package:sesi_fitness/pages/Theme/academiaSesi.dart';
 import 'package:sesi_fitness/pages/boasvindas_page/boasvindas_page.dart';
 import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_bindings.dart';
 import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_page.dart';
+import 'package:sesi_fitness/pages/meusdados_page/meusdados_page_bindings.dart';
+import 'package:sesi_fitness/pages/meusdados_page/meusdados_page_page.dart';
 
 Future<void> main() async {
   runApp(const sesiFitnessMAIN());
