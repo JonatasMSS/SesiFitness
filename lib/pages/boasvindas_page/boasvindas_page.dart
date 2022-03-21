@@ -8,8 +8,11 @@ void main() {
 
 class boasvindas_page extends StatelessWidget {
   boasvindas_page({Key? key}) : super(key: key);
+<<<<<<< HEAD
   late String _ldata;
   final cpf = TextEditingController();
+=======
+>>>>>>> c4d7806ab5bda4acbbac9eb296eb01ecbd512ddb
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +32,7 @@ class boasvindas_page extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(top: 280),
             alignment: Alignment.center,
+<<<<<<< HEAD
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -41,6 +45,19 @@ class boasvindas_page extends StatelessWidget {
                 ),
                 SesifitnessButton(textDesc: "Logar-se", cpf: _ldata),
               ],
+=======
+            child: Form(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SesifitnessForm(),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const SesifitnessButton(textDesc: "Logar-se"),
+                ],
+              ),
+>>>>>>> c4d7806ab5bda4acbbac9eb296eb01ecbd512ddb
             ),
           )
         ],
