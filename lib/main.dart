@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:sesi_fitness/pages/boasvindas_page/boasvindas_page.dart';
 import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_bindings.dart';
 import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_page.dart';
+import 'package:sesi_fitness/pages/meusdados_page/meusdados_page_bindings.dart';
+import 'package:sesi_fitness/pages/meusdados_page/meusdados_page_page.dart';
 
 Future<void> main() async {
   runApp(const sesiFitnessMAIN());
@@ -25,14 +27,16 @@ class sesiFitnessMAIN extends StatelessWidget {
         GetPage(
           name: '/',
           page: () => boasvindas_page(),
-<<<<<<< HEAD
-=======
         ),
         GetPage(
           name: '/meusTreinos',
           page: () => MeusTreinosPage(),
           binding: MeusTreinosBindings(),
->>>>>>> c4d7806ab5bda4acbbac9eb296eb01ecbd512ddb
+        ),
+        GetPage(
+          name: '/meusDados',
+          page: () => MeusdadosPagePage(),
+          binding: MeusdadosPageBindings(),
         )
       ],
     );
