@@ -2,23 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SesifitnessButton extends StatelessWidget {
-  const SesifitnessButton({
-    Key? key,
-    this.textDesc = "TEXTO",
-  }) : super(key: key);
+  const SesifitnessButton({Key? key, this.textDesc = "TEXTO", this.cpf = ""})
+      : super(key: key);
 
   final String textDesc;
+  final String cpf;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        Get.snackbar(
-          'Error',
-          "Usuário não encontrado",
-          colorText: const Color(0xFFFFFFFF),
-          backgroundColor: const Color(0xFFB41212),
-        );
+        if (cpf == "") {
+          Get.snackbar(
+            'Deu certo',
+            "Usuário  encontrado",
+            colorText: const Color(0xFFFFFFFF),
+            backgroundColor: const Color(0xFFB41212),
+          );
+        } else {
+          Get.snackbar(
+            'Error',
+            "Usuário não encontrado",
+            colorText: const Color(0xFFFFFFFF),
+            backgroundColor: const Color(0xFFB41212),
+          );
+        }
       },
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),

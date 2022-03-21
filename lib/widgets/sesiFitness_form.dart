@@ -5,7 +5,12 @@ import 'package:validatorless/validatorless.dart';
 //Criação de formulário de inserção de CPF
 
 class SesifitnessForm extends StatelessWidget {
-  const SesifitnessForm({Key? key}) : super(key: key);
+  SesifitnessForm({Key? key, required this.cpf, required this.data})
+      : super(key: key);
+  final _formKey = GlobalKey<FormState>();
+
+  TextEditingController cpf;
+  String data;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +23,12 @@ class SesifitnessForm extends StatelessWidget {
       height: 40,
       alignment: Alignment.center,
       child: Form(
+        key: _formKey,
         child: TextFormField(
+          onChanged: (value) {
+            data = value;
+          },
+          controller: cpf,
           keyboardType: TextInputType.number,
           validator: Validatorless.cpf("CPF Inválido"),
           textAlign: TextAlign.center,
@@ -30,7 +40,7 @@ class SesifitnessForm extends StatelessWidget {
             alignLabelWithHint: true,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: const BorderSide(color: Colors.white),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),

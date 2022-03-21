@@ -3,11 +3,13 @@ import 'package:sesi_fitness/widgets/sesiFitness_button.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_form.dart';
 
 void main() {
-  runApp(const boasvindas_page());
+  runApp(boasvindas_page());
 }
 
 class boasvindas_page extends StatelessWidget {
-  const boasvindas_page({Key? key}) : super(key: key);
+  boasvindas_page({Key? key}) : super(key: key);
+  late String _ldata;
+  final cpf = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +32,14 @@ class boasvindas_page extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SesifitnessForm(),
+                SesifitnessForm(
+                  data: _ldata,
+                  cpf: cpf,
+                ),
                 const SizedBox(
                   height: 10,
                 ),
-                SesifitnessButton(textDesc: "Logar-se"),
+                SesifitnessButton(textDesc: "Logar-se", cpf: _ldata),
               ],
             ),
           )
