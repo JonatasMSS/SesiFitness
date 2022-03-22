@@ -94,7 +94,15 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
               const SizedBox(
                 height: 15,
               ),
-              SesiacadeimaListatreinos(),
+              SesiacadeimaListatreinos(
+                titleList: "Segunda",
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              SesiacadeimaListatreinos(
+                titleList: "Terça",
+              ),
             ],
           ),
         ),
