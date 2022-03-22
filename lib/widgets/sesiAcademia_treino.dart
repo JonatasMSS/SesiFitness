@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class SesiacademiaTreino extends StatelessWidget {
-  const SesiacademiaTreino({Key? key}) : super(key: key);
+  SesiacademiaTreino({
+    Key? key,
+    required this.assetImage,
+    this.title = "null",
+    this.repetition = "none",
+  }) : super(key: key);
+
+  final String assetImage;
+  final String title;
+  final String repetition;
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +44,8 @@ class SesiacademiaTreino extends StatelessWidget {
             ),
             width: 100,
             height: 100,
-            child: const Image(
-              image: AssetImage('assets/images/treino.png'),
+            child: Image(
+              image: AssetImage(assetImage),
               fit: BoxFit.fill,
             ),
           ),
@@ -44,8 +54,8 @@ class SesiacademiaTreino extends StatelessWidget {
               height: 109,
               child: Column(
                 children: [
-                  const Text(
-                    "Leg push ",
+                  Text(
+                    title,
                     style: TextStyle(fontSize: 30),
                   ),
                   const SizedBox(
@@ -53,11 +63,14 @@ class SesiacademiaTreino extends StatelessWidget {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      CircleAvatar(),
+                    children: [
+                      SvgPicture.asset(
+                        "assets/icons/Icon_halter.svg",
+                        height: 40,
+                      ),
                       Text(
-                        "3x15 repetições",
-                        style: TextStyle(
+                        repetition,
+                        style: const TextStyle(
                           fontSize: 28,
                         ),
                       ),

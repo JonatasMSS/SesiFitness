@@ -6,13 +6,14 @@ class SesiacadeimaListatreinos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ExpansionTile(
+    return ExpansionTile(
+      collapsedBackgroundColor: Color(0xFFDCDCDC),
       title: Text(
         "Segunda",
         style: TextStyle(fontSize: 25),
       ),
       children: [
-        SesiacademiaTreino(),
+        SesiacademiaTreino(assetImage: 'assets/images/treino.png'),
       ],
     );
   }

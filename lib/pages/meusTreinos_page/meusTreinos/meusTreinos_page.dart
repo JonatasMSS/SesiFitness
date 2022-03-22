@@ -65,36 +65,38 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
           ],
         ),
       ),
-      backgroundColor: Color(0xFFDCDCDC),
+      backgroundColor: Color(0xFFEFEFEF),
       appBar: SesifitnessAppbar(),
-      body: Container(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: SesiacademiaAppbarbuttons(
-                    sizeH: 50,
-                    descText: "Meus Treinos",
-                    state: true,
-                    pageRoute: '',
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: SesiacademiaAppbarbuttons(
+                      sizeH: 50,
+                      descText: "Meus Treinos",
+                      state: true,
+                      pageRoute: '',
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: SesiacademiaAppbarbuttons(
-                    sizeH: 50,
-                    descText: "Minhas Avaliações",
-                    state: false,
-                    pageRoute: '',
+                  Expanded(
+                    child: SesiacademiaAppbarbuttons(
+                      sizeH: 50,
+                      descText: "Minhas Avaliações",
+                      state: false,
+                      pageRoute: '',
+                    ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            SesiacadeimaListatreinos(),
-          ],
+                ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              SesiacadeimaListatreinos(),
+            ],
+          ),
         ),
       ),
     );
