@@ -41,19 +41,7 @@ class _SesiacademiaAppbarbuttonsState extends State<SesiacademiaAppbarbuttons> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (!stateIni) {
-          setState(() {
-            backColor = Color.fromARGB(255, 243, 243, 243);
-            widget.textColor = Colors.black;
-            stateIni = true;
-          });
-        } else {
-          setState(() {
-            backColor = Color(0xFF597194);
-            widget.textColor = Colors.white;
-            stateIni = false;
-          });
-        }
+        Get.offAndToNamed('/minhasAvaliacoes');
       },
       child: Container(
         alignment: Alignment.center,
