@@ -42,17 +42,25 @@ class SesiacademiaTreino extends StatelessWidget {
           Expanded(
             child: Container(
               height: 109,
-              color: Colors.blue,
               child: Column(
                 children: [
-                  Text(
+                  const Text(
                     "Leg push ",
                     style: TextStyle(fontSize: 30),
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Row(
-                    children: [
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
                       CircleAvatar(),
-                      Text("3x15 repetições"),
+                      Text(
+                        "3x15 repetições",
+                        style: TextStyle(
+                          fontSize: 28,
+                        ),
+                      ),
                     ],
                   ),
                 ],
