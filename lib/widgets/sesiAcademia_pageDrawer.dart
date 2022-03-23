@@ -26,10 +26,11 @@ class pageDrawer extends StatelessWidget {
                     width: 90,
                     height: 90,
                   ),
-                  Text(
-                    'Fulana de Tal dos Santos',
-                    style: TextStyle(fontSize: 30),
-                  )
+                  Text('Fulana de Tal dos Santos',
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.white,
+                      ))
                 ],
               ),
             ),
