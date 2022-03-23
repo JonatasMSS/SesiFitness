@@ -33,7 +33,7 @@ class boasvindas_page extends StatelessWidget {
                 children: [
                   SesifitnessForm(),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   const SesifitnessButton(textDesc: "Logar-se"),
                 ],

@@ -58,8 +58,8 @@ class SesiacademiaTreino extends StatelessWidget {
                     title,
                     style: TextStyle(fontSize: 30),
                   ),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: 5,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

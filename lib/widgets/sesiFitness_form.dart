@@ -17,7 +17,7 @@ class SesifitnessForm extends StatelessWidget {
         color: Color.fromARGB(255, 255, 255, 255),
       ),
       width: context.widthTransformer(reducedBy: 50),
-      height: 40,
+      height: 50,
       alignment: Alignment.center,
       child: Container(
         padding: const EdgeInsets.all(1),

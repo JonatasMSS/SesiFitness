@@ -26,7 +26,7 @@ class SesifitnessButton extends StatelessWidget {
         primary: const Color(0xFF0DFFA6),
       ),
       child: Container(
-        height: 20,
+        height: 25,
         child: Text(
           textDesc,
           style: const TextStyle(

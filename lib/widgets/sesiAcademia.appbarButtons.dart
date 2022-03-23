@@ -8,14 +8,14 @@ class SesiacademiaAppbarbuttons extends StatefulWidget {
       this.descText,
       this.textColor = const Color(0xFFFFFFFF),
       required this.state,
-      required this.pageRoute})
+      this.pageRoute})
       : super(key: key);
 
   final double? sizeH;
   final String? descText;
   Color textColor;
   final bool state;
-  final String pageRoute;
+  final String? pageRoute;
 
   @override
   _SesiacademiaAppbarbuttonsState createState() =>
@@ -25,6 +25,12 @@ class SesiacademiaAppbarbuttons extends StatefulWidget {
 class _SesiacademiaAppbarbuttonsState extends State<SesiacademiaAppbarbuttons> {
   Color backColor = Color(0xFF597194);
   bool stateIni = false;
+
+  void goToPage(String? pagename) {
+    if (pagename != "null") {
+      Get.toNamed(pagename!);
+    }
+  }
 
   @override
   void initState() {
@@ -40,9 +46,7 @@ class _SesiacademiaAppbarbuttonsState extends State<SesiacademiaAppbarbuttons> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Get.offAndToNamed('/minhasAvaliacoes');
-      },
+      onTap: () => goToPage(widget.pageRoute),
       child: Container(
         alignment: Alignment.center,
         height: widget.sizeH,
