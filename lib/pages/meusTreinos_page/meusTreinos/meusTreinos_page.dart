@@ -47,7 +47,12 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
               SesiacadeimaListatreinos(
                 titleList: "Segunda",
                 containList: [
-                  SesiacademiaTreino(assetImage: 'assets/images/treino.png'),
+                  SesiacademiaTreino(
+                    assetImage: 'assets/images/treino.png',
+                    pageRoute: '/treinoDetalhado',
+                    title: "Treino de Perna",
+                    repetition: "3x15 repetições",
+                  ),
                 ],
               ),
               const SizedBox(

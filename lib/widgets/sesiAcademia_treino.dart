@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -8,20 +10,41 @@ class SesiacademiaTreino extends StatefulWidget {
     required this.assetImage,
     this.title = "null",
     this.repetition = "none",
+    this.pageRoute,
+    this.descriptionNextPage,
+    this.gifVideo,
   }) : super(key: key);
 
   final String assetImage;
   final String title;
   final String repetition;
+  final String? pageRoute;
+  final String? descriptionNextPage;
+  final String? gifVideo;
 
   @override
   State<SesiacademiaTreino> createState() => _SesiacademiaTreinoState();
 }
 
 class _SesiacademiaTreinoState extends State<SesiacademiaTreino> {
+  void changePage(String? pageName) {
+    if (pageName != "null") {
+      Get.toNamed(
+        pageName!,
+        arguments: {
+          "titlePage": widget.title,
+          "repetitions": widget.repetition,
+          "description:": widget.descriptionNextPage ?? "Nenhuma descrição",
+          "gifVideo": widget.gifVideo ?? "",
+        },
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () => changePage(widget.pageRoute),
       child: Container(
         margin: const EdgeInsets.all(20),
         width: context.widthTransformer(reducedBy: 10),

@@ -8,7 +8,10 @@ import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_bind
 import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_page.dart';
 import 'package:sesi_fitness/pages/meusdados_page/meusdados_page_bindings.dart';
 import 'package:sesi_fitness/pages/meusdados_page/meusdados_page_page.dart';
+import 'package:sesi_fitness/pages/minhasAvaliacoes_page/minhasAvaliacoes_bindings.dart';
 import 'package:sesi_fitness/pages/minhasAvaliacoes_page/minhasAvaliacoes_page.dart';
+import 'package:sesi_fitness/pages/treinoDetalhado_page/treinoDetalhado_bindings.dart';
+import 'package:sesi_fitness/pages/treinoDetalhado_page/treinoDetalhado_page.dart';
 
 Future<void> main() async {
   runApp(const sesiFitnessMAIN());
@@ -44,7 +47,13 @@ class sesiFitnessMAIN extends StatelessWidget {
         GetPage(
           name: '/minhasAvaliacoes',
           page: () => MinhasAvaliacoesPage(),
-        )
+          binding: MinhasAvaliacoesBindings(),
+        ),
+        GetPage(
+          name: '/treinoDetalhado',
+          page: () => TreinoDetalhadoPage(),
+          binding: TreinoDetalhadoBindings(),
+        ),
       ],
     );
   }
