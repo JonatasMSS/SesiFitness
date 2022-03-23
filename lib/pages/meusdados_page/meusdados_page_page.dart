@@ -77,9 +77,17 @@ class dataContainment extends StatelessWidget {
       padding: const EdgeInsets.only(left: 10),
       child: Column(
         children: [
-          Text(
-            data,
-            style: TextStyle(color: Colors.white, fontSize: 30),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            width: context.width,
+            padding: const EdgeInsets.only(left: 10),
+            child: Text(
+              data,
+              style: TextStyle(color: Colors.white, fontSize: 30),
+            ),
           ),
           Text(
             name,

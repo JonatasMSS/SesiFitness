@@ -28,7 +28,7 @@ class _SesiacademiaAppbarbuttonsState extends State<SesiacademiaAppbarbuttons> {
 
   void goToPage(String? pagename) {
     if (pagename != "null") {
-      Get.toNamed(pagename!);
+      Get.offNamed(pagename!);
     }
   }
 

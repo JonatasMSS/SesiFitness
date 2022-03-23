@@ -24,6 +24,7 @@ class MinhasAvaliacoesPage extends GetView<MinhasAvaliacoesController> {
                     child: SesiacademiaAppbarbuttons(
                       sizeH: 50,
                       descText: "Meus Treinos",
+                      pageRoute: '/meusTreinos',
                       state: false,
                       textColor: Colors.white,
                     ),
@@ -33,7 +34,6 @@ class MinhasAvaliacoesPage extends GetView<MinhasAvaliacoesController> {
                       sizeH: 50,
                       descText: "Minhas Avaliações",
                       state: true,
-                      pageRoute: '/minhasAvaliacoes',
                       textColor: Colors.black,
                     ),
                   ),
