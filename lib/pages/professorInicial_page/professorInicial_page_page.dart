@@ -12,7 +12,7 @@ class ProfessorInicialPagePage extends GetView<ProfessorInicialPageController> {
     return Scaffold(
       drawer: pageDrawer(),
       appBar: SesifitnessAppbar(),
-      body: Container(),
+      body: SingleChildScrollView(),
     );
   }
 }
