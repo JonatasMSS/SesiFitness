@@ -12,7 +12,19 @@ class ProfessorInicialPagePage extends GetView<ProfessorInicialPageController> {
     return Scaffold(
       drawer: pageDrawer(),
       appBar: SesifitnessAppbar(),
-      body: SingleChildScrollView(),
+      body: Container(
+        child: Card(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const ListTile(
+                leading: Icon(Icons.person),
+                title: Text('Fulano de Tal dos Santos'),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
