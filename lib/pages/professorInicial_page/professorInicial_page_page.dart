@@ -32,7 +32,9 @@ class ProfessorInicialPagePage extends GetView<ProfessorInicialPageController> {
                             "Fulano de Tal dos Santos",
                             style: TextStyle(color: Colors.black),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.offAndToNamed('/alunoDetails');
+                          },
                         ),
                       ),
                     ],
