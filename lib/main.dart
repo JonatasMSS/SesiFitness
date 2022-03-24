@@ -10,6 +10,8 @@ import 'package:sesi_fitness/pages/meusdados_page/meusdados_page_bindings.dart';
 import 'package:sesi_fitness/pages/meusdados_page/meusdados_page_page.dart';
 import 'package:sesi_fitness/pages/minhasAvaliacoes_page/minhasAvaliacoes_bindings.dart';
 import 'package:sesi_fitness/pages/minhasAvaliacoes_page/minhasAvaliacoes_page.dart';
+import 'package:sesi_fitness/pages/professorInicial_page/professorInicial_page_bindings.dart';
+import 'package:sesi_fitness/pages/professorInicial_page/professorInicial_page_page.dart';
 import 'package:sesi_fitness/pages/treinoDetalhado_page/treinoDetalhado_bindings.dart';
 import 'package:sesi_fitness/pages/treinoDetalhado_page/treinoDetalhado_page.dart';
 
@@ -54,6 +56,11 @@ class sesiFitnessMAIN extends StatelessWidget {
           page: () => TreinoDetalhadoPage(),
           binding: TreinoDetalhadoBindings(),
         ),
+        GetPage(
+          name: '/professorInit',
+          page: () => ProfessorInicialPagePage(),
+          binding: ProfessorInicialPageBindings(),
+        )
       ],
     );
   }
