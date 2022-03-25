@@ -56,6 +56,9 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
               const SizedBox(
                 height: 30,
               ),
+              Center(
+                child: SesiacademiaAddtreino(),
+              ),
               SesiacadeimaListatreinos(
                 titleList: "Terça",
                 containList: [
@@ -69,6 +72,9 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
               ),
               const SizedBox(
                 height: 30,
+              ),
+              Center(
+                child: SesiacademiaAddtreino(),
               ),
               SesiacadeimaListatreinos(
                 titleList: "Quarta",
@@ -84,6 +90,9 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
               const SizedBox(
                 height: 30,
               ),
+              Center(
+                child: SesiacademiaAddtreino(),
+              ),
               SesiacadeimaListatreinos(
                 titleList: "Quinta",
                 containList: [
@@ -98,6 +107,9 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
               const SizedBox(
                 height: 30,
               ),
+              Center(
+                child: SesiacademiaAddtreino(),
+              ),
               SesiacadeimaListatreinos(
                 titleList: "Sexta",
                 containList: [
@@ -111,6 +123,9 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
               ),
               const SizedBox(
                 height: 30,
+              ),
+              Center(
+                child: SesiacademiaAddtreino(),
               ),
               SesiacadeimaListatreinos(
                 titleList: "Sábado",
