@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_addTreino.dart';
+import 'package:sesi_fitness/widgets/sesiAcademia_realizarAvali.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_appbar.dart';
 import '../../widgets/sesiAcadeima_listaTreinos.dart';
 import '../../widgets/sesiAcademia.appbarButtons.dart';
@@ -140,6 +141,12 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
               ),
               Center(
                 child: SesiacademiaAddtreino(),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Center(
+                child: SesiacademiaRealizaravali(),
               ),
             ],
           ),
