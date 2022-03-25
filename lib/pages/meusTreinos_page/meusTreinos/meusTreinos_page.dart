@@ -60,14 +60,6 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
               ),
               SesiacadeimaListatreinos(
                 titleList: "Terça",
-                containList: [
-                  SesiacademiaTreino(
-                    assetImage: 'assets/images/treino.png',
-                    pageRoute: '/professorInit',
-                    title: "Treino de Perna",
-                    repetition: "3x15 repetições",
-                  ),
-                ],
               ),
             ],
           ),

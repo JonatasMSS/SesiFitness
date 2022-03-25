@@ -19,8 +19,8 @@ import 'package:sesi_fitness/pages/professorInicial_page/professorInicial_page_p
 import 'package:sesi_fitness/pages/treinoDetalhado_page/treinoDetalhado_bindings.dart';
 import 'package:sesi_fitness/pages/treinoDetalhado_page/treinoDetalhado_page.dart';
 
-Future<void> main() async {
-  runApp(const sesiFitnessMAIN());
+void main() {
+  runApp(sesiFitnessMAIN());
 }
 
 //Tela main de execução com uso do GetX para direcionamento de paginas
@@ -33,7 +33,6 @@ class sesiFitnessMAIN extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: AcademiasesiTheme().Theme,
-      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       getPages: [
         GetPage(

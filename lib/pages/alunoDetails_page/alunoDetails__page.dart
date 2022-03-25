@@ -33,7 +33,7 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                   Expanded(
                     child: SesiacademiaAppbarbuttons(
                       sizeH: 50,
-                      descText: "Avaliações do Aluno",
+                      descText: "Avaliações Aluno",
                       state: false,
                       pageRoute: '/avaliacoesAluno',
                     ),
@@ -52,13 +52,11 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                     title: "Treino de Perna",
                     repetition: "3x15 repetições",
                   ),
+                  SesiacademiaAddtreino(),
                 ],
               ),
               const SizedBox(
                 height: 30,
-              ),
-              Center(
-                child: SesiacademiaAddtreino(),
               ),
               SesiacadeimaListatreinos(
                 titleList: "Terça",
@@ -69,13 +67,11 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                     title: "Treino de Perna",
                     repetition: "3x15 repetições",
                   ),
+                  SesiacademiaAddtreino(),
                 ],
               ),
               const SizedBox(
                 height: 30,
-              ),
-              Center(
-                child: SesiacademiaAddtreino(),
               ),
               SesiacadeimaListatreinos(
                 titleList: "Quarta",
@@ -86,13 +82,11 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                     title: "Treino de Perna",
                     repetition: "3x15 repetições",
                   ),
+                  SesiacademiaAddtreino(),
                 ],
               ),
               const SizedBox(
                 height: 30,
-              ),
-              Center(
-                child: SesiacademiaAddtreino(),
               ),
               SesiacadeimaListatreinos(
                 titleList: "Quinta",
@@ -103,13 +97,11 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                     title: "Treino de Perna",
                     repetition: "3x15 repetições",
                   ),
+                  SesiacademiaAddtreino(),
                 ],
               ),
               const SizedBox(
                 height: 30,
-              ),
-              Center(
-                child: SesiacademiaAddtreino(),
               ),
               SesiacadeimaListatreinos(
                 titleList: "Sexta",
@@ -120,13 +112,11 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                     title: "Treino de Perna",
                     repetition: "3x15 repetições",
                   ),
+                  SesiacademiaAddtreino(),
                 ],
               ),
               const SizedBox(
                 height: 30,
-              ),
-              Center(
-                child: SesiacademiaAddtreino(),
               ),
               SesiacadeimaListatreinos(
                 titleList: "Sábado",
@@ -137,10 +127,8 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                     title: "Treino de Perna",
                     repetition: "3x15 repetições",
                   ),
+                  SesiacademiaAddtreino(),
                 ],
-              ),
-              Center(
-                child: SesiacademiaAddtreino(),
               ),
               const SizedBox(
                 height: 30,
