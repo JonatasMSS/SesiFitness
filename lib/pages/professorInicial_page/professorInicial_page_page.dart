@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:sesi_fitness/widgets/sesiAcademia_pageDrawer.dart';
+import 'package:sesi_fitness/widgets/sesiAcademia_pageDrawerProfessor.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_appbar.dart';
 import './professorInicial_page_controller.dart';
 
@@ -12,6 +12,7 @@ class ProfessorInicialPagePage extends GetView<ProfessorInicialPageController> {
     return Scaffold(
       appBar: SesifitnessAppbar(),
       backgroundColor: Color(0xFFEFEFEF),
+      // drawer: SesiacademiaPagedrawerprofessor(),
       body: SingleChildScrollView(
         child: Center(
           child: Container(
