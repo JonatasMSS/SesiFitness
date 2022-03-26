@@ -8,8 +8,14 @@ class SesiacademiaRealizaravali extends StatelessWidget {
     return Column(
       children: <Widget>[
         TextButton(
+          style: TextButton.styleFrom(backgroundColor: Color(0xFF2C4E82)),
           onPressed: () {},
-          child: Text("Realizar Avaliação"),
+          child: Text(
+            "Realizar Avaliação",
+            style: TextStyle(
+              color: Color(0xFFEFEFEF),
+            ),
+          ),
         ),
       ],
     );
