@@ -34,6 +34,7 @@ class sesiFitnessMAIN extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: AcademiasesiTheme().Theme,
       initialRoute: '/',
       getPages: [
