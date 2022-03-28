@@ -7,7 +7,12 @@ import 'package:validatorless/validatorless.dart';
 class SesifitnessForm extends StatelessWidget {
   SesifitnessForm({
     Key? key,
+    this.buttonController,
+    this.Data,
   }) : super(key: key);
+
+  final TextEditingController? buttonController;
+  RxString? Data;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +27,11 @@ class SesifitnessForm extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(1),
         child: TextFormField(
+          onChanged: (valor) {
+            Data?.value = valor;
+            print("Data Value:" + valor);
+          },
+          controller: buttonController,
           style: TextStyle(fontSize: 30),
           keyboardType: TextInputType.number,
           validator: Validatorless.cpf("CPF Inválido"),

@@ -63,6 +63,7 @@ class _SesiacademiaAppbarbuttonsState extends State<SesiacademiaAppbarbuttons> {
             color: widget.textColor,
             fontSize: 30,
           ),
+          overflow: TextOverflow.ellipsis,
         ),
       ),
     );
