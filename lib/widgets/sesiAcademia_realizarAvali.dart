@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SesiacademiaRealizaravali extends StatelessWidget {
   const SesiacademiaRealizaravali({Key? key}) : super(key: key);
@@ -8,8 +9,16 @@ class SesiacademiaRealizaravali extends StatelessWidget {
     return Column(
       children: <Widget>[
         TextButton(
-          onPressed: () {},
-          child: Text("Realizar Avaliação"),
+          style: TextButton.styleFrom(backgroundColor: Color(0xFF2C4E82)),
+          onPressed: () {
+            Get.offAndToNamed('/realiAvali');
+          },
+          child: Text(
+            "Realizar Avaliação",
+            style: TextStyle(
+              color: Color(0xFFEFEFEF),
+            ),
+          ),
         ),
       ],
     );
