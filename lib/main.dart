@@ -16,6 +16,8 @@ import 'package:sesi_fitness/pages/minhasAvaliacoes_page/minhasAvaliacoes_bindin
 import 'package:sesi_fitness/pages/minhasAvaliacoes_page/minhasAvaliacoes_page.dart';
 import 'package:sesi_fitness/pages/professorInicial_page/professorInicial_page_bindings.dart';
 import 'package:sesi_fitness/pages/professorInicial_page/professorInicial_page_page.dart';
+import 'package:sesi_fitness/pages/realizarAvalia%C3%A7%C3%A3o_page/realizarAvalia%C3%A7%C3%A3o_page_bindings.dart';
+import 'package:sesi_fitness/pages/realizarAvalia%C3%A7%C3%A3o_page/realizarAvalia%C3%A7%C3%A3o_page_page.dart';
 import 'package:sesi_fitness/pages/treinoDetalhado_page/treinoDetalhado_bindings.dart';
 import 'package:sesi_fitness/pages/treinoDetalhado_page/treinoDetalhado_page.dart';
 
@@ -73,6 +75,11 @@ class sesiFitnessMAIN extends StatelessWidget {
           name: '/avaliacoesAluno',
           page: () => AvaliacoesaAlunoPagePage(),
           binding: AvaliacoesaAlunoPageBindings(),
+        ),
+        GetPage(
+          name: '/realiAvali',
+          page: () => RealizarAvaliacaoPagePage(),
+          binding: RealizarAvaliacaoPageBindings(),
         )
       ],
     );
