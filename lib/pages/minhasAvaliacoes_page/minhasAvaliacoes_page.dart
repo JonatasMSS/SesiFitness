@@ -363,6 +363,90 @@ class MinhasAvaliacoesPage extends GetView<MinhasAvaliacoesController> {
                         )
                       ],
                     ),
+                    SesiacadeimaListatreinos(
+                      titleList: "Habitos de Vida",
+                      backColor: Color(0xFFEEEEEE),
+                      containList: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Alimentação:",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            Text(
+                              " DATA",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Ingestão de álcool:",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            Text(
+                              " DATA",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Tempo sentado(a):",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            Text(
+                              " DATA",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Sono:",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            Text(
+                              " DATA",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Hidratação:",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            Text(
+                              " DATA",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Fumante:",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            Text(
+                              " DATA",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),

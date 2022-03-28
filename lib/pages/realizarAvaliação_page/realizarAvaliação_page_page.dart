@@ -628,9 +628,168 @@ class RealizarAvaliacaoPagePage
                         )
                       ],
                     ),
+                    SesiacadeimaListatreinos(
+                      titleList: "Habitos de Vida",
+                      backColor: Color(0xFFEEEEEE),
+                      containList: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Alimentação:",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: 30,
+                                margin: EdgeInsets.only(top: 5, bottom: 5),
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    alignLabelWithHint: true,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Ingestão de álcool:",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: 30,
+                                margin: EdgeInsets.only(top: 5, bottom: 5),
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    alignLabelWithHint: true,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Tempo sentado(a):",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: 30,
+                                margin: EdgeInsets.only(top: 5, bottom: 5),
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    alignLabelWithHint: true,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Sono:",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: 30,
+                                margin: EdgeInsets.only(top: 5, bottom: 5),
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    alignLabelWithHint: true,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Hidratação:",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: 30,
+                                margin: EdgeInsets.only(top: 5, bottom: 5),
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    alignLabelWithHint: true,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Fumante:",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: 30,
+                                margin: EdgeInsets.only(top: 5, bottom: 5),
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    alignLabelWithHint: true,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 60,
+              ),
+              TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Color(0xFF2C4E82),
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    'Enviar dados',
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.white,
+                    ),
+                  ))
             ],
           ),
         ),
