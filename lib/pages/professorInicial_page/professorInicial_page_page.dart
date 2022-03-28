@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:sesi_fitness/widgets/sesiAcademia_aluno.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_pageDrawerProfessor.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_appbar.dart';
 import './professorInicial_page_controller.dart';
@@ -28,34 +29,6 @@ class ProfessorInicialPagePage extends GetView<ProfessorInicialPageController> {
             },
           ),
         ),
-      ),
-    );
-  }
-}
-
-class widgetAluno extends StatelessWidget {
-  widgetAluno({
-    Key? key,
-    this.title,
-    this.cpf,
-  }) : super(key: key);
-
-  final String? title;
-  final String? cpf;
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        onTap: () => Get.toNamed('/alunoDetails'),
-        leading: const Icon(Icons.person, size: 40),
-        title: Text(
-          title ?? "NOME ALUNO",
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 25,
-          ),
-        ),
-        subtitle: Text("CPF: " + (cpf ?? "NO CPF")),
       ),
     );
   }
