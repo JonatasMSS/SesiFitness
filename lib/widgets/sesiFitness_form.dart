@@ -12,7 +12,10 @@ class SesifitnessForm extends StatelessWidget {
       this.hintText,
       this.fontSize,
       this.borderSide = Colors.white,
-      this.backgroundColor = Colors.white})
+      this.backgroundColor = Colors.white,
+      this.widthReduce = 50,
+      this.heightCursor,
+      this.inputTypeText = TextInputType.number})
       : super(key: key);
 
   final TextEditingController? buttonController;
@@ -21,7 +24,9 @@ class SesifitnessForm extends StatelessWidget {
   final double? fontSize;
   final Color borderSide;
   final Color backgroundColor;
-
+  final double widthReduce;
+  final double? heightCursor;
+  final TextInputType inputTypeText;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,19 +34,20 @@ class SesifitnessForm extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
         color: backgroundColor,
       ),
-      width: context.widthTransformer(reducedBy: 50),
+      width: context.widthTransformer(reducedBy: widthReduce),
       height: 50,
       alignment: Alignment.center,
       child: Container(
         padding: const EdgeInsets.all(1),
         child: TextFormField(
+          cursorHeight: heightCursor,
           onChanged: (valor) {
             Data?.value = valor;
             print("Data Value:" + valor);
           },
           controller: buttonController,
           style: TextStyle(fontSize: 30),
-          keyboardType: TextInputType.number,
+          keyboardType: inputTypeText,
           validator: Validatorless.cpf("CPF Inválido"),
           textAlign: TextAlign.center,
           decoration: InputDecoration(

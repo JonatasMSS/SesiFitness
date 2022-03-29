@@ -46,7 +46,7 @@ class pageDrawer extends StatelessWidget {
               style: TextStyle(fontSize: 30),
             ),
             onTap: () {
-              Get.offAndToNamed('/meusDados');
+              Get.offAllNamed('/meusDados');
             },
           ),
           ListTile(

@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:sesi_fitness/models/checkboxModel.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_addTreino.dart';
+import 'package:sesi_fitness/widgets/sesiAcademia_checkBoxTreino.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_realizarAvali.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_appbar.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_form.dart';
@@ -44,6 +46,13 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
               const SizedBox(
                 height: 15,
               ),
+              Text(
+                controller.dataPage['name'] ?? "NO NAME",
+                style: const TextStyle(fontSize: 40),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               SesiacadeimaListatreinos(
                 titleList: "Segunda",
                 containList: [
@@ -54,25 +63,8 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                       itemCount: controller.lista.length,
                       itemBuilder: (_, index) {
                         final item = controller.lista[index];
-                        return GestureDetector(
-                          onTap: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return Dialog(
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        color: Colors.red,
-                                        width: context.width,
-                                        height: 10,
-                                      )
-                                    ],
-                                  ),
-                                );
-                              },
-                            );
-                          },
+                        return DialogEdition(
+                          textTitle: "Editar treino",
                           child: SesiacademiaTreino(
                             assetImage: "assets/images/treino.png",
                             title: item,
@@ -82,7 +74,10 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                       },
                     );
                   }),
-                  SesiacademiaAddtreino(),
+                  DialogEdition(
+                    textTitle: "Adicionar Treino",
+                    child: const SesiacademiaAddtreino(),
+                  )
                 ],
               ),
               const SizedBox(
@@ -157,19 +152,136 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                     title: "Treino de Perna",
                     repetition: "3x15 repetições",
                   ),
-                  SesiacademiaAddtreino(),
+                  DialogEdition(
+                    textTitle: "Adicionar Treino",
+                    child: const SesiacademiaAddtreino(),
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 30,
               ),
               Center(
-                child: const SesiacademiaRealizaravaliacao(),
+                child: SesiacademiaRealizaravaliacao(
+                  text: "Realizar Avaliação",
+                  fontSize: 25,
+                  pageRoute: "/realiAvali",
+                ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class DialogEdition extends StatelessWidget {
+  DialogEdition({Key? key, required this.child, this.textTitle = "NONE TEXT"})
+      : super(key: key);
+
+  final Widget child;
+  final String textTitle;
+  final List<Checkboxmodel> dados = [
+    Checkboxmodel(texto: "Treino A"),
+    Checkboxmodel(texto: "Treino B"),
+    Checkboxmodel(texto: "Treino A"),
+    Checkboxmodel(texto: "Treino B"),
+    Checkboxmodel(texto: "Treino A"),
+    Checkboxmodel(texto: "Treino B"),
+    Checkboxmodel(texto: "Treino A"),
+    Checkboxmodel(texto: "Treino B"),
+    Checkboxmodel(texto: "Treino B"),
+  ];
+  RxString data = "".obs;
+
+  void itensChecked() {
+    List<Checkboxmodel> itensChecked = List.from(
+      dados.where((dado) => dado.checked),
+    );
+    itensChecked.forEach((dado) {
+      print(dado.texto);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return Dialog(
+              clipBehavior: Clip.hardEdge,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      color: Color(0xFF274776),
+                      width: context.width,
+                      height: 80,
+                      child: Text(
+                        textTitle,
+                        style: TextStyle(
+                          fontSize: 40,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SesiacadeimaListatreinos(
+                      titleList: "Treino",
+                      containList: [
+                        ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: dados.length,
+                            itemBuilder: (_, index) {
+                              return SesiacademiaCheckboxtreino(
+                                item: dados[index],
+                              );
+                            }),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    SesifitnessForm(
+                      Data: data,
+                      backgroundColor: Colors.grey[350]!,
+                      borderSide: Colors.grey[350]!,
+                      widthReduce: 30,
+                      hintText: "Quantidade de repetições",
+                      heightCursor: 40,
+                      inputTypeText: TextInputType.name,
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        itensChecked();
+                        print(data);
+                      },
+                      child: Text("ENVIAR DADOS"),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      },
+      child: child,
     );
   }
 }

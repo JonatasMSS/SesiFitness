@@ -7,7 +7,9 @@ import 'package:sesi_fitness/widgets/sesiFitness_appbar.dart';
 import './professorInicial_page_controller.dart';
 
 class ProfessorInicialPagePage extends GetView<ProfessorInicialPageController> {
-  const ProfessorInicialPagePage({Key? key}) : super(key: key);
+  ProfessorInicialPagePage({Key? key}) : super(key: key);
+
+  final List<String> data = ["Joao", "Maria", "Carlos"];
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +25,11 @@ class ProfessorInicialPagePage extends GetView<ProfessorInicialPageController> {
             borderRadius: BorderRadius.circular(15),
           ),
           child: ListView.builder(
-            itemCount: 3,
+            itemCount: data.length,
             itemBuilder: (context, index) {
-              return widgetAluno();
+              return widgetAluno(
+                title: data[index],
+              );
             },
           ),
         ),

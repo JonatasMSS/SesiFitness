@@ -4,12 +4,12 @@ import 'package:get/get.dart';
 class widgetAluno extends StatelessWidget {
   widgetAluno({
     Key? key,
-    this.title,
+    this.title = "Nome Aluno",
     this.cpf,
     this.cardVisible = true,
   }) : super(key: key);
 
-  final String? title;
+  final String title;
   final String? cpf;
   final bool cardVisible;
   @override
@@ -17,10 +17,13 @@ class widgetAluno extends StatelessWidget {
     if (cardVisible) {
       return Card(
         child: ListTile(
-          onTap: () => Get.toNamed('/alunoDetails'),
+          onTap: () => Get.toNamed(
+            '/alunoDetails',
+            arguments: {"name": title},
+          ),
           leading: const Icon(Icons.person, size: 40),
           title: Text(
-            title ?? "NOME ALUNO",
+            title,
             style: const TextStyle(
               color: Colors.black,
               fontSize: 25,
@@ -34,7 +37,7 @@ class widgetAluno extends StatelessWidget {
         onTap: () => Get.toNamed('/alunoDetails'),
         leading: const Icon(Icons.person, size: 40),
         title: Text(
-          title ?? "NOME ALUNO",
+          title,
           style: const TextStyle(
             color: Colors.black,
             fontSize: 25,

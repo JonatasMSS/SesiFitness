@@ -6,11 +6,8 @@ class SesiacademiaAddtreino extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: <Widget>[
-        IconButton(
-          icon: Icon(Icons.add_circle_rounded),
-          onPressed: () {},
-        ),
+      children: const [
+        Icon(Icons.add_circle_rounded),
         Center(
           child: Text(
             'Adicionar treino',
