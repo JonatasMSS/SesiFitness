@@ -5,21 +5,29 @@ import 'package:validatorless/validatorless.dart';
 //Criação de formulário de inserção de CPF
 
 class SesifitnessForm extends StatelessWidget {
-  SesifitnessForm({
-    Key? key,
-    this.buttonController,
-    this.Data,
-  }) : super(key: key);
+  SesifitnessForm(
+      {Key? key,
+      this.Data,
+      this.buttonController,
+      this.hintText,
+      this.fontSize,
+      this.borderSide = Colors.white,
+      this.backgroundColor = Colors.white})
+      : super(key: key);
 
   final TextEditingController? buttonController;
   RxString? Data;
+  final String? hintText;
+  final double? fontSize;
+  final Color borderSide;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
-        color: Color.fromARGB(255, 255, 255, 255),
+        color: backgroundColor,
       ),
       width: context.widthTransformer(reducedBy: 50),
       height: 50,
@@ -37,20 +45,20 @@ class SesifitnessForm extends StatelessWidget {
           validator: Validatorless.cpf("CPF Inválido"),
           textAlign: TextAlign.center,
           decoration: InputDecoration(
-            hintText: "Insira seu CPF",
-            hintStyle: const TextStyle(
+            hintText: hintText,
+            hintStyle: TextStyle(
               color: Color(0xFF005A6F),
-              fontSize: 30,
+              fontSize: fontSize,
               height: 2,
             ),
             alignLabelWithHint: true,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: borderSide),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: borderSide),
             ),
           ),
         ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_addTreino.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_realizarAvali.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_appbar.dart';
+import 'package:sesi_fitness/widgets/sesiFitness_form.dart';
 import '../../widgets/sesiAcadeima_listaTreinos.dart';
 import '../../widgets/sesiAcademia.appbarButtons.dart';
 import '../../widgets/sesiAcademia_treino.dart';
@@ -46,12 +47,41 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
               SesiacadeimaListatreinos(
                 titleList: "Segunda",
                 containList: [
-                  SesiacademiaTreino(
-                    assetImage: 'assets/images/treino.png',
-                    pageRoute: '/treinoDetalhado',
-                    title: "Treino de Perna",
-                    repetition: "3x15 repetições",
-                  ),
+                  Obx(() {
+                    return ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: controller.lista.length,
+                      itemBuilder: (_, index) {
+                        final item = controller.lista[index];
+                        return GestureDetector(
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Dialog(
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        color: Colors.red,
+                                        width: context.width,
+                                        height: 10,
+                                      )
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          child: SesiacademiaTreino(
+                            assetImage: "assets/images/treino.png",
+                            title: item,
+                            routerOn: false,
+                          ),
+                        );
+                      },
+                    );
+                  }),
                   SesiacademiaAddtreino(),
                 ],
               ),
@@ -134,7 +164,7 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                 height: 30,
               ),
               Center(
-                child: SesiacademiaRealizaravali(),
+                child: const SesiacademiaRealizaravaliacao(),
               ),
             ],
           ),

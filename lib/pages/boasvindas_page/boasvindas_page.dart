@@ -33,7 +33,11 @@ class boasvindas_page extends GetView<Boasvindascontroller> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SesifitnessForm(
-                      buttonController: _ECCPF.value, Data: CPFdata),
+                    buttonController: _ECCPF.value,
+                    Data: CPFdata,
+                    hintText: "Insira seu CPF",
+                    fontSize: 30,
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
