@@ -18,6 +18,8 @@ import 'package:sesi_fitness/pages/professorInicial_page/professorInicial_page_b
 import 'package:sesi_fitness/pages/professorInicial_page/professorInicial_page_page.dart';
 import 'package:sesi_fitness/pages/realizarAvalia%C3%A7%C3%A3o_page/realizarAvalia%C3%A7%C3%A3o_page_bindings.dart';
 import 'package:sesi_fitness/pages/realizarAvalia%C3%A7%C3%A3o_page/realizarAvalia%C3%A7%C3%A3o_page_page.dart';
+import 'package:sesi_fitness/pages/rodrigoPage_page/rodrigoPage_page_bindings.dart';
+import 'package:sesi_fitness/pages/rodrigoPage_page/rodrigoPage_page_page.dart';
 import 'package:sesi_fitness/pages/treinoDetalhado_page/treinoDetalhado_bindings.dart';
 import 'package:sesi_fitness/pages/treinoDetalhado_page/treinoDetalhado_page.dart';
 
@@ -36,7 +38,7 @@ class sesiFitnessMAIN extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AcademiasesiTheme().Theme,
-      initialRoute: '/',
+      initialRoute: '/rodrigoPage',
       getPages: [
         GetPage(
           name: '/',
@@ -81,6 +83,11 @@ class sesiFitnessMAIN extends StatelessWidget {
           name: '/realiAvali',
           page: () => RealizarAvaliacaoPagePage(),
           binding: RealizarAvaliacaoPageBindings(),
+        ),
+        GetPage(
+          name: '/rodrigoPage',
+          page: () => RodrigoPagePagePage(),
+          binding: RodrigoPagePageBindings(),
         )
       ],
     );
