@@ -7,6 +7,7 @@ import 'package:sesi_fitness/pages/alunoDetails_page/alunoDetails__bindings.dart
 import 'package:sesi_fitness/pages/alunoDetails_page/alunoDetails__page.dart';
 import 'package:sesi_fitness/pages/avaliacoesaAluno_page/avaliacoesaAluno_page_bindings.dart';
 import 'package:sesi_fitness/pages/avaliacoesaAluno_page/avaliacoesaAluno_page_page.dart';
+import 'package:sesi_fitness/pages/boasvindas_page/boasvindasBindigns.dart';
 import 'package:sesi_fitness/pages/boasvindas_page/boasvindas_page.dart';
 import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_bindings.dart';
 import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_page.dart';
@@ -41,6 +42,7 @@ class sesiFitnessMAIN extends StatelessWidget {
         GetPage(
           name: '/',
           page: () => boasvindas_page(),
+          binding: Boasvindasbindigns(),
         ),
         GetPage(
           name: '/meusTreinos',

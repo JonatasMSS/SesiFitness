@@ -14,8 +14,8 @@ class Userauth implements IUserAuth {
     final response = await http.get(url);
     final List<dynamic> responseMap = jsonDecode(response.body);
     return responseMap
-        .map<AlunoModel>(
-          (dados) => AlunoModel.fromJson(dados),
+        .map(
+          (dados) => AlunoModel.fromMap(dados),
         )
         .toList();
   }

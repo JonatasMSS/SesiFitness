@@ -6,6 +6,7 @@ class MeusTreinosController extends GetxController {
 
   @override
   void onInit() {
+    print("PAO");
     // TODO: implement onInit
     super.onInit();
   }

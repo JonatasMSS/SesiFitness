@@ -60,6 +60,70 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
               ),
               SesiacadeimaListatreinos(
                 titleList: "Terça",
+                containList: [
+                  SesiacademiaTreino(
+                    assetImage: 'assets/images/treino.png',
+                    pageRoute: '/treinoDetalhado',
+                    title: "Treino A",
+                    repetition: "3x15 repetições",
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              SesiacadeimaListatreinos(
+                titleList: "Quarta",
+                containList: [
+                  SesiacademiaTreino(
+                    assetImage: 'assets/images/treino.png',
+                    pageRoute: '/treinoDetalhado',
+                    title: "Treino A",
+                    repetition: "3x15 repetições",
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              SesiacadeimaListatreinos(
+                titleList: "Quinta",
+                containList: [
+                  SesiacademiaTreino(
+                    assetImage: 'assets/images/treino.png',
+                    pageRoute: '/treinoDetalhado',
+                    title: "Treino A",
+                    repetition: "3x15 repetições",
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              SesiacadeimaListatreinos(
+                titleList: "Sexta",
+                containList: [
+                  SesiacademiaTreino(
+                    assetImage: 'assets/images/treino.png',
+                    pageRoute: '/treinoDetalhado',
+                    title: "Treino A",
+                    repetition: "3x15 repetições",
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              SesiacadeimaListatreinos(
+                titleList: "Sábado",
+                containList: [
+                  SesiacademiaTreino(
+                    assetImage: 'assets/images/treino.png',
+                    pageRoute: '/treinoDetalhado',
+                    title: "Treino A",
+                    repetition: "3x15 repetições",
+                  ),
+                ],
               ),
             ],
           ),

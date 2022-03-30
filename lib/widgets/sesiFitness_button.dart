@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
+import 'package:sesi_fitness/pages/boasvindas_page/boasvindasController.dart';
 
 class SesifitnessButton extends StatelessWidget {
-  SesifitnessButton({Key? key, this.textDesc = "TEXTO", this.cpf})
-      : super(key: key);
+  SesifitnessButton({
+    Key? key,
+    this.textDesc = "TEXTO",
+    this.cpf,
+    required this.alunos,
+  }) : super(key: key);
 
   final String textDesc;
   String? cpf;
+  List<AlunoModel> alunos;
+
+  bool dataConfirm(String confirmation) {
+    return alunos.any((element) => element.cpf == confirmation);
+  }
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        if (cpf != "" && cpf != "1") {
+        if (dataConfirm(cpf ?? "0")) {
           Get.snackbar(
             'Sucesso!',
             "Login com sucesso!",
@@ -30,6 +41,8 @@ class SesifitnessButton extends StatelessWidget {
             duration: const Duration(seconds: 2),
           );
           Get.offAndToNamed('/professorInit');
+        } else {
+          Get.snackbar("Login incorreto", "Usuário não encontrado");
         }
       },
       style: ElevatedButton.styleFrom(

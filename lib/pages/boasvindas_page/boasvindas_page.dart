@@ -46,6 +46,7 @@ class boasvindas_page extends GetView<Boasvindascontroller> {
                       return SesifitnessButton(
                         textDesc: "Logar-se",
                         cpf: CPFdata.value,
+                        alunos: controller.AlunosData,
                       );
                     },
                   )

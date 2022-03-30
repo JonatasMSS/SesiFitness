@@ -64,8 +64,10 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                       itemCount: controller.lista.length,
                       itemBuilder: (_, index) {
                         final item = controller.lista[index];
-                        return DialogEdition(
-                          textTitle: "Editar treino",
+                        return GestureDetector(
+                          onLongPress: () {
+                            controller.lista.removeAt(index);
+                          },
                           child: SesiacademiaTreino(
                             assetImage: "assets/images/treino.png",
                             title: item,
@@ -153,10 +155,7 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                     title: "Treino de Perna",
                     repetition: "3x15 repetições",
                   ),
-                  DialogEdition(
-                    textTitle: "Adicionar Treino",
-                    child: const SesiacademiaAddtreino(),
-                  ),
+                  const SesiacademiaAddtreino(),
                 ],
               ),
               const SizedBox(
@@ -177,9 +176,12 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
   }
 }
 
-class DialogEdition extends StatelessWidget {
-  DialogEdition({Key? key, required this.child, this.textTitle = "NONE TEXT"})
-      : super(key: key);
+class DialogEdition extends GetView<AlunoDetailsController> {
+  DialogEdition({
+    Key? key,
+    required this.child,
+    this.textTitle = "NONE TEXT",
+  }) : super(key: key);
 
   final Widget child;
   final String textTitle;
@@ -196,12 +198,12 @@ class DialogEdition extends StatelessWidget {
   ];
   RxString data = "".obs;
 
-  void itensChecked() {
+  void itensChecked(List dataTreinos) {
     List<Checkboxmodel> itensChecked = List.from(
       dados.where((dado) => dado.checked),
     );
     itensChecked.forEach((dado) {
-      print(dado.texto);
+      dataTreinos.add(dado.texto);
     });
   }
 
@@ -267,8 +269,10 @@ class DialogEdition extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        itensChecked();
-                        print(data);
+                        print(controller.lista);
+                        itensChecked(controller.lista);
+                        print(controller.lista);
+                        navigator?.pop();
                       },
                       child: Text("ENVIAR DADOS"),
                     ),
