@@ -4,12 +4,12 @@ import 'package:sesi_fitness/models/treinosModel/treinosModel.dart';
 
 import '../treinosModel/treinosModel.dart';
 
-class AlunomModel {
+class AlunoModel {
   String nome;
   String cpf;
   String id;
   List<TreinosModel> treinosAluno;
-  AlunomModel({
+  AlunoModel({
     required this.nome,
     required this.cpf,
     required this.id,
@@ -25,8 +25,8 @@ class AlunomModel {
     };
   }
 
-  factory AlunomModel.fromMap(Map<String, dynamic> map) {
-    return AlunomModel(
+  factory AlunoModel.fromMap(Map<String, dynamic> map) {
+    return AlunoModel(
       nome: map['nome'] ?? '',
       cpf: map['cpf'] ?? '',
       id: map['id'] ?? '',
@@ -37,6 +37,6 @@ class AlunomModel {
 
   String toJson() => json.encode(toMap());
 
-  factory AlunomModel.fromJson(String source) =>
-      AlunomModel.fromMap(json.decode(source));
+  factory AlunoModel.fromJson(String source) =>
+      AlunoModel.fromMap(json.decode(source));
 }
