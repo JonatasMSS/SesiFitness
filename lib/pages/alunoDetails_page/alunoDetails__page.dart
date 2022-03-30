@@ -39,6 +39,7 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                       descText: "Avaliações Aluno",
                       state: false,
                       pageRoute: '/avaliacoesAluno',
+                      arg: controller.dataPage,
                     ),
                   ),
                 ],

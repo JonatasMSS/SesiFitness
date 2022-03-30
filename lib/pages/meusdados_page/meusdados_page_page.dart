@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:sesi_fitness/widgets/sesiFitness_appbar.dart';
 
 import './meusdados_page_controller.dart';
 

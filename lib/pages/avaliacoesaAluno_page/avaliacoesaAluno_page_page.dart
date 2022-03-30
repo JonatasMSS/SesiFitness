@@ -27,6 +27,7 @@ class AvaliacoesaAlunoPagePage extends GetView<AvaliacoesaAlunoPageController> {
                     descText: "Treinos do aluno",
                     textColor: Colors.white,
                     pageRoute: '/alunoDetails',
+                    arg: controller.dataPage,
                   ),
                 ),
                 Expanded(

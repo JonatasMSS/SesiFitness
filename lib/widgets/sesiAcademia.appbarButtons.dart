@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SesiacademiaAppbarbuttons extends StatefulWidget {
-  SesiacademiaAppbarbuttons(
-      {Key? key,
-      this.sizeH,
-      this.descText,
-      this.textColor = const Color(0xFFFFFFFF),
-      required this.state,
-      this.pageRoute})
-      : super(key: key);
+  SesiacademiaAppbarbuttons({
+    Key? key,
+    this.sizeH,
+    this.descText,
+    this.textColor = const Color(0xFFFFFFFF),
+    required this.state,
+    this.pageRoute,
+    this.arg = "",
+  }) : super(key: key);
 
   final double? sizeH;
   final String? descText;
   Color textColor;
   final bool state;
   final String? pageRoute;
+  var arg;
 
   @override
   _SesiacademiaAppbarbuttonsState createState() =>
@@ -28,7 +30,7 @@ class _SesiacademiaAppbarbuttonsState extends State<SesiacademiaAppbarbuttons> {
 
   void goToPage(String? pagename) {
     if (pagename != "null") {
-      Get.offNamed(pagename!);
+      Get.offAndToNamed(pagename!, arguments: widget.arg);
     }
   }
 
