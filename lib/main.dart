@@ -39,7 +39,7 @@ class sesiFitnessMAIN extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AcademiasesiTheme().Theme,
-      initialRoute: '/rodrigoPage',
+      initialRoute: '/',
       getPages: [
         GetPage(
           name: '/',

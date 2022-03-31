@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:sesi_fitness/models/dayModel/dayModel.dart';
 import 'package:sesi_fitness/models/treinosModel/treinosModel.dart';
 
 import '../treinosModel/treinosModel.dart';
@@ -8,21 +9,23 @@ class AlunoModel {
   String nome;
   String cpf;
   String id;
-  List<TreinosModel> treinosAluno;
+  List<DayModel> diaTreino;
   AlunoModel({
     required this.nome,
     required this.cpf,
     required this.id,
-    required this.treinosAluno,
+    required this.diaTreino,
   });
 
   Map<String, dynamic> toMap() {
-    return {
-      'nome': nome,
-      'cpf': cpf,
-      'id': id,
-      'treinosAluno': treinosAluno.map((x) => x.toMap()).toList(),
-    };
+    final result = <String, dynamic>{};
+
+    result.addAll({'nome': nome});
+    result.addAll({'cpf': cpf});
+    result.addAll({'id': id});
+    result.addAll({'diaTreino': diaTreino.map((x) => x.toMap()).toList()});
+
+    return result;
   }
 
   factory AlunoModel.fromMap(Map<String, dynamic> map) {
@@ -30,8 +33,8 @@ class AlunoModel {
       nome: map['nome'] ?? '',
       cpf: map['cpf'] ?? '',
       id: map['id'] ?? '',
-      treinosAluno: List<TreinosModel>.from(
-          map['treinosAluno']?.map((x) => TreinosModel.fromMap(x))),
+      diaTreino:
+          List<DayModel>.from(map['diaTreino'].map((x) => DayModel.fromMap(x))),
     );
   }
 

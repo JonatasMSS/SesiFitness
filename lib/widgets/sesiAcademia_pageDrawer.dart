@@ -4,7 +4,10 @@ import 'package:get/get.dart';
 class pageDrawer extends StatelessWidget {
   const pageDrawer({
     Key? key,
+    this.namePerson = "NONE",
   }) : super(key: key);
+
+  final String namePerson;
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +23,14 @@ class pageDrawer extends StatelessWidget {
                 color: Color(0xFF1D4A8C),
               ),
               child: Column(
-                children: const [
-                  Image(
+                children: [
+                  const Image(
                     image: AssetImage('assets/images/Ellipse 2.png'),
                     width: 90,
                     height: 90,
                   ),
-                  Text('Fulana de Tal dos Santos',
-                      style: TextStyle(
+                  Text(namePerson,
+                      style: const TextStyle(
                         fontSize: 30,
                         color: Colors.white,
                       ))

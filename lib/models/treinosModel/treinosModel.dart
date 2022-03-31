@@ -4,21 +4,23 @@ class TreinosModel {
   String tituloTreino;
   String repTreino;
   String id;
-  String alunoId;
+  String diaId;
   TreinosModel({
     required this.tituloTreino,
     required this.repTreino,
     required this.id,
-    required this.alunoId,
+    required this.diaId,
   });
 
   Map<String, dynamic> toMap() {
-    return {
-      'tituloTreino': tituloTreino,
-      'repTreino': repTreino,
-      'id': id,
-      'alunoId': alunoId,
-    };
+    final result = <String, dynamic>{};
+
+    result.addAll({'tituloTreino': tituloTreino});
+    result.addAll({'repTreino': repTreino});
+    result.addAll({'id': id});
+    result.addAll({'diaId': diaId});
+
+    return result;
   }
 
   factory TreinosModel.fromMap(Map<String, dynamic> map) {
@@ -26,7 +28,7 @@ class TreinosModel {
       tituloTreino: map['tituloTreino'] ?? '',
       repTreino: map['repTreino'] ?? '',
       id: map['id'] ?? '',
-      alunoId: map['alunoId'] ?? '',
+      diaId: map['diaId'] ?? '',
     );
   }
 

@@ -31,7 +31,9 @@ class SesifitnessButton extends StatelessWidget {
             backgroundColor: Color.fromARGB(255, 30, 109, 255),
             duration: const Duration(seconds: 2),
           );
-          Get.offAndToNamed('/meusTreinos');
+          Get.offAndToNamed(
+            '/meusTreinos',
+          );
         } else if (cpf == "1") {
           Get.snackbar(
             'Sucesso!',
@@ -41,6 +43,8 @@ class SesifitnessButton extends StatelessWidget {
             duration: const Duration(seconds: 2),
           );
           Get.offAndToNamed('/professorInit');
+        } else if (cpf == "00") {
+          Get.offAndToNamed('/rodrigoPage');
         } else {
           Get.snackbar("Login incorreto", "Usuário não encontrado");
         }
