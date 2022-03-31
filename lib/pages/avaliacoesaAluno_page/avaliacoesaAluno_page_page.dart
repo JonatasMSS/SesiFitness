@@ -4,6 +4,7 @@ import 'package:sesi_fitness/widgets/sesiAcadeima_listaTreinos.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia.appbarButtons.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_aluno.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_pageDrawer.dart';
+import 'package:sesi_fitness/widgets/sesiAcademia_pageDrawerProfessor.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_appbar.dart';
 import './avaliacoesaAluno_page_controller.dart';
 
@@ -13,7 +14,7 @@ class AvaliacoesaAlunoPagePage extends GetView<AvaliacoesaAlunoPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const pageDrawer(),
+      drawer: SesiacademiaPagedrawerprofessor(),
       backgroundColor: Color(0xFFEFEFEF),
       appBar: SesifitnessAppbar(),
       body: SingleChildScrollView(

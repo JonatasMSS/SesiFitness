@@ -12,7 +12,7 @@ class MinhasAvaliacoesPage extends GetView<MinhasAvaliacoesController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: pageDrawer(),
+      drawer: pageDrawer(person: controller.alunoData),
       appBar: SesifitnessAppbar(),
       body: SingleChildScrollView(
         child: Container(

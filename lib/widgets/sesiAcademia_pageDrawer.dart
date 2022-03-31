@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
 
 class pageDrawer extends StatelessWidget {
   const pageDrawer({
     Key? key,
-    this.namePerson = "NONE",
+    required this.person,
   }) : super(key: key);
 
-  final String namePerson;
+  final AlunoModel person;
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +30,13 @@ class pageDrawer extends StatelessWidget {
                     width: 90,
                     height: 90,
                   ),
-                  Text(namePerson,
-                      style: const TextStyle(
-                        fontSize: 30,
-                        color: Colors.white,
-                      ))
+                  Text(
+                    person.nome,
+                    style: const TextStyle(
+                      fontSize: 30,
+                      color: Colors.white,
+                    ),
+                  )
                 ],
               ),
             ),
@@ -49,7 +52,7 @@ class pageDrawer extends StatelessWidget {
               style: TextStyle(fontSize: 30),
             ),
             onTap: () {
-              Get.toNamed('/meusDados');
+              Get.toNamed('/meusDados', arguments: person);
             },
           ),
           ListTile(

@@ -15,39 +15,78 @@ class SesifitnessButton extends StatelessWidget {
   String? cpf;
   List<AlunoModel> alunos;
 
-  bool dataConfirm(String confirmation) {
-    return alunos.any((element) => element.cpf == confirmation);
+  void dataConfirm(String confirmation, List<AlunoModel> dataComparation) {
+    for (var i = 0; i < dataComparation.length; i++) {
+      if (dataComparation[i].cpf == confirmation) {
+        Get.snackbar(
+          "Sucesso!",
+          "Login com sucesso!",
+          colorText: const Color(0xFFFFFFFF),
+          backgroundColor: const Color.fromARGB(255, 30, 109, 255),
+          duration: const Duration(seconds: 2),
+        );
+        Get.offAndToNamed(
+          '/meusTreinos',
+          arguments: dataComparation[i],
+        );
+        break;
+      } else if (confirmation == "1") {
+        Get.snackbar(
+          'Sucesso!',
+          "Login como professor!",
+          colorText: const Color(0xFFFFFFFF),
+          backgroundColor: Color.fromARGB(255, 30, 109, 255),
+          duration: const Duration(seconds: 2),
+        );
+        Get.offAndToNamed('/professorInit');
+        break;
+      } else if (confirmation == "00") {
+        Get.snackbar(
+          'Sucesso!',
+          "Login como professor!",
+          colorText: const Color(0xFFFFFFFF),
+          backgroundColor: Color.fromARGB(255, 30, 109, 255),
+          duration: const Duration(seconds: 2),
+        );
+        Get.offAndToNamed('/rodrigoPage');
+        break;
+      } else {
+        Get.snackbar("Login incorreto", "Usuário não encontrado");
+        break;
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        if (dataConfirm(cpf ?? "0")) {
-          Get.snackbar(
-            'Sucesso!',
-            "Login com sucesso!",
-            colorText: const Color(0xFFFFFFFF),
-            backgroundColor: Color.fromARGB(255, 30, 109, 255),
-            duration: const Duration(seconds: 2),
-          );
-          Get.offAndToNamed(
-            '/meusTreinos',
-          );
-        } else if (cpf == "1") {
-          Get.snackbar(
-            'Sucesso!',
-            "Login como professor!",
-            colorText: const Color(0xFFFFFFFF),
-            backgroundColor: Color.fromARGB(255, 30, 109, 255),
-            duration: const Duration(seconds: 2),
-          );
-          Get.offAndToNamed('/professorInit');
-        } else if (cpf == "00") {
-          Get.offAndToNamed('/rodrigoPage');
-        } else {
-          Get.snackbar("Login incorreto", "Usuário não encontrado");
-        }
+        dataConfirm(cpf!, alunos);
+        // if (dataConfirm(cpf ?? "0")) {
+        //   Get.snackbar(
+        //     'Sucesso!',
+        //     "Login com sucesso!",
+        //     colorText: const Color(0xFFFFFFFF),
+        //     backgroundColor: Color.fromARGB(255, 30, 109, 255),
+        //     duration: const Duration(seconds: 2),
+        //   );
+        //   Get.offAndToNamed(
+        //     '/meusTreinos',
+        //   );
+        // } else if (cpf == "1") {
+        //   Get.snackbar(
+        //     'Sucesso!',
+        //     "Login como professor!",
+        //     colorText: const Color(0xFFFFFFFF),
+        //     backgroundColor: Color.fromARGB(255, 30, 109, 255),
+        //     duration: const Duration(seconds: 2),
+        //   );
+        //   Get.offAndToNamed('/professorInit');
+        // } else if (cpf == "00") {
+        //   Get.offAndToNamed('/rodrigoPage');
+        // } else {
+        //   Get.snackbar("Login incorreto", "Usuário não encontrado");
+        // }
       },
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),

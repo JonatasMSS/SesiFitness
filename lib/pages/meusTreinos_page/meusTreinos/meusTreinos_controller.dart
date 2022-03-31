@@ -5,6 +5,7 @@ import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
 
 class MeusTreinosController extends GetxController {
   RxBool changeContainer = false.obs;
+  final AlunoModel alunoData = Get.arguments;
 
   @override
   void onInit() {
