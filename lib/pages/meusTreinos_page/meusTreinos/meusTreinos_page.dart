@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:sesi_fitness/models/dayModel/dayModel.dart';
+import 'package:sesi_fitness/models/treinosModel/treinosModel.dart';
 import 'package:sesi_fitness/widgets/sesiAcadeima_listaTreinos.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia.appbarButtons.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_pageDrawer.dart';
@@ -10,6 +12,17 @@ import './meusTreinos_controller.dart';
 
 class MeusTreinosPage extends GetView<MeusTreinosController> {
   MeusTreinosPage({Key? key}) : super(key: key);
+
+  int lenghtListId(List<DayModel> lista, String name) {
+    int result = 0;
+    for (var i = 0; i < lista.length; i++) {
+      print(lista[i].treinosDia.length);
+      if (lista[i].diaSemana == name) {
+        result = lista[i].treinosDia.length;
+      }
+    }
+    return result;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,12 +61,25 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
               SesiacadeimaListatreinos(
                 titleList: "Segunda",
                 containList: [
-                  SesiacademiaTreino(
-                    assetImage: 'assets/images/treino.png',
-                    pageRoute: '/treinoDetalhado',
-                    title: "Treino de Perna",
-                    repetition: "3x15 repetições",
-                  ),
+                  Obx(() {
+                    return ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: lenghtListId(
+                            controller.treinosAluno, "diaSemana 1"),
+                        itemBuilder: (_, index) {
+                          final TreinosModel itens = controller
+                              .treinosAluno[controller.treinosAluno.indexOf()]
+                              .treinosDia[index];
+
+                          return SesiacademiaTreino(
+                            assetImage: 'assets/images/treino.png',
+                            pageRoute: '/treinoDetalhado',
+                            title: itens.tituloTreino,
+                            repetition: "3x15 repetições",
+                          );
+                        });
+                  })
                 ],
               ),
               const SizedBox(

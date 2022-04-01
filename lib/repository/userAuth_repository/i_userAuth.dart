@@ -3,5 +3,5 @@ import 'package:sesi_fitness/models/dayModel/dayModel.dart';
 
 abstract class IUserAuth {
   Future<List<AlunoModel>> findAllAlunos();
-  Future<List<DayModel>> findAllTreinosById(String id);
+  Future<List<DayModel>> findAllTreinosByIdAndName(String id);
 }

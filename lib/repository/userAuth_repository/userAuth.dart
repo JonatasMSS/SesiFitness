@@ -22,7 +22,7 @@ class Userauth implements IUserAuth {
   }
 
   @override
-  Future<List<DayModel>> findAllTreinosById(String id) async {
+  Future<List<DayModel>> findAllTreinosByIdAndName(String id) async {
     final url = Uri.parse(
         "https://620be58cab956ad80565da41.mockapi.io/api/http/aluno/$id/dia");
     final response = await http.get(url);

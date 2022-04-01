@@ -16,12 +16,12 @@ class MeusTreinosController extends GetxController {
   @override
   void onInit() {
     // TODO: implement onInit
-    findTreinosById(alunoData.id);
+    findTreinosByIdAndName(alunoData.id);
     super.onInit();
   }
 
-  Future<void> findTreinosById(String id) async {
-    final dataGet = await _iUserAuth.findAllTreinosById(id);
+  Future<void> findTreinosByIdAndName(String id) async {
+    final dataGet = await _iUserAuth.findAllTreinosByIdAndName(id);
     if (treinosAluno.isEmpty) {
       treinosAluno.addAll(dataGet);
     } else {
