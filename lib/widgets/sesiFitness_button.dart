@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
 import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
 import 'package:sesi_fitness/pages/boasvindas_page/boasvindasController.dart';
 
@@ -50,10 +51,10 @@ class SesifitnessButton extends StatelessWidget {
         );
         Get.offAndToNamed('/rodrigoPage');
         break;
-      } else {
-        Get.snackbar("Login incorreto", "Usuário não encontrado");
-        break;
       }
+    }
+    if (!dataComparation.any((element) => element.cpf == cpf)) {
+      Get.snackbar("Erro", "Usuário não encontrado");
     }
   }
 

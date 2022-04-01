@@ -27,6 +27,7 @@ class MinhasAvaliacoesPage extends GetView<MinhasAvaliacoesController> {
                       pageRoute: '/meusTreinos',
                       state: false,
                       textColor: Colors.white,
+                      arg: Get.arguments,
                     ),
                   ),
                   Expanded(
