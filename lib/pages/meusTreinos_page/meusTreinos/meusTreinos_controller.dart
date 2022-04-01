@@ -6,7 +6,7 @@ import 'package:sesi_fitness/models/dayModel/dayModel.dart';
 import 'package:sesi_fitness/pages/avaliacoesaAluno_page/avaliacoesaAluno_page_page.dart';
 import 'package:sesi_fitness/repository/userAuth_repository/i_userAuth.dart';
 
-class MeusTreinosController extends GetxController {
+class MeusTreinosController extends GetxController with StateMixin {
   RxBool changeContainer = false.obs;
   final AlunoModel alunoData = Get.arguments;
   final IUserAuth _iUserAuth;
@@ -17,6 +17,7 @@ class MeusTreinosController extends GetxController {
   void onInit() {
     // TODO: implement onInit
     findTreinosById(alunoData.id);
+
     super.onInit();
   }
 
