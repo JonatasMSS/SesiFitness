@@ -30,42 +30,36 @@ class SesifitnessForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        color: backgroundColor,
-      ),
-      width: context.widthTransformer(reducedBy: widthReduce),
-      height: 50,
-      alignment: Alignment.center,
-      child: Container(
-        padding: const EdgeInsets.all(1),
-        child: TextFormField(
-          cursorHeight: heightCursor,
-          onChanged: (valor) {
-            Data?.value = valor;
-            print("Data Value:" + valor);
-          },
-          controller: buttonController,
-          style: TextStyle(fontSize: 30),
-          keyboardType: inputTypeText,
-          validator: Validatorless.cpf("CPF Inválido"),
-          textAlign: TextAlign.center,
-          decoration: InputDecoration(
-            hintText: hintText,
-            hintStyle: TextStyle(
-              color: Color(0xFF005A6F),
-              fontSize: fontSize,
-              height: 2,
-            ),
-            alignLabelWithHint: true,
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: borderSide),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: borderSide),
-            ),
+      padding: const EdgeInsets.all(10),
+      child: TextFormField(
+        minLines: 1,
+        maxLines: 3,
+        cursorHeight: heightCursor,
+        onChanged: (valor) {
+          Data?.value = valor;
+          print("Data Value:" + valor);
+        },
+        controller: buttonController,
+        style: TextStyle(fontSize: 25),
+        keyboardType: inputTypeText,
+        validator: Validatorless.cpf("CPF Inválido"),
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          hintText: hintText,
+          hintStyle: TextStyle(
+            color: Color(0xFF005A6F),
+            fontSize: fontSize,
+            height: 1,
+          ),
+          alignLabelWithHint: true,
+          filled: true,
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: BorderSide(color: borderSide),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: BorderSide(color: borderSide),
           ),
         ),
       ),

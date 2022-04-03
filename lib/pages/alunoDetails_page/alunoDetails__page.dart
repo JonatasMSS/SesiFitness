@@ -197,6 +197,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
     Checkboxmodel(texto: "Treino B"),
   ];
   RxString data = "".obs;
+  RxString data2 = "".obs;
 
   void itensChecked(List dataTreinos) {
     List<Checkboxmodel> itensChecked = List.from(
@@ -267,11 +268,25 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                     const SizedBox(
                       height: 30,
                     ),
+                    SesifitnessForm(
+                      Data: data2,
+                      backgroundColor: Colors.grey[350]!,
+                      borderSide: Colors.grey[350]!,
+                      widthReduce: 30,
+                      hintText: "Observações do treino",
+                      heightCursor: 40,
+                      inputTypeText: TextInputType.multiline,
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
                     ElevatedButton(
                       onPressed: () {
                         print(controller.lista);
                         itensChecked(controller.lista);
                         print(controller.lista);
+                        print(data);
+                        print(data2);
                         navigator?.pop();
                       },
                       child: Text("ENVIAR DADOS"),
