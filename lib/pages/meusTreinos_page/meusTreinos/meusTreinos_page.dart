@@ -67,7 +67,8 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
                       titleList: "Segunda",
                       containList: [
                         DataListTreino(
-                            BdataTreino: returnTrainByDay("segunda")),
+                          BdataTreino: returnTrainByDay("segunda"),
+                        ),
                       ],
                     ),
                     const SizedBox(

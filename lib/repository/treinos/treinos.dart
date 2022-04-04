@@ -1,7 +1,5 @@
 class Treinos {
-  Treinos._();
-
-  getTreinosPeito() {
+  List getTreinosPeito() {
     List<String> _treinos = [
       "Flexão de braço",
       "Voador Frente ",
@@ -19,7 +17,7 @@ class Treinos {
     return _treinos;
   }
 
-  getTreinosCostas() {
+  List getTreinosCostas() {
     List<String> _treinos = [
       'Elevação lateral',
       'Elevação lateral no cross',
@@ -34,7 +32,7 @@ class Treinos {
     return _treinos;
   }
 
-  getTreinosPerna() {
+  List getTreinosPerna() {
     List<String> _treinos = [
       'Agachamento ',
       'Agachamento Sumô',
@@ -60,7 +58,7 @@ class Treinos {
     return _treinos;
   }
 
-  getTreinosBiceps() {
+  List getTreinosBiceps() {
     List<String> _treinos = [
       'Rosca Bíceps com halter',
       'Rosca Bíceps com halter martelo',
@@ -78,7 +76,7 @@ class Treinos {
     return _treinos;
   }
 
-  getTreinosTriceps() {
+  List getTreinosTriceps() {
     List<String> _treinos = [
       'Tríceps francês ',
       'Tríceps testa barra',
@@ -94,7 +92,7 @@ class Treinos {
     return _treinos;
   }
 
-  getTreinosCore() {
+  List getTreinosCore() {
     List<String> _treinos = [
       'Abdominal supra mãos no peito',
       'Abdominal infra',
@@ -108,7 +106,7 @@ class Treinos {
     return _treinos;
   }
 
-  getTreinosAerobio() {
+  List getTreinosAerobio() {
     List<String> _treinos = [
       'Esteira',
       'Elíptico',

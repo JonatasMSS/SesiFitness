@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:sesi_fitness/models/checkboxModel.dart';
+import 'package:sesi_fitness/repository/treinos/treinos.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_addTreino.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_checkBoxTreino.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_realizarAvali.dart';
@@ -241,16 +242,127 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                     ),
                     SesiacadeimaListatreinos(
                       titleList: "Treino",
+                      padding: 10,
                       containList: [
-                        ListView.builder(
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: dados.length,
-                            itemBuilder: (_, index) {
-                              return SesiacademiaCheckboxtreino(
-                                item: dados[index],
-                              );
-                            }),
+                        SesiacadeimaListatreinos(
+                          titleList: "Peito",
+                          containList: [
+                            ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: Treinos().getTreinosPeito().length,
+                              itemBuilder: (_, index) {
+                                return SesiacademiaCheckboxtreino(
+                                  item: Checkboxmodel(
+                                    texto: Treinos().getTreinosPeito()[index],
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                        SesiacadeimaListatreinos(
+                          titleList: "Costas",
+                          containList: [
+                            ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: Treinos().getTreinosCostas().length,
+                              itemBuilder: (_, index) {
+                                return SesiacademiaCheckboxtreino(
+                                  item: Checkboxmodel(
+                                    texto: Treinos().getTreinosCostas()[index],
+                                  ),
+                                );
+                              },
+                            )
+                          ],
+                        ),
+                        SesiacadeimaListatreinos(
+                          titleList: "Pernas",
+                          containList: [
+                            ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: Treinos().getTreinosPerna().length,
+                              itemBuilder: (_, index) {
+                                return SesiacademiaCheckboxtreino(
+                                  item: Checkboxmodel(
+                                    texto: Treinos().getTreinosPerna()[index],
+                                  ),
+                                );
+                              },
+                            )
+                          ],
+                        ),
+                        SesiacadeimaListatreinos(
+                          titleList: "Biceps",
+                          containList: [
+                            ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: Treinos().getTreinosBiceps().length,
+                              itemBuilder: (_, index) {
+                                return SesiacademiaCheckboxtreino(
+                                  item: Checkboxmodel(
+                                    texto: Treinos().getTreinosBiceps()[index],
+                                  ),
+                                );
+                              },
+                            )
+                          ],
+                        ),
+                        SesiacadeimaListatreinos(
+                          titleList: "Triceps",
+                          containList: [
+                            ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: Treinos().getTreinosTriceps().length,
+                              itemBuilder: (_, index) {
+                                return SesiacademiaCheckboxtreino(
+                                  item: Checkboxmodel(
+                                    texto: Treinos().getTreinosTriceps()[index],
+                                  ),
+                                );
+                              },
+                            )
+                          ],
+                        ),
+                        SesiacadeimaListatreinos(
+                          titleList: "Core",
+                          containList: [
+                            ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: Treinos().getTreinosCore().length,
+                              itemBuilder: (_, index) {
+                                return SesiacademiaCheckboxtreino(
+                                  item: Checkboxmodel(
+                                    texto: Treinos().getTreinosCore()[index],
+                                  ),
+                                );
+                              },
+                            )
+                          ],
+                        ),
+                        SesiacadeimaListatreinos(
+                          titleList: "Aerobio",
+                          containList: [
+                            ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: Treinos().getTreinosAerobio().length,
+                              itemBuilder: (_, index) {
+                                return SesiacademiaCheckboxtreino(
+                                  item: Checkboxmodel(
+                                    texto: Treinos().getTreinosAerobio()[index],
+                                  ),
+                                );
+                              },
+                            )
+                          ],
+                        ),
                       ],
                     ),
                     const SizedBox(
