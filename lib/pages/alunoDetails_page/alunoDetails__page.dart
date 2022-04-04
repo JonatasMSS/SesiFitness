@@ -264,6 +264,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                       hintText: "Quantidade de repetições",
                       heightCursor: 40,
                       inputTypeText: TextInputType.name,
+                      maxDigits: 20,
                     ),
                     const SizedBox(
                       height: 30,

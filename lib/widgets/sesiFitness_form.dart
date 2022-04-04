@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:validatorless/validatorless.dart';
 
@@ -15,7 +16,10 @@ class SesifitnessForm extends StatelessWidget {
       this.backgroundColor = Colors.white,
       this.widthReduce = 50,
       this.heightCursor,
-      this.inputTypeText = TextInputType.number})
+      this.maxLines,
+      this.minLines,
+      this.inputTypeText = TextInputType.number,
+      this.maxDigits})
       : super(key: key);
 
   final TextEditingController? buttonController;
@@ -27,13 +31,20 @@ class SesifitnessForm extends StatelessWidget {
   final double widthReduce;
   final double? heightCursor;
   final TextInputType inputTypeText;
+  final int? maxLines;
+  final int? minLines;
+  final int? maxDigits;
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      width: context.widthTransformer(reducedBy: widthReduce),
+      padding: const EdgeInsets.all(1),
       child: TextFormField(
-        minLines: 1,
-        maxLines: 3,
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(maxDigits),
+        ],
+        minLines: minLines,
+        maxLines: maxLines,
         cursorHeight: heightCursor,
         onChanged: (valor) {
           Data?.value = valor;
@@ -45,6 +56,7 @@ class SesifitnessForm extends StatelessWidget {
         validator: Validatorless.cpf("CPF Inválido"),
         textAlign: TextAlign.center,
         decoration: InputDecoration(
+          isCollapsed: true,
           hintText: hintText,
           hintStyle: TextStyle(
             color: Color(0xFF005A6F),
@@ -53,6 +65,7 @@ class SesifitnessForm extends StatelessWidget {
           ),
           alignLabelWithHint: true,
           filled: true,
+          fillColor: backgroundColor,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: BorderSide(color: borderSide),

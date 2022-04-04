@@ -37,6 +37,8 @@ class boasvindas_page extends GetView<Boasvindascontroller> {
                     Data: CPFdata,
                     hintText: "Insira seu CPF",
                     fontSize: 30,
+                    backgroundColor: Colors.white,
+                    maxDigits: 11,
                   ),
                   const SizedBox(
                     height: 20,
