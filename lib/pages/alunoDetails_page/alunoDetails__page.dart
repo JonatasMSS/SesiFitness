@@ -186,26 +186,37 @@ class DialogEdition extends GetView<AlunoDetailsController> {
 
   final Widget child;
   final String textTitle;
-  final List<Checkboxmodel> dados = [
-    Checkboxmodel(texto: "Treino A"),
-    Checkboxmodel(texto: "Treino B"),
-    Checkboxmodel(texto: "Treino A"),
-    Checkboxmodel(texto: "Treino B"),
-    Checkboxmodel(texto: "Treino A"),
-    Checkboxmodel(texto: "Treino B"),
-    Checkboxmodel(texto: "Treino A"),
-    Checkboxmodel(texto: "Treino B"),
-    Checkboxmodel(texto: "Treino B"),
+  // final List<Checkboxmodel> dados = [
+  //   Checkboxmodel(texto: "Treino A"),
+  //   Checkboxmodel(texto: "Treino B"),
+  //   Checkboxmodel(texto: "Treino A"),
+  //   Checkboxmodel(texto: "Treino B"),
+  //   Checkboxmodel(texto: "Treino A"),
+  //   Checkboxmodel(texto: "Treino B"),
+  //   Checkboxmodel(texto: "Treino A"),
+  //   Checkboxmodel(texto: "Treino B"),
+  //   Checkboxmodel(texto: "Treino B"),
+  // ];
+  final List<List<Checkboxmodel>> _dadosTreinos = [
+    Treinos().getTreinosPeito(),
+    Treinos().getTreinosCostas(),
+    Treinos().getTreinosPerna(),
+    Treinos().getTreinosBiceps(),
+    Treinos().getTreinosTriceps(),
+    Treinos().getTreinosCore(),
+    Treinos().getTreinosAerobio(),
   ];
+
   RxString data = "".obs;
   RxString data2 = "".obs;
 
-  void itensChecked(List dataTreinos) {
-    List<Checkboxmodel> itensChecked = List.from(
-      dados.where((dado) => dado.checked),
-    );
+  void itensChecked(List dataIni) {
+    List<Checkboxmodel> itensChecked = [];
+    for (var i in _dadosTreinos) {
+      itensChecked.addAll(i.where((dado) => dado.checked));
+    }
     itensChecked.forEach((dado) {
-      dataTreinos.add(dado.texto);
+      dataIni.add(dado.texto);
     });
   }
 
@@ -241,7 +252,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                       height: 20,
                     ),
                     SesiacadeimaListatreinos(
-                      titleList: "Treino",
+                      titleList: "Treinos",
                       padding: 10,
                       containList: [
                         SesiacadeimaListatreinos(
@@ -253,9 +264,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemCount: Treinos().getTreinosPeito().length,
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
-                                  item: Checkboxmodel(
-                                    texto: Treinos().getTreinosPeito()[index],
-                                  ),
+                                  item: _dadosTreinos[0][index],
                                 );
                               },
                             ),
@@ -270,9 +279,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemCount: Treinos().getTreinosCostas().length,
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
-                                  item: Checkboxmodel(
-                                    texto: Treinos().getTreinosCostas()[index],
-                                  ),
+                                  item: _dadosTreinos[1][index],
                                 );
                               },
                             )
@@ -287,10 +294,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemCount: Treinos().getTreinosPerna().length,
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
-                                  item: Checkboxmodel(
-                                    texto: Treinos().getTreinosPerna()[index],
-                                  ),
-                                );
+                                    item: _dadosTreinos[2][index]);
                               },
                             )
                           ],
@@ -304,9 +308,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemCount: Treinos().getTreinosBiceps().length,
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
-                                  item: Checkboxmodel(
-                                    texto: Treinos().getTreinosBiceps()[index],
-                                  ),
+                                  item: _dadosTreinos[3][index],
                                 );
                               },
                             )
@@ -321,9 +323,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemCount: Treinos().getTreinosTriceps().length,
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
-                                  item: Checkboxmodel(
-                                    texto: Treinos().getTreinosTriceps()[index],
-                                  ),
+                                  item: _dadosTreinos[4][index],
                                 );
                               },
                             )
@@ -338,9 +338,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemCount: Treinos().getTreinosCore().length,
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
-                                  item: Checkboxmodel(
-                                    texto: Treinos().getTreinosCore()[index],
-                                  ),
+                                  item: _dadosTreinos[5][index],
                                 );
                               },
                             )
@@ -355,9 +353,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemCount: Treinos().getTreinosAerobio().length,
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
-                                  item: Checkboxmodel(
-                                    texto: Treinos().getTreinosAerobio()[index],
-                                  ),
+                                  item: _dadosTreinos[6][index],
                                 );
                               },
                             )
@@ -389,6 +385,30 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                       hintText: "Observações do treino",
                       heightCursor: 40,
                       inputTypeText: TextInputType.multiline,
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    SesifitnessForm(
+                      Data: data2,
+                      backgroundColor: Colors.grey[350]!,
+                      borderSide: Colors.grey[350]!,
+                      widthReduce: 30,
+                      hintText: "Cadência do treino",
+                      heightCursor: 40,
+                      inputTypeText: TextInputType.text,
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    SesifitnessForm(
+                      Data: data2,
+                      backgroundColor: Colors.grey[350]!,
+                      borderSide: Colors.grey[350]!,
+                      widthReduce: 30,
+                      hintText: "Carga do treino",
+                      heightCursor: 40,
+                      inputTypeText: TextInputType.text,
                     ),
                     const SizedBox(
                       height: 30,

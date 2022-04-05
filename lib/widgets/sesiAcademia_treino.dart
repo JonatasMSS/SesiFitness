@@ -155,7 +155,9 @@ class _SesiacademiaTreinoState extends State<SesiacademiaTreino> {
                   children: [
                     Text(
                       widget.title,
-                      style: TextStyle(fontSize: 30),
+                      style: TextStyle(fontSize: 28),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
                     ),
                     SizedBox(
                       height: 5,

@@ -1,6 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:sesi_fitness/models/checkboxModel.dart';
+
 class Treinos {
-  List getTreinosPeito() {
-    List<String> _treinos = [
+  List<Checkboxmodel> getTreinosPeito() {
+    List<String> _dataString = [
       "Flexão de braço",
       "Voador Frente ",
       "Crucifixo Maquina",
@@ -14,11 +17,13 @@ class Treinos {
       "Supino 45° com halter",
       "Supino vertical",
     ];
+    List<Checkboxmodel> _treinos = List.generate(_dataString.length,
+        (index) => Checkboxmodel(texto: _dataString[index]));
     return _treinos;
   }
 
-  List getTreinosCostas() {
-    List<String> _treinos = [
+  List<Checkboxmodel> getTreinosCostas() {
+    List<String> _dataString = [
       'Elevação lateral',
       'Elevação lateral no cross',
       'Elevação frontal no cross',
@@ -29,11 +34,13 @@ class Treinos {
       'Desenvolvimento Arnold',
       'Crucifixo inverso ',
     ];
+    List<Checkboxmodel> _treinos = List.generate(_dataString.length,
+        (index) => Checkboxmodel(texto: _dataString[index]));
     return _treinos;
   }
 
-  List getTreinosPerna() {
-    List<String> _treinos = [
+  List<Checkboxmodel> getTreinosPerna() {
+    List<String> _dataString = [
       'Agachamento ',
       'Agachamento Sumô',
       'Agachamento com salto',
@@ -55,11 +62,13 @@ class Treinos {
       'Panturrilha na leg',
       'Sentadilha',
     ];
+    List<Checkboxmodel> _treinos = List.generate(_dataString.length,
+        (index) => (Checkboxmodel(texto: _dataString[index])));
     return _treinos;
   }
 
-  List getTreinosBiceps() {
-    List<String> _treinos = [
+  List<Checkboxmodel> getTreinosBiceps() {
+    List<String> _dataString = [
       'Rosca Bíceps com halter',
       'Rosca Bíceps com halter martelo',
       'Rosca Bíceps com barra',
@@ -73,11 +82,13 @@ class Treinos {
       'Rosca Bíceps barra W ',
       'Rosca Bíceps pegada dupla cross',
     ];
+    List<Checkboxmodel> _treinos = List.generate(_dataString.length,
+        (index) => Checkboxmodel(texto: _dataString[index]));
     return _treinos;
   }
 
-  List getTreinosTriceps() {
-    List<String> _treinos = [
+  List<Checkboxmodel> getTreinosTriceps() {
+    List<String> _dataString = [
       'Tríceps francês ',
       'Tríceps testa barra',
       'Tríceps testa cross com barra',
@@ -89,11 +100,14 @@ class Treinos {
       'Tríceps banco'
     ];
 
+    List<Checkboxmodel> _treinos = List.generate(_dataString.length,
+        (index) => Checkboxmodel(texto: _dataString[index]));
+
     return _treinos;
   }
 
-  List getTreinosCore() {
-    List<String> _treinos = [
+  List<Checkboxmodel> getTreinosCore() {
+    List<String> _dataString = [
       'Abdominal supra mãos no peito',
       'Abdominal infra',
       'Abdominal remador',
@@ -103,11 +117,13 @@ class Treinos {
       'Prancha com bola',
       'Banco romano'
     ];
+    List<Checkboxmodel> _treinos = List.generate(_dataString.length,
+        (index) => Checkboxmodel(texto: _dataString[index]));
     return _treinos;
   }
 
-  List getTreinosAerobio() {
-    List<String> _treinos = [
+  List<Checkboxmodel> getTreinosAerobio() {
+    List<String> _dataString = [
       'Esteira',
       'Elíptico',
       'Bicicleta',
@@ -118,6 +134,8 @@ class Treinos {
       'Polichinelo',
       'Subida e decida do step'
     ];
+    List<Checkboxmodel> _treinos = List.generate(_dataString.length,
+        (index) => Checkboxmodel(texto: _dataString[index]));
     return _treinos;
   }
 }

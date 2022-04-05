@@ -24,6 +24,7 @@ class _SesiacademiaCheckboxtreinoState
         value: widget.item.checked,
         onChanged: (value) {
           setState(() {
+            print("valor alterado!");
             widget.item.checked = value!;
           });
         });
