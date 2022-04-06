@@ -53,7 +53,8 @@ class SesifitnessButton extends StatelessWidget {
         break;
       }
     }
-    if (!dataComparation.any((element) => element.cpf == cpf)) {
+    if (!dataComparation
+        .any((element) => element.cpf == cpf && cpf != "1" && cpf != "00")) {
       Get.snackbar("Erro", "Usuário não encontrado");
     }
   }
