@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "803439492969",
+    "firebase_url": "https://teste-18606-default-rtdb.firebaseio.com",
+    "project_id": "teste-18606",
+    "storage_bucket": "teste-18606.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803439492969:android:148a4e2a9479e8d55407f8",
+        "android_client_info": {
+          "package_name": "com.example.sesi_fitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "803439492969-vh9g6bhu7kgk0a2koela2uo5ngi4pp04.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYdTNzfUge8MRrQ0Zcg7uC53WrdkisLJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "803439492969-vh9g6bhu7kgk0a2koela2uo5ngi4pp04.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
