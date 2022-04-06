@@ -1,5 +1,6 @@
 //Criado por Jonatas Miguel e Luiz Felipe
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,6 +29,13 @@ import 'package:sesi_fitness/pages/treinoDetalhado_page/treinoDetalhado_page.dar
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  var controller = FirebaseFirestore.instance.collection('Alunos');
+  var result = await controller.get();
+
+  for (var doc in result.docs) {
+    print(doc.data());
+  }
 
   runApp(sesiFitnessMAIN());
 }

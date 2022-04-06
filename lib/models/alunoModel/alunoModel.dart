@@ -11,19 +11,17 @@ class AlunoModel {
   String nome;
   String cpf;
   String id;
-  String dataNasc;
+  String dataNasci;
   String dataMatric;
   String lastPay;
-  List<DayModel> diaTreino;
 
   AlunoModel({
     required this.nome,
     required this.cpf,
     required this.id,
-    required this.dataNasc,
+    required this.dataNasci,
     required this.dataMatric,
     required this.lastPay,
-    required this.diaTreino,
   });
 
   Map<String, dynamic> toMap() {
@@ -31,10 +29,9 @@ class AlunoModel {
       'nome': nome,
       'cpf': cpf,
       'id': id,
-      'dataNasc': dataNasc,
+      'dataNasci': dataNasci,
       'dataMatric': dataMatric,
       'lastPay': lastPay,
-      'diaTreino': diaTreino.map((x) => x.toMap()).toList(),
     };
   }
 
@@ -43,11 +40,9 @@ class AlunoModel {
       nome: map['nome'] ?? '',
       cpf: map['cpf'] ?? '',
       id: map['id'] ?? '',
-      dataNasc: map['dataNasc'] ?? '',
+      dataNasci: map['dataNasci'] ?? '',
       dataMatric: map['dataMatric'] ?? '',
       lastPay: map['lastPay'] ?? '',
-      diaTreino: List<DayModel>.from(
-          map['diaTreino']?.map((x) => DayModel.fromMap(x))),
     );
   }
 
@@ -60,40 +55,36 @@ class AlunoModel {
     String? nome,
     String? cpf,
     String? id,
-    String? dataNasc,
+    String? dataNasci,
     String? dataMatric,
     String? lastPay,
-    List<DayModel>? diaTreino,
   }) {
     return AlunoModel(
       nome: nome ?? this.nome,
       cpf: cpf ?? this.cpf,
       id: id ?? this.id,
-      dataNasc: dataNasc ?? this.dataNasc,
+      dataNasci: dataNasci ?? this.dataNasci,
       dataMatric: dataMatric ?? this.dataMatric,
       lastPay: lastPay ?? this.lastPay,
-      diaTreino: diaTreino ?? this.diaTreino,
     );
   }
 
   @override
   String toString() {
-    return 'AlunoModel(nome: $nome, cpf: $cpf, id: $id, dataNasc: $dataNasc, dataMatric: $dataMatric, lastPay: $lastPay, diaTreino: $diaTreino)';
+    return 'AlunoModel(nome: $nome, cpf: $cpf, id: $id, dataNasci: $dataNasci, dataMatric: $dataMatric, lastPay: $lastPay)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    final listEquals = const DeepCollectionEquality().equals;
 
     return other is AlunoModel &&
         other.nome == nome &&
         other.cpf == cpf &&
         other.id == id &&
-        other.dataNasc == dataNasc &&
+        other.dataNasci == dataNasci &&
         other.dataMatric == dataMatric &&
-        other.lastPay == lastPay &&
-        listEquals(other.diaTreino, diaTreino);
+        other.lastPay == lastPay;
   }
 
   @override
@@ -101,9 +92,8 @@ class AlunoModel {
     return nome.hashCode ^
         cpf.hashCode ^
         id.hashCode ^
-        dataNasc.hashCode ^
+        dataNasci.hashCode ^
         dataMatric.hashCode ^
-        lastPay.hashCode ^
-        diaTreino.hashCode;
+        lastPay.hashCode;
   }
 }

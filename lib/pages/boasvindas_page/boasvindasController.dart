@@ -1,29 +1,28 @@
 import 'package:get/get.dart';
 import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
-import 'package:sesi_fitness/pages/avaliacoesaAluno_page/avaliacoesaAluno_page_page.dart';
-import 'package:sesi_fitness/repository/userAuth_repository/i_userAuth.dart';
+
+import 'package:sesi_fitness/repository/dataAuth_repository/dataAuth.dart';
 
 class Boasvindascontroller extends GetxController {
   final List<AlunoModel> AlunosData = RxList();
-  final IUserAuth _userAuth;
+  final DataAuth _dataAuth;
 
-  Boasvindascontroller(this._userAuth);
+  Boasvindascontroller(this._dataAuth);
   @override
   void onInit() {
-    findAlunos();
-
-    // TODO: implement onInit
+    // findAllAlunos();
     super.onInit();
   }
 
-  Future<void> findAlunos() async {
-    final dataResponse = await _userAuth.findAllAlunos();
+  Future<void> findAllAlunos() async {
+    final responseData = await _dataAuth.findAllAlunos();
 
     if (AlunosData.isEmpty) {
-      AlunosData.addAll(dataResponse);
+      AlunosData.addAll(responseData);
     } else {
       AlunosData.clear();
-      AlunosData.addAll(dataResponse);
+      AlunosData.addAll(responseData);
     }
+    print(AlunosData);
   }
 }
