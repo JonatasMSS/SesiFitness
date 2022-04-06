@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sesi_fitness/pages/ProfessorDetails_page/ProfessorDetails_page_bindings.dart';
+import 'package:sesi_fitness/pages/ProfessorDetails_page/ProfessorDetails_page_page.dart';
 import 'package:sesi_fitness/pages/Theme/academiaSesi.dart';
 import 'package:sesi_fitness/pages/alunoDetails_page/alunoDetails__bindings.dart';
 import 'package:sesi_fitness/pages/alunoDetails_page/alunoDetails__page.dart';
@@ -39,7 +41,7 @@ class sesiFitnessMAIN extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AcademiasesiTheme().Theme,
-      initialRoute: '/',
+      initialRoute: '/rodrigoPage',
       getPages: [
         GetPage(
           name: '/',
@@ -90,7 +92,12 @@ class sesiFitnessMAIN extends StatelessWidget {
           name: '/rodrigoPage',
           page: () => RodrigoPagePagePage(),
           binding: RodrigoPagePageBindings(),
-        )
+        ),
+        GetPage(
+          name: "/professorDetails",
+          page: () => ProfessorDetailsPagePage(),
+          binding: ProfessorDetailsPageBindings(),
+        ),
       ],
     );
   }
