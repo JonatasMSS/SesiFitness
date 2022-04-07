@@ -1,38 +1,47 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
+
 import 'package:sesi_fitness/models/treinosModel/treinosModel.dart';
 
 class DayModel {
-  String id;
-  String alunoId;
-  String diaSemana;
-  List<TreinosModel> treinosDia;
+  String segunda;
+  String terca;
+  String quarta;
+  String quinta;
+  String sexta;
+  String sabado;
   DayModel({
-    required this.id,
-    required this.alunoId,
-    required this.diaSemana,
-    required this.treinosDia,
+    required this.segunda,
+    required this.terca,
+    required this.quarta,
+    required this.quinta,
+    required this.sexta,
+    required this.sabado,
   });
 
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
 
-    result.addAll({'id': id});
-    result.addAll({'alunoId': alunoId});
-    result.addAll({'diaSemana': diaSemana});
-    result.addAll({'treinosDia': treinosDia.map((x) => x.toMap()).toList()});
+    result.addAll({'segunda': segunda});
+    result.addAll({'terca': terca});
+    result.addAll({'quarta': quarta});
+    result.addAll({'quinta': quinta});
+    result.addAll({'sexta': sexta});
+    result.addAll({'sabado': sabado});
 
     return result;
   }
 
   factory DayModel.fromMap(Map<String, dynamic> map) {
     return DayModel(
-      id: map['id'] ?? '',
-      alunoId: map['alunoId'] ?? '',
-      diaSemana: map['diaSemana'] ?? '',
-      treinosDia: List<TreinosModel>.from(
-          map['treinosDia']?.map((x) => TreinosModel.fromMap(x)) ?? []),
+      segunda: map['segunda'] ?? '',
+      terca: map['terca'] ?? '',
+      quarta: map['quarta'] ?? '',
+      quinta: map['quinta'] ?? '',
+      sexta: map['sexta'] ?? '',
+      sabado: map['sabado'] ?? '',
     );
   }
 
@@ -42,41 +51,48 @@ class DayModel {
       DayModel.fromMap(json.decode(source));
 
   DayModel copyWith({
-    String? id,
-    String? alunoId,
-    String? diaSemana,
-    List<TreinosModel>? treinosDia,
+    String? segunda,
+    String? terca,
+    String? quarta,
+    String? quinta,
+    String? sexta,
+    String? sabado,
   }) {
     return DayModel(
-      id: id ?? this.id,
-      alunoId: alunoId ?? this.alunoId,
-      diaSemana: diaSemana ?? this.diaSemana,
-      treinosDia: treinosDia ?? this.treinosDia,
+      segunda: segunda ?? this.segunda,
+      terca: terca ?? this.terca,
+      quarta: quarta ?? this.quarta,
+      quinta: quinta ?? this.quinta,
+      sexta: sexta ?? this.sexta,
+      sabado: sabado ?? this.sabado,
     );
   }
 
   @override
   String toString() {
-    return 'DayModel(id: $id, alunoId: $alunoId, diaSemana: $diaSemana, treinosDia: $treinosDia)';
+    return 'DayModel(segunda: $segunda, terca: $terca, quarta: $quarta, quinta: $quinta, sexta: $sexta, sabado: $sabado)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    final listEquals = const DeepCollectionEquality().equals;
 
     return other is DayModel &&
-        other.id == id &&
-        other.alunoId == alunoId &&
-        other.diaSemana == diaSemana &&
-        listEquals(other.treinosDia, treinosDia);
+        other.segunda == segunda &&
+        other.terca == terca &&
+        other.quarta == quarta &&
+        other.quinta == quinta &&
+        other.sexta == sexta &&
+        other.sabado == sabado;
   }
 
   @override
   int get hashCode {
-    return id.hashCode ^
-        alunoId.hashCode ^
-        diaSemana.hashCode ^
-        treinosDia.hashCode;
+    return segunda.hashCode ^
+        terca.hashCode ^
+        quarta.hashCode ^
+        quinta.hashCode ^
+        sexta.hashCode ^
+        sabado.hashCode;
   }
 }

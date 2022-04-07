@@ -63,31 +63,6 @@ class SesifitnessButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {
         dataConfirm(cpf!, alunos);
-        // if (dataConfirm(cpf ?? "0")) {
-        //   Get.snackbar(
-        //     'Sucesso!',
-        //     "Login com sucesso!",
-        //     colorText: const Color(0xFFFFFFFF),
-        //     backgroundColor: Color.fromARGB(255, 30, 109, 255),
-        //     duration: const Duration(seconds: 2),
-        //   );
-        //   Get.offAndToNamed(
-        //     '/meusTreinos',
-        //   );
-        // } else if (cpf == "1") {
-        //   Get.snackbar(
-        //     'Sucesso!',
-        //     "Login como professor!",
-        //     colorText: const Color(0xFFFFFFFF),
-        //     backgroundColor: Color.fromARGB(255, 30, 109, 255),
-        //     duration: const Duration(seconds: 2),
-        //   );
-        //   Get.offAndToNamed('/professorInit');
-        // } else if (cpf == "00") {
-        //   Get.offAndToNamed('/rodrigoPage');
-        // } else {
-        //   Get.snackbar("Login incorreto", "Usuário não encontrado");
-        // }
       },
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),

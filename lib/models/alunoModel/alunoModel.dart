@@ -10,37 +10,35 @@ import '../treinosModel/treinosModel.dart';
 class AlunoModel {
   String nome;
   String cpf;
-  String id;
-  String dataNasci;
+  String nascimento;
   String dataMatric;
   String lastPay;
 
   AlunoModel({
     required this.nome,
     required this.cpf,
-    required this.id,
-    required this.dataNasci,
+    required this.nascimento,
     required this.dataMatric,
     required this.lastPay,
   });
 
   Map<String, dynamic> toMap() {
-    return {
-      'nome': nome,
-      'cpf': cpf,
-      'id': id,
-      'dataNasci': dataNasci,
-      'dataMatric': dataMatric,
-      'lastPay': lastPay,
-    };
+    final result = <String, dynamic>{};
+
+    result.addAll({'nome': nome});
+    result.addAll({'cpf': cpf});
+    result.addAll({'nascimento': nascimento});
+    result.addAll({'dataMatric': dataMatric});
+    result.addAll({'lastPay': lastPay});
+
+    return result;
   }
 
   factory AlunoModel.fromMap(Map<String, dynamic> map) {
     return AlunoModel(
       nome: map['nome'] ?? '',
       cpf: map['cpf'] ?? '',
-      id: map['id'] ?? '',
-      dataNasci: map['dataNasci'] ?? '',
+      nascimento: map['nascimento'] ?? '',
       dataMatric: map['dataMatric'] ?? '',
       lastPay: map['lastPay'] ?? '',
     );
@@ -54,16 +52,14 @@ class AlunoModel {
   AlunoModel copyWith({
     String? nome,
     String? cpf,
-    String? id,
-    String? dataNasci,
+    String? nascimento,
     String? dataMatric,
     String? lastPay,
   }) {
     return AlunoModel(
       nome: nome ?? this.nome,
       cpf: cpf ?? this.cpf,
-      id: id ?? this.id,
-      dataNasci: dataNasci ?? this.dataNasci,
+      nascimento: nascimento ?? this.nascimento,
       dataMatric: dataMatric ?? this.dataMatric,
       lastPay: lastPay ?? this.lastPay,
     );
@@ -71,7 +67,7 @@ class AlunoModel {
 
   @override
   String toString() {
-    return 'AlunoModel(nome: $nome, cpf: $cpf, id: $id, dataNasci: $dataNasci, dataMatric: $dataMatric, lastPay: $lastPay)';
+    return 'AlunoModel(nome: $nome, cpf: $cpf, nascimento: $nascimento, dataMatric: $dataMatric, lastPay: $lastPay)';
   }
 
   @override
@@ -81,8 +77,7 @@ class AlunoModel {
     return other is AlunoModel &&
         other.nome == nome &&
         other.cpf == cpf &&
-        other.id == id &&
-        other.dataNasci == dataNasci &&
+        other.nascimento == nascimento &&
         other.dataMatric == dataMatric &&
         other.lastPay == lastPay;
   }
@@ -91,8 +86,7 @@ class AlunoModel {
   int get hashCode {
     return nome.hashCode ^
         cpf.hashCode ^
-        id.hashCode ^
-        dataNasci.hashCode ^
+        nascimento.hashCode ^
         dataMatric.hashCode ^
         lastPay.hashCode;
   }

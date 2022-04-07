@@ -6,7 +6,6 @@ import './meusTreinos_controller.dart';
 class MeusTreinosBindings implements Bindings {
   @override
   void dependencies() {
-    Get.put<IUserAuth>(Userauth());
     Get.put(
       MeusTreinosController(Get.find()),
     );

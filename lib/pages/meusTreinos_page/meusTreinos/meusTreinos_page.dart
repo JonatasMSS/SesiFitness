@@ -14,17 +14,6 @@ import './meusTreinos_controller.dart';
 class MeusTreinosPage extends GetView<MeusTreinosController> {
   MeusTreinosPage({Key? key}) : super(key: key);
 
-  DayModel returnTrainByDay(String name) {
-    final dataGet = controller.treinosAluno;
-    dynamic data;
-    for (var i = 0; i < dataGet.length; i++) {
-      if (dataGet[i].diaSemana == name) {
-        data = dataGet[i];
-      }
-    }
-    return data ?? DayModel(id: "", alunoId: "", diaSemana: "", treinosDia: []);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +21,8 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
       backgroundColor: Color(0xFFEFEFEF),
       appBar: SesifitnessAppbar(),
       body: FutureBuilder(
-        future: controller.findTreinosByIdAndName(controller.alunoData.id),
+        future: controller
+            .findAllTreinos(), // Tenta acessar pelo menos 1º dia da semana
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return SingleChildScrollView(
@@ -65,20 +55,14 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
                     ),
                     SesiacadeimaListatreinos(
                       titleList: "Segunda",
-                      containList: [
-                        DataListTreino(
-                          BdataTreino: returnTrainByDay("segunda"),
-                        ),
-                      ],
+                      containList: [],
                     ),
                     const SizedBox(
                       height: 30,
                     ),
                     SesiacadeimaListatreinos(
                       titleList: "Terça",
-                      containList: [
-                        DataListTreino(BdataTreino: returnTrainByDay("terca"))
-                      ],
+                      containList: [],
                     ),
                     const SizedBox(
                       height: 30,
@@ -151,28 +135,28 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
   }
 }
 
-class DataListTreino extends StatelessWidget {
-  const DataListTreino({
+class DataListTreino extends GetView<MeusTreinosController> {
+  DataListTreino({
     Key? key,
-    required this.BdataTreino,
+    required this.dia,
   }) : super(key: key);
 
-  final DayModel BdataTreino;
+  String dia;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: BdataTreino.treinosDia.length,
+        itemCount: 2, //data.length, //BdataTreino,
         itemBuilder: (_, index) {
-          final treino = BdataTreino.treinosDia[index];
+          //final treino = data[index];
           return SesiacademiaTreino(
-            assetImage: 'assets/images/treino.png',
-            pageRoute: '/treinoDetalhado',
-            title: treino.tituloTreino,
-            repetition: treino.repTreino,
-          );
+              assetImage: 'assets/images/treino.png',
+              pageRoute: '/treinoDetalhado',
+              title: '', //treino.tituloTreino,
+              repetition: '' //treino.repTreino,
+              );
         });
   }
 }

@@ -11,6 +11,7 @@ import 'package:sesi_fitness/pages/avaliacoesaAluno_page/avaliacoesaAluno_page_b
 import 'package:sesi_fitness/pages/avaliacoesaAluno_page/avaliacoesaAluno_page_page.dart';
 import 'package:sesi_fitness/pages/boasvindas_page/boasvindasBindigns.dart';
 import 'package:sesi_fitness/pages/boasvindas_page/boasvindas_page.dart';
+import 'package:sesi_fitness/pages/dataBinding/dataBindings.dart';
 import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_bindings.dart';
 import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_page.dart';
 import 'package:sesi_fitness/pages/meusdados_page/meusdados_page_bindings.dart';
@@ -25,17 +26,11 @@ import 'package:sesi_fitness/pages/rodrigoPage_page/rodrigoPage_page_bindings.da
 import 'package:sesi_fitness/pages/rodrigoPage_page/rodrigoPage_page_page.dart';
 import 'package:sesi_fitness/pages/treinoDetalhado_page/treinoDetalhado_bindings.dart';
 import 'package:sesi_fitness/pages/treinoDetalhado_page/treinoDetalhado_page.dart';
+import 'package:sesi_fitness/repository/dataAuth_repository/dataAuth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
-  var controller = FirebaseFirestore.instance.collection('Alunos');
-  var result = await controller.get();
-
-  for (var doc in result.docs) {
-    print(doc.data());
-  }
 
   runApp(sesiFitnessMAIN());
 }
@@ -52,6 +47,7 @@ class sesiFitnessMAIN extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AcademiasesiTheme().Theme,
       initialRoute: '/',
+      initialBinding: Databindings(),
       getPages: [
         GetPage(
           name: '/',

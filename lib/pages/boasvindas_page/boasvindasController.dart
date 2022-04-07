@@ -10,11 +10,11 @@ class Boasvindascontroller extends GetxController {
   Boasvindascontroller(this._dataAuth);
   @override
   void onInit() {
-    // findAllAlunos();
+    findAllAlunos();
     super.onInit();
   }
 
-  Future<void> findAllAlunos() async {
+  Future<List<AlunoModel>> findAllAlunos() async {
     final responseData = await _dataAuth.findAllAlunos();
 
     if (AlunosData.isEmpty) {
@@ -23,6 +23,6 @@ class Boasvindascontroller extends GetxController {
       AlunosData.clear();
       AlunosData.addAll(responseData);
     }
-    print(AlunosData);
+    return responseData;
   }
 }
