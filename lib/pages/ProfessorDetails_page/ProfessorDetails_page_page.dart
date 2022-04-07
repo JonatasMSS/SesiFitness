@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:sesi_fitness/pages/meusTreinos_page/meusTreinos/meusTreinos_page.dart';
+import 'package:sesi_fitness/widgets/sesiAcademia_aluno.dart';
 import '../../widgets/sesiAcadeima_listaTreinos.dart';
 import '../../widgets/sesiAcademia.appbarButtons.dart';
 import '../../widgets/sesiFitness_appbar.dart';
@@ -24,7 +24,7 @@ class ProfessorDetailsPagePage extends GetView<ProfessorDetailsPageController> {
                   Expanded(
                     child: SesiacademiaAppbarbuttons(
                       sizeH: 50,
-                      descText: "Avaliações Feitas Por:",
+                      descText: "Avaliações Feitas Por: Professor Carlos",
                       state: false,
                       textColor: Colors.black,
                     ),
@@ -53,8 +53,29 @@ class ProfessorDetailsPagePage extends GetView<ProfessorDetailsPageController> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Column(
+                      children: [widgetAluno()],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    clipBehavior: Clip.hardEdge,
+                    width: context.widthTransformer(reducedBy: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey[350]!,
+                          blurRadius: 10,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
                       children: [
-                        alunoData(),
+                        widgetAluno(),
                       ],
                     ),
                   ),
@@ -77,7 +98,7 @@ class ProfessorDetailsPagePage extends GetView<ProfessorDetailsPageController> {
                     ),
                     child: Column(
                       children: [
-                        alunoData(),
+                        widgetAluno(),
                       ],
                     ),
                   ),
@@ -100,7 +121,39 @@ class ProfessorDetailsPagePage extends GetView<ProfessorDetailsPageController> {
                     ),
                     child: Column(
                       children: [
-                        alunoData(),
+                        widgetAluno(),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SesiacadeimaListatreinos(
+                backColor: Color(0xFFDCDCDC),
+                titleList: "27/01/2022",
+                containList: [
+                  Container(
+                    clipBehavior: Clip.hardEdge,
+                    width: context.widthTransformer(reducedBy: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey[350]!,
+                          blurRadius: 10,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      children: [
+                        widgetAluno(),
                       ],
                     ),
                   ),
@@ -123,7 +176,53 @@ class ProfessorDetailsPagePage extends GetView<ProfessorDetailsPageController> {
                     ),
                     child: Column(
                       children: [
-                        alunoData(),
+                        widgetAluno(),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    clipBehavior: Clip.hardEdge,
+                    width: context.widthTransformer(reducedBy: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey[350]!,
+                          blurRadius: 10,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      children: [
+                        widgetAluno(),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    clipBehavior: Clip.hardEdge,
+                    width: context.widthTransformer(reducedBy: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey[350]!,
+                          blurRadius: 10,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      children: [
+                        widgetAluno(),
                       ],
                     ),
                   ),
