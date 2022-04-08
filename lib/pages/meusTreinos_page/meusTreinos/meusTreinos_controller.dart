@@ -13,12 +13,13 @@ import 'package:sesi_fitness/repository/treinos/treinos.dart';
 
 class MeusTreinosController extends GetxController with StateMixin {
   RxBool changeContainer = false.obs;
-  final AlunoModel alunoData = Get.arguments;
+  AlunoModel alunoData = Get.arguments;
   final List<DayModel> treinosAluno = RxList();
 
   final DataAuth _dataAuth;
 
   MeusTreinosController(this._dataAuth);
+
   @override
   void onInit() {
     findAllTreinos();

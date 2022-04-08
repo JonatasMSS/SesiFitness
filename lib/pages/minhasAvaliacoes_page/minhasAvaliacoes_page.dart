@@ -176,192 +176,84 @@ class MinhasAvaliacoesPage extends GetView<MinhasAvaliacoesController> {
                       titleList: "Avaliação de Força",
                       backColor: Color(0xFFEEEEEE),
                       containList: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              "Exercício:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "Carga:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "Rep:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              "Exercício:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "Carga:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "Rep:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              "Exercício:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "Carga:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "Rep:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                          ],
-                        ),
-                        Center(
-                          child: Text(
-                            "...",
-                            style: TextStyle(fontSize: 30),
-                          ),
-                        )
+                        ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 1,
+                            itemBuilder: (context, index) {
+                              return Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  Text(
+                                    "Exercício:",
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  Text(
+                                    "0",
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  Text(
+                                    "Carga:",
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  Text(
+                                    "0",
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  Text(
+                                    "Rep:",
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  Text(
+                                    "0",
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                ],
+                              );
+                            })
                       ],
                     ),
                     SesiacadeimaListatreinos(
                       titleList: "Avaliação de Flexibilidade",
                       backColor: Color(0xFFEEEEEE),
                       containList: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              "Exercício:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "Carga:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "Rep:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              "Exercício:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "Carga:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "Rep:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              "Exercício:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "Carga:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "Rep:",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                          ],
-                        )
+                        ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 2,
+                            itemBuilder: (context, index) {
+                              return Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  Text(
+                                    "Exercício:",
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  Text(
+                                    "0",
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  Text(
+                                    "Carga:",
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  Text(
+                                    "0",
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  Text(
+                                    "Rep:",
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  Text(
+                                    "0",
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                ],
+                              );
+                            })
                       ],
                     ),
                     SesiacadeimaListatreinos(

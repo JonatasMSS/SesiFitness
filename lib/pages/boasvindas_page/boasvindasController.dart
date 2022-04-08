@@ -8,6 +8,12 @@ class Boasvindascontroller extends GetxController {
   final DataAuth _dataAuth;
 
   Boasvindascontroller(this._dataAuth);
+
+  @override
+  void onClose() {
+    super.onClose();
+  }
+
   @override
   void onInit() {
     findAllAlunos();
