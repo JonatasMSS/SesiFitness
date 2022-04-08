@@ -6,8 +6,6 @@ class TreinoDetalhadoController extends GetxController {
 
   @override
   void onInit() {
-    print("Pagina carregada");
-    print(dataPage);
     super.onInit();
   }
 }
