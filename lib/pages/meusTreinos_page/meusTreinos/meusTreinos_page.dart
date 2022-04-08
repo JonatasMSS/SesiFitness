@@ -21,8 +21,7 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
       backgroundColor: Color(0xFFEFEFEF),
       appBar: SesifitnessAppbar(),
       body: FutureBuilder(
-        future: controller
-            .findAllTreinos(), // Tenta acessar pelo menos 1º dia da semana
+        future: controller.findAllTreinos(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return SingleChildScrollView(
@@ -55,42 +54,30 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
                     ),
                     SesiacadeimaListatreinos(
                       titleList: "Segunda",
-                      containList: [],
+                      containList: [
+                        DataListTreino(dia: 'segunda'),
+                      ],
                     ),
                     const SizedBox(
                       height: 30,
                     ),
                     SesiacadeimaListatreinos(
                       titleList: "Terça",
-                      containList: [],
+                      containList: [DataListTreino(dia: 'terca')],
                     ),
                     const SizedBox(
                       height: 30,
                     ),
                     SesiacadeimaListatreinos(
                       titleList: "Quarta",
-                      containList: [
-                        SesiacademiaTreino(
-                          assetImage: 'assets/images/treino.png',
-                          pageRoute: '/treinoDetalhado',
-                          title: "Treino A",
-                          repetition: "3x15 repetições",
-                        ),
-                      ],
+                      containList: [DataListTreino(dia: 'quarta')],
                     ),
                     const SizedBox(
                       height: 30,
                     ),
                     SesiacadeimaListatreinos(
                       titleList: "Quinta",
-                      containList: [
-                        SesiacademiaTreino(
-                          assetImage: 'assets/images/treino.png',
-                          pageRoute: '/treinoDetalhado',
-                          title: "Treino A",
-                          repetition: "3x15 repetições",
-                        ),
-                      ],
+                      containList: [DataListTreino(dia: 'quinta')],
                     ),
                     const SizedBox(
                       height: 30,
@@ -98,12 +85,7 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
                     SesiacadeimaListatreinos(
                       titleList: "Sexta",
                       containList: [
-                        SesiacademiaTreino(
-                          assetImage: 'assets/images/treino.png',
-                          pageRoute: '/treinoDetalhado',
-                          title: "Treino A",
-                          repetition: "3x15 repetições",
-                        ),
+                        DataListTreino(dia: 'sexta'),
                       ],
                     ),
                     const SizedBox(
@@ -112,12 +94,7 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
                     SesiacadeimaListatreinos(
                       titleList: "Sábado",
                       containList: [
-                        SesiacademiaTreino(
-                          assetImage: 'assets/images/treino.png',
-                          pageRoute: '/treinoDetalhado',
-                          title: "Treino A",
-                          repetition: "3x15 repetições",
-                        ),
+                        DataListTreino(dia: 'sabado'),
                       ],
                     ),
                   ],
@@ -143,20 +120,33 @@ class DataListTreino extends GetView<MeusTreinosController> {
 
   String dia;
 
+  final Map<String, int> _intToName = {
+    'segunda': 3,
+    'terca': 5,
+    'quarta': 0,
+    'quinta': 1,
+    'sexta': 4,
+    'sabado': 2,
+  };
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: 2, //data.length, //BdataTreino,
+        itemCount: controller.treinosAluno[_intToName[dia]!].listaTreinos
+            .length, //data.length, //BdataTreino,
         itemBuilder: (_, index) {
-          //final treino = data[index];
+          final treino =
+              controller.treinosAluno[_intToName[dia]!].listaTreinos[index];
+
           return SesiacademiaTreino(
-              assetImage: 'assets/images/treino.png',
-              pageRoute: '/treinoDetalhado',
-              title: '', //treino.tituloTreino,
-              repetition: '' //treino.repTreino,
-              );
+            assetImage: 'assets/images/treino.png',
+            pageRoute: '/treinoDetalhado',
+            title: treino.id, //treino.tituloTreino,
+            repetition:
+                treino.data()['repTreino'] ?? "Nothing", //treino.repTreino,
+          );
         });
   }
 }

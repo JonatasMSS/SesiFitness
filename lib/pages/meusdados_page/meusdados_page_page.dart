@@ -37,20 +37,20 @@ class MeusdadosPagePage extends GetView<MeusdadosPageController> {
               height: 50,
             ),
             dataContainment(
-              name: Get.arguments.nome,
+              name: controller.dataPreview.nome,
               data: "Nome",
             ),
             dataContainment(
               data: "Data de nascimento",
-              name: Get.arguments.dataNasc,
+              name: controller.dataPreview.nascimento,
             ),
             dataContainment(
               data: "Data de matricula",
-              name: Get.arguments.dataMatric,
+              name: controller.dataPreview.dataMatric,
             ),
             dataContainment(
               data: "Data de ultimo pagamento",
-              name: Get.arguments.lastPay,
+              name: controller.dataPreview.lastPay,
             ),
             Spacer(),
             Image.asset("assets/images/logo.png"),

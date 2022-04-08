@@ -14,40 +14,37 @@ import 'package:sesi_fitness/repository/treinos/treinos.dart';
 class MeusTreinosController extends GetxController with StateMixin {
   RxBool changeContainer = false.obs;
   final AlunoModel alunoData = Get.arguments;
-  final List<Map<String, dynamic>> treinosAluno = RxList();
+  final List<DayModel> treinosAluno = RxList();
 
   final DataAuth _dataAuth;
 
   MeusTreinosController(this._dataAuth);
   @override
-  void onInit() async {
-    // TODO: implement onIni
-    final alunos = await findAllTreinos();
-    alunos[3].listaTreinos.forEach((element) {
-      print(element.id);
-      print(element.data());
-    });
+  void onInit() {
+    findAllTreinos();
 
     super.onInit();
   }
 
-  Future<List<DayModel>> findAllTreinos() async {
-    List<DayModel> data = [];
-    final _dataLength = FirebaseFirestore.instance
-        .collection('Alunos')
-        .doc(alunoData.cpf)
-        .collection('diasSemana');
+  Future<void> findAllTreinos() async {
+    /*
+      Função coleta dados de todos os treinos dos alunos por dia
+      Retorno: Lista de todos os treinos por dia
+      OBS: Para especificar um dia deve-se usar um numero no index da lista:
+        0:quarta,
+        1:quinta,
+        2:sabado,
+        3:segunda,
+        4:sexta,
+        5:terca,
+    */
+    final _responseResult = await _dataAuth.findAllTreinos(alunoData.cpf);
 
-    final _diasSemanaDocs =
-        await _dataLength.get(); //Coleta todos os documentos do dia da semana.
-    //Resultado: [instance, instance, ...]
-    for (var dia in _diasSemanaDocs.docs) {
-      final _treinos =
-          await _dataLength.doc(dia.id).collection('treinos').get();
-
-      data.add(DayModel(id: dia.id, listaTreinos: _treinos.docs));
+    if (treinosAluno.isEmpty) {
+      treinosAluno.addAll(_responseResult);
+    } else {
+      treinosAluno.clear();
+      treinosAluno.addAll(_responseResult);
     }
-
-    return data;
   }
 }

@@ -40,4 +40,25 @@ class DataAuth implements IDataAuth {
             observacao: doc['observacao']))
         .toList();
   }
+
+  @override
+  Future<List<DayModel>> findAllTreinos(String id) async {
+    List<DayModel> data = [];
+    final _dataLength = FirebaseFirestore.instance
+        .collection('Alunos')
+        .doc(id)
+        .collection('diasSemana');
+
+    final _diasSemanaDocs =
+        await _dataLength.get(); //Coleta todos os documentos do dia da semana.
+    //Resultado: [instance, instance, ...]
+    for (var dia in _diasSemanaDocs.docs) {
+      final _treinos =
+          await _dataLength.doc(dia.id).collection('treinos').get();
+
+      data.add(DayModel(id: dia.id, listaTreinos: _treinos.docs));
+    }
+
+    return data;
+  }
 }
