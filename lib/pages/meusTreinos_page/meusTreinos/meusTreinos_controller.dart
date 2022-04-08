@@ -13,7 +13,12 @@ import 'package:sesi_fitness/repository/treinos/treinos.dart';
 
 class MeusTreinosController extends GetxController with StateMixin {
   RxBool changeContainer = false.obs;
-  AlunoModel alunoData = Get.arguments;
+  // final alunoData = AlunoModel(
+  //     nome: Get.arguments.nome,
+  //     cpf: Get.arguments.cpf,
+  //     nascimento: Get.arguments.nascimento,
+  //     dataMatric: Get.arguments.dataMatric,
+  //     lastPay: Get.arguments.lastPay);
   final List<DayModel> treinosAluno = RxList();
 
   final DataAuth _dataAuth;
@@ -22,9 +27,14 @@ class MeusTreinosController extends GetxController with StateMixin {
 
   @override
   void onInit() {
-    findAllTreinos();
-
+    // TODO: implement onInit
     super.onInit();
+  }
+
+  @override
+  void onReady() {
+    findAllTreinos();
+    super.onReady();
   }
 
   Future<void> findAllTreinos() async {
@@ -39,7 +49,7 @@ class MeusTreinosController extends GetxController with StateMixin {
         4:sexta,
         5:terca,
     */
-    final _responseResult = await _dataAuth.findAllTreinos(alunoData.cpf);
+    final _responseResult = await _dataAuth.findAllTreinos(Get.arguments.cpf);
 
     if (treinosAluno.isEmpty) {
       treinosAluno.addAll(_responseResult);

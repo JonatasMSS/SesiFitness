@@ -17,7 +17,7 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: pageDrawer(person: controller.alunoData),
+      drawer: pageDrawer(person: Get.arguments),
       backgroundColor: Color(0xFFEFEFEF),
       appBar: SesifitnessAppbar(),
       body: FutureBuilder(
@@ -44,7 +44,7 @@ class MeusTreinosPage extends GetView<MeusTreinosController> {
                             descText: "Minhas Avaliações",
                             state: false,
                             pageRoute: '/minhasAvaliacoes',
-                            arg: controller.alunoData,
+                            arg: Get.arguments,
                           ),
                         ),
                       ],
