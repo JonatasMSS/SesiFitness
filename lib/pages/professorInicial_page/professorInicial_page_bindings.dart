@@ -5,7 +5,7 @@ class ProfessorInicialPageBindings implements Bindings {
   @override
   void dependencies() {
     Get.put(
-      ProfessorInicialPageController(),
+      ProfessorInicialPageController(Get.find()),
     );
   }
 }

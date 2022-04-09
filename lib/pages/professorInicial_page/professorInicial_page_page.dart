@@ -8,12 +8,10 @@ import './professorInicial_page_controller.dart';
 class ProfessorInicialPagePage extends GetView<ProfessorInicialPageController> {
   ProfessorInicialPagePage({Key? key}) : super(key: key);
 
-  final List<String> data = ["Joao", "Maria", "Carlos"];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: SesiacademiaPagedrawerprofessor(),
+      drawer: const SesiacademiaPagedrawerprofessor(),
       appBar: SesifitnessAppbar(),
       backgroundColor: Color(0xFFEFEFEF),
       // drawer: SesiacademiaPagedrawerprofessor(),
@@ -24,10 +22,12 @@ class ProfessorInicialPagePage extends GetView<ProfessorInicialPageController> {
             borderRadius: BorderRadius.circular(15),
           ),
           child: ListView.builder(
-            itemCount: data.length,
+            itemCount: controller.allAlunos.length,
             itemBuilder: (context, index) {
+              final aluno = controller.allAlunos[index];
               return widgetAluno(
-                title: data[index],
+                title: aluno.nome,
+                cpf: aluno.cpf,
               );
             },
           ),

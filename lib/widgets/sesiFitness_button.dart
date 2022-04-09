@@ -16,9 +16,9 @@ class SesifitnessButton extends StatelessWidget {
   String? cpf;
   List<AlunoModel> alunos;
 
-  void dataConfirm(String confirmation, List<AlunoModel> dataComparation) {
-    for (var i = 0; i < dataComparation.length; i++) {
-      if (dataComparation[i].cpf == confirmation) {
+  void dataConfirm(String confirmation, List<AlunoModel> alunoData) {
+    for (var i = 0; i < alunoData.length; i++) {
+      if (alunoData[i].cpf == confirmation) {
         Get.snackbar(
           "Sucesso!",
           "Login com sucesso!",
@@ -29,9 +29,9 @@ class SesifitnessButton extends StatelessWidget {
 
         Get.offAndToNamed(
           '/meusTreinos',
-          arguments: dataComparation[i],
+          arguments: alunoData[i],
         );
-        dataComparation.clear();
+        alunoData.clear();
         break;
       } else if (confirmation == "1") {
         Get.snackbar(
@@ -55,7 +55,7 @@ class SesifitnessButton extends StatelessWidget {
         break;
       }
     }
-    if (!dataComparation
+    if (!alunoData
         .any((element) => element.cpf == cpf && cpf != "1" && cpf != "00")) {
       Get.snackbar("Erro", "Usuário não encontrado");
     }
