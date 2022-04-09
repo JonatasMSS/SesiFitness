@@ -7,7 +7,8 @@ import './treinoDetalhado_controller.dart';
 
 class TreinoDetalhadoPage extends GetView<TreinoDetalhadoController> {
   const TreinoDetalhadoPage({Key? key}) : super(key: key);
-
+  final _loremDetails =
+      """ Aqui, segue-se os detalhes de treinos contendo os dados do aluno num determinado periodo""";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,8 +66,8 @@ class TreinoDetalhadoPage extends GetView<TreinoDetalhadoController> {
                   ),
                   trailing: Container(
                     width: context.widthTransformer(reducedBy: 60),
-                    child: const Text(
-                      "35 KG",
+                    child: Text(
+                      controller.dataPage['carga'] ?? '0 KG',
                       style: TextStyle(fontSize: 35),
                     ),
                   ),
@@ -81,11 +82,45 @@ class TreinoDetalhadoPage extends GetView<TreinoDetalhadoController> {
                     style: TextStyle(fontSize: 35),
                   ),
                   trailing: Container(
-                    width: context.widthTransformer(reducedBy: 60),
-                    child: const Text(
-                      "35 KG",
+                    width: context.widthTransformer(reducedBy: 65),
+                    child: Text(
+                      controller.dataPage['cadencia'] ?? "0",
                       style: TextStyle(fontSize: 35),
                     ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                ListTile(
+                  leading: SvgPicture.asset('assets/icons/Icon_halter.svg'),
+                  title: const Text(
+                    "Descanso:",
+                    style: TextStyle(fontSize: 35),
+                  ),
+                  trailing: Container(
+                    width: context.widthTransformer(reducedBy: 65),
+                    child: Text(
+                      controller.dataPage['descanso'] ?? "0 s",
+                      style: TextStyle(fontSize: 35),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                const Text(
+                  "Observações do treino",
+                  style: TextStyle(fontSize: 35),
+                ),
+                const Divider(),
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Text(
+                    _loremDetails,
+                    textDirection: TextDirection.ltr,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(fontSize: 25),
                   ),
                 ),
               ],

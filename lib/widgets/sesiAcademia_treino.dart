@@ -11,6 +11,10 @@ class SesiacademiaTreino extends StatefulWidget {
     this.pageRoute,
     this.descriptionNextPage,
     this.gifVideo,
+    this.observ,
+    this.carga,
+    this.descanso,
+    this.cadenc,
     this.routerOn = true,
   }) : super(key: key);
 
@@ -20,6 +24,10 @@ class SesiacademiaTreino extends StatefulWidget {
   final String? pageRoute;
   final String? descriptionNextPage;
   final String? gifVideo;
+  final String? observ;
+  final String? carga;
+  final String? descanso;
+  final String? cadenc;
   final bool routerOn;
 
   @override
@@ -36,6 +44,9 @@ class _SesiacademiaTreinoState extends State<SesiacademiaTreino> {
           "repetitions": widget.repetition,
           "description:": widget.descriptionNextPage ?? "Nenhuma descrição",
           "gifVideo": widget.gifVideo ?? "",
+          "carga": widget.carga ?? "0",
+          "cadencia": widget.cadenc ?? "0",
+          "descanso": widget.descanso ?? "0",
         },
       );
     }

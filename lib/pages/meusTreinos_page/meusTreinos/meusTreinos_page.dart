@@ -134,8 +134,8 @@ class DataListTreino extends GetView<MeusTreinosController> {
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: controller.treinosAluno[_intToName[dia]!].listaTreinos
-            .length, //data.length, //BdataTreino,
+        itemCount:
+            controller.treinosAluno[_intToName[dia]!].listaTreinos.length,
         itemBuilder: (_, index) {
           final treino =
               controller.treinosAluno[_intToName[dia]!].listaTreinos[index];
@@ -143,9 +143,12 @@ class DataListTreino extends GetView<MeusTreinosController> {
           return SesiacademiaTreino(
             assetImage: 'assets/images/treino.png',
             pageRoute: '/treinoDetalhado',
-            title: treino.id, //treino.tituloTreino,
-            repetition:
-                treino.data()['repTreino'] ?? "Nothing", //treino.repTreino,
+            title: treino.id,
+            repetition: treino.data()['repTreino'] ?? "Nothing",
+            cadenc: treino.data()['cadencia'],
+            descanso: treino.data()['descanso'],
+            observ: treino.data()['observacao'],
+            carga: treino.data()['carga'],
           );
         });
   }
