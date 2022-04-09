@@ -26,10 +26,12 @@ class SesifitnessButton extends StatelessWidget {
           backgroundColor: const Color.fromARGB(255, 30, 109, 255),
           duration: const Duration(seconds: 2),
         );
+
         Get.offAndToNamed(
           '/meusTreinos',
           arguments: dataComparation[i],
         );
+        dataComparation.clear();
         break;
       } else if (confirmation == "1") {
         Get.snackbar(
