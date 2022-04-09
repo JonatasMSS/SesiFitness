@@ -18,7 +18,7 @@ class widgetProfessor extends StatelessWidget {
       return Card(
         child: ListTile(
           onTap: () => Get.toNamed(
-            '/',
+            '/professorDetails',
             arguments: {"name": title},
           ),
           leading: const Icon(Icons.person, size: 40),
@@ -34,7 +34,7 @@ class widgetProfessor extends StatelessWidget {
       );
     } else {
       return ListTile(
-        onTap: () => Get.toNamed('/'),
+        onTap: () => Get.toNamed('/professorDetails'),
         leading: const Icon(Icons.person, size: 40),
         title: Text(
           title,
