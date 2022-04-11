@@ -33,7 +33,9 @@ class ProfessorInicialPagePage extends GetView<ProfessorInicialPageController> {
                         .alunosProf.length, //controller.allAlunos.length,
                     itemBuilder: (context, index) {
                       final AlunoModel _aluno = controller.alunosProf[index];
-                      return widgetAluno(title: _aluno.nome, cpf: _aluno.cpf);
+                      return widgetAluno(
+                        alunoData: _aluno,
+                      );
                     },
                   );
                 }),

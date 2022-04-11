@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
+import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
 
 class AvaliacoesaAlunoPageController extends GetxController {
-  final Map<String, String> dataPage = Map.from(Get.arguments);
+  final AlunoModel dataPage = Get.arguments;
 }

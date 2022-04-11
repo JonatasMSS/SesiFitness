@@ -13,167 +13,177 @@ import '../../widgets/sesiAcademia_treino.dart';
 import './alunoDetails__controller.dart';
 
 class AlunoDetailsPage extends GetView<AlunoDetailsController> {
-  const AlunoDetailsPage({Key? key}) : super(key: key);
+  AlunoDetailsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SesifitnessAppbar(),
       backgroundColor: Color(0xFFEFEFEF),
-      body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: SesiacademiaAppbarbuttons(
-                      sizeH: 50,
-                      descText: "Treinos do Aluno",
-                      state: true,
-                      textColor: Colors.black,
-                    ),
-                  ),
-                  Expanded(
-                    child: SesiacademiaAppbarbuttons(
-                      sizeH: 50,
-                      descText: "Avaliações Aluno",
-                      state: false,
-                      pageRoute: '/avaliacoesAluno',
-                      arg: controller.dataPage,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Text(
-                controller.dataPage['name'] ?? "NO NAME",
-                style: const TextStyle(fontSize: 40),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              SesiacadeimaListatreinos(
-                titleList: "Segunda",
-                containList: [
-                  Obx(() {
-                    return ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: controller.lista.length,
-                      itemBuilder: (_, index) {
-                        final item = controller.lista[index];
-                        return GestureDetector(
-                          onLongPress: () {
-                            controller.lista.removeAt(index);
-                          },
-                          child: SesiacademiaTreino(
-                            assetImage: "assets/images/treino.png",
-                            title: item,
-                            routerOn: false,
+      body: FutureBuilder(
+        future: controller.findTreinosFromAlunos(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return SingleChildScrollView(
+              child: Container(
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SesiacademiaAppbarbuttons(
+                            sizeH: 50,
+                            descText: "Treinos do Aluno",
+                            state: true,
+                            textColor: Colors.black,
                           ),
-                        );
-                      },
-                    );
-                  }),
-                  DialogEdition(
-                    textTitle: "Adicionar Treino",
-                    child: const SesiacademiaAddtreino(),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              SesiacadeimaListatreinos(
-                titleList: "Terça",
-                containList: [
-                  SesiacademiaTreino(
-                    assetImage: 'assets/images/treino.png',
-                    pageRoute: '/treinoDetalhado',
-                    title: "Treino de Perna",
-                    repetition: "3x15 repetições",
-                  ),
-                  SesiacademiaAddtreino(),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              SesiacadeimaListatreinos(
-                titleList: "Quarta",
-                containList: [
-                  SesiacademiaTreino(
-                    assetImage: 'assets/images/treino.png',
-                    pageRoute: '/treinoDetalhado',
-                    title: "Treino de Perna",
-                    repetition: "3x15 repetições",
-                  ),
-                  SesiacademiaAddtreino(),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              SesiacadeimaListatreinos(
-                titleList: "Quinta",
-                containList: [
-                  SesiacademiaTreino(
-                    assetImage: 'assets/images/treino.png',
-                    pageRoute: '/treinoDetalhado',
-                    title: "Treino de Perna",
-                    repetition: "3x15 repetições",
-                  ),
-                  SesiacademiaAddtreino(),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              SesiacadeimaListatreinos(
-                titleList: "Sexta",
-                containList: [
-                  SesiacademiaTreino(
-                    assetImage: 'assets/images/treino.png',
-                    pageRoute: '/treinoDetalhado',
-                    title: "Treino de Perna",
-                    repetition: "3x15 repetições",
-                  ),
-                  SesiacademiaAddtreino(),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              SesiacadeimaListatreinos(
-                titleList: "Sábado",
-                containList: [
-                  SesiacademiaTreino(
-                    assetImage: 'assets/images/treino.png',
-                    pageRoute: '/treinoDetalhado',
-                    title: "Treino de Perna",
-                    repetition: "3x15 repetições",
-                  ),
-                  const SesiacademiaAddtreino(),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Center(
-                child: SesiacademiaRealizaravaliacao(
-                  text: "Realizar Avaliação",
-                  fontSize: 25,
-                  pageRoute: "/realiAvali",
+                        ),
+                        Expanded(
+                          child: SesiacademiaAppbarbuttons(
+                            sizeH: 50,
+                            descText: "Avaliações Aluno",
+                            state: false,
+                            pageRoute: '/avaliacoesAluno',
+                            arg: controller.dataPage,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      controller.dataPage.nome,
+                      style: const TextStyle(fontSize: 40),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SesiacadeimaListatreinos(
+                      titleList: "Segunda",
+                      containList: [
+                        DataListTreino(dia: 'segunda'),
+                        DialogEdition(
+                          textTitle: "Adicionar Treino",
+                          child: const SesiacademiaAddtreino(),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    SesiacadeimaListatreinos(
+                      titleList: "Terça",
+                      containList: [
+                        DataListTreino(dia: 'terca'),
+                        SesiacademiaAddtreino(),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    SesiacadeimaListatreinos(
+                      titleList: "Quarta",
+                      containList: [
+                        DataListTreino(dia: 'quarta'),
+                        SesiacademiaAddtreino(),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    SesiacadeimaListatreinos(
+                      titleList: "Quinta",
+                      containList: [
+                        DataListTreino(dia: 'quinta'),
+                        SesiacademiaAddtreino(),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    SesiacadeimaListatreinos(
+                      titleList: "Sexta",
+                      containList: [
+                        DataListTreino(
+                          dia: 'sexta',
+                        ),
+                        SesiacademiaAddtreino(),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    SesiacadeimaListatreinos(
+                      titleList: "Sábado",
+                      containList: [
+                        DataListTreino(dia: 'sabado'),
+                        const SesiacademiaAddtreino(),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Center(
+                      child: SesiacademiaRealizaravaliacao(
+                        text: "Realizar Avaliação",
+                        fontSize: 25,
+                        pageRoute: "/realiAvali",
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
-        ),
+            );
+          }
+        },
       ),
     );
+  }
+}
+
+class DataListTreino extends GetView<AlunoDetailsController> {
+  DataListTreino({
+    Key? key,
+    required this.dia,
+  }) : super(key: key);
+
+  String dia;
+
+  final Map<String, int> _intToName = {
+    'segunda': 3,
+    'terca': 5,
+    'quarta': 0,
+    'quinta': 1,
+    'sexta': 4,
+    'sabado': 2,
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    return Obx(() {
+      return ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: controller.lista[_intToName[dia]!].listaTreinos
+              .length, //data.length, //BdataTreino,
+          itemBuilder: (_, index) {
+            final treino =
+                controller.lista[_intToName[dia]!].listaTreinos[index];
+
+            return SesiacademiaTreino(
+              assetImage: 'assets/images/treino.png',
+              pageRoute: '/treinoDetalhado',
+              title: treino.id, //treino.tituloTreino,
+              repetition:
+                  treino.data()['repTreino'] ?? "Nothing", //treino.repTreino,
+            );
+          });
+    });
   }
 }
 

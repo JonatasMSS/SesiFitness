@@ -59,7 +59,10 @@ class AvaliacoesaAlunoPagePage extends GetView<AvaliacoesaAlunoPageController> {
               ),
               child: Column(
                 children: [
-                  alunoData(),
+                  widgetAluno(
+                    alunoData: controller.dataPage,
+                    cardVisible: false,
+                  ),
                   SesiacadeimaListatreinos(
                     titleList: "27/12/02",
                     padding: 0,

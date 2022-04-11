@@ -7,7 +7,7 @@ import './meusTreinos_controller.dart';
 class MeusTreinosBindings implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => DataAuth());
+    Get.put(DataAuth());
     Get.put(
       MeusTreinosController(Get.find()),
     );
