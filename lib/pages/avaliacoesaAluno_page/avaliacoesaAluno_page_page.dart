@@ -44,43 +44,39 @@ class AvaliacoesaAlunoPagePage extends GetView<AvaliacoesaAlunoPageController> {
               height: 20,
             ),
             Container(
-              clipBehavior: Clip.hardEdge,
-              width: context.widthTransformer(reducedBy: 5),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey[350]!,
-                    blurRadius: 10,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                children: [
-                  widgetAluno(
-                    alunoData: controller.dataPage,
-                    cardVisible: false,
-                  ),
-                  SesiacadeimaListatreinos(
-                    titleList: "27/12/02",
-                    padding: 0,
-                  ),
-                ],
-              ),
-            ),
+                clipBehavior: Clip.hardEdge,
+                width: context.widthTransformer(reducedBy: 5),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey[350]!,
+                      blurRadius: 10,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: 1,
+                    itemBuilder: (_, index) {
+                      return Column(
+                        children: [
+                          widgetAluno(
+                            alunoData: controller.dataPage,
+                            cardVisible: false,
+                          ),
+                          SesiacadeimaListatreinos(
+                            titleList: "27/12/02",
+                            padding: 0,
+                          ),
+                        ],
+                      );
+                    })),
           ],
         ),
       ),
     );
   }
-}
-
-class alunoData extends widgetAluno {
-  alunoData({Key? key})
-      : super(
-          key: key,
-          cardVisible: false,
-        );
 }
