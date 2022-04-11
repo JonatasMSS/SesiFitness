@@ -186,17 +186,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
 
   final Widget child;
   final String textTitle;
-  // final List<Checkboxmodel> dados = [
-  //   Checkboxmodel(texto: "Treino A"),
-  //   Checkboxmodel(texto: "Treino B"),
-  //   Checkboxmodel(texto: "Treino A"),
-  //   Checkboxmodel(texto: "Treino B"),
-  //   Checkboxmodel(texto: "Treino A"),
-  //   Checkboxmodel(texto: "Treino B"),
-  //   Checkboxmodel(texto: "Treino A"),
-  //   Checkboxmodel(texto: "Treino B"),
-  //   Checkboxmodel(texto: "Treino B"),
-  // ];
+
   final List<List<Checkboxmodel>> _dadosTreinos = [
     Treinos().getTreinosPeito(),
     Treinos().getTreinosCostas(),

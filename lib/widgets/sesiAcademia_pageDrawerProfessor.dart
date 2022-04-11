@@ -47,7 +47,7 @@ class SesiacademiaPagedrawerprofessor extends StatelessWidget {
               style: TextStyle(fontSize: 30),
             ),
             onTap: () {
-              Get.offAllNamed("/");
+              Get.offAllNamed('/');
             },
           ),
         ],

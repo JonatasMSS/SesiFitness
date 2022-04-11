@@ -15,12 +15,6 @@ class ProfessorInicialPageController extends GetxController {
   final List<AlunoModel> alunosProf = RxList();
 
   @override
-  void onClose() {
-    alunosProf.clear();
-    super.onClose();
-  }
-
-  @override
   void onInit() {
     super.onInit();
   }
