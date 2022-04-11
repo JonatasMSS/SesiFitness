@@ -27,7 +27,6 @@ class MeusTreinosController extends GetxController {
 
   @override
   void onClose() {
-    Get.reset();
     treinosAluno.clear();
     treinosAluno.refresh();
 
