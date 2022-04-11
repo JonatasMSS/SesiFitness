@@ -49,6 +49,7 @@ class boasvindas_page extends GetView<Boasvindascontroller> {
                         textDesc: "Logar-se",
                         cpf: CPFdata.value,
                         alunos: controller.AlunosData,
+                        professores: controller.professorData,
                       );
                     },
                   )

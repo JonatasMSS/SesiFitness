@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SesiacademiaPagedrawerprofessor extends StatelessWidget {
-  const SesiacademiaPagedrawerprofessor({Key? key}) : super(key: key);
-
+  SesiacademiaPagedrawerprofessor({
+    Key? key,
+    this.nomeProf = 'Professor Fulano de Tal',
+  }) : super(key: key);
+  final String nomeProf;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -18,14 +21,14 @@ class SesiacademiaPagedrawerprofessor extends StatelessWidget {
                 color: Color(0xFF1D4A8C),
               ),
               child: Column(
-                children: const [
-                  Image(
+                children: [
+                  const Image(
                     image: AssetImage('assets/images/Ellipse 2.png'),
                     width: 90,
                     height: 90,
                   ),
-                  Text('Professor Fulano de Tal',
-                      style: TextStyle(
+                  Text("Professor " + nomeProf,
+                      style: const TextStyle(
                         fontSize: 30,
                         color: Colors.white,
                       ))

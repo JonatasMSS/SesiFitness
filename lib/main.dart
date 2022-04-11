@@ -34,6 +34,20 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
+  // var dataProf = await FirebaseFirestore.instance.collection("Professores");
+  // var Alunos = await FirebaseFirestore.instance.collection('Alunos').get();
+  // // dataProf.doc('teste1').set(
+  // //   {'alunos': Alunos.docs[11122233345]},
+  // // ).then((value) => print("Concluido!"));
+
+  // // for (var item in dataProf.docs) {
+  // //   var data = item.data();
+  // //   print(data);
+  // //   // final DocumentReference dataS = data['Alunos'];
+  // //   // final referenceDoc = await dataS.get();
+  // //   // print(referenceDoc.data());
+  // // }
+
   runApp(sesiFitnessMAIN());
 }
 
@@ -49,7 +63,6 @@ class sesiFitnessMAIN extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AcademiasesiTheme().Theme,
       initialRoute: '/',
-      initialBinding: Databindings(),
       getPages: [
         GetPage(
           name: '/',

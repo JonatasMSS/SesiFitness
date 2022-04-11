@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
 import 'package:sesi_fitness/models/dayModel/dayModel.dart';
+import 'package:sesi_fitness/models/professorModel/ProfessorModel.dart';
 import 'package:sesi_fitness/models/treinosModel/treinosModel.dart';
 import 'package:sesi_fitness/repository/dataAuth_repository/i_dataAuth.dart';
 
@@ -60,5 +61,26 @@ class DataAuth implements IDataAuth {
     }
 
     return data;
+  }
+
+  @override
+  Future<List<ProfessorModel>> findAllProfessores() async {
+    final _dataCollection =
+        await FirebaseFirestore.instance.collection('Professores').get();
+    return _dataCollection.docs
+        .map(
+          (doc) => ProfessorModel(
+            cpf: doc['cpf'],
+            listaAlunos: doc['alunos'],
+            nome: doc['nome'],
+          ),
+        )
+        .toList();
+  }
+
+  @override
+  Future<AlunoModel> findAlunoById(String id) async {
+    final _responseResult = await _dataCollection.doc(id).get();
+    return AlunoModel.fromMap(_responseResult.data()!);
   }
 }

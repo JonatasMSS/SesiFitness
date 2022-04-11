@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
 import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
+import 'package:sesi_fitness/models/professorModel/ProfessorModel.dart';
 import 'package:sesi_fitness/pages/boasvindas_page/boasvindasController.dart';
 
 class SesifitnessButton extends StatelessWidget {
@@ -10,13 +11,16 @@ class SesifitnessButton extends StatelessWidget {
     this.textDesc = "TEXTO",
     this.cpf,
     required this.alunos,
+    required this.professores,
   }) : super(key: key);
 
   final String textDesc;
   String? cpf;
   List<AlunoModel> alunos;
+  List<ProfessorModel> professores;
 
-  void dataConfirm(String confirmation, List<AlunoModel> alunoData) {
+  void dataConfirm(String confirmation, List<AlunoModel> alunoData,
+      List<ProfessorModel> profData) {
     for (var i = 0; i < alunoData.length; i++) {
       if (alunoData[i].cpf == confirmation) {
         Get.snackbar(
@@ -33,7 +37,10 @@ class SesifitnessButton extends StatelessWidget {
         );
         alunoData.clear();
         break;
-      } else if (confirmation == "1") {
+      }
+    }
+    for (var i = 0; i < profData.length; i++) {
+      if (profData[i].cpf == confirmation) {
         Get.snackbar(
           'Sucesso!',
           "Login como professor!",
@@ -41,31 +48,32 @@ class SesifitnessButton extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 30, 109, 255),
           duration: const Duration(seconds: 2),
         );
-        Get.offAndToNamed('/professorInit');
-        break;
-      } else if (confirmation == "00") {
-        Get.snackbar(
-          'Sucesso!',
-          "Login como professor!",
-          colorText: const Color(0xFFFFFFFF),
-          backgroundColor: Color.fromARGB(255, 30, 109, 255),
-          duration: const Duration(seconds: 2),
-        );
-        Get.offAndToNamed('/rodrigoPage');
+        Get.offAndToNamed('/professorInit', arguments: profData[i]);
+
         break;
       }
     }
-    if (!alunoData
-        .any((element) => element.cpf == cpf && cpf != "1" && cpf != "00")) {
-      Get.snackbar("Erro", "Usuário não encontrado");
+    if (confirmation == "00") {
+      Get.snackbar(
+        'Sucesso!',
+        "Login como professor!",
+        colorText: const Color(0xFFFFFFFF),
+        backgroundColor: Color.fromARGB(255, 30, 109, 255),
+        duration: const Duration(seconds: 2),
+      );
+      Get.offAndToNamed('/rodrigoPage');
     }
+    // if (!alunoData
+    //     .any((element) => element.cpf == cpf && cpf != "1" && cpf != "00")) {
+    //   Get.snackbar("Erro", "Usuário não encontrado");
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        dataConfirm(cpf!, alunos);
+        dataConfirm(cpf!, alunos, professores);
       },
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),
