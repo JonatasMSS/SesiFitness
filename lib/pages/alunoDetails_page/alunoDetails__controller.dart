@@ -2,10 +2,11 @@ import 'package:get/get.dart';
 import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
 import 'package:sesi_fitness/repository/dataAuth_repository/dataAuth.dart';
 import 'package:sesi_fitness/repository/treinos/treinos.dart';
+import 'package:sesi_fitness/utils/loader/LoaderState.dart';
 
-class AlunoDetailsController extends GetxController {
+class AlunoDetailsController extends GetxController with LoaderMixin {
   final RxList lista = [].obs;
-
+  final loaderState = false.obs;
   final AlunoModel dataPage = Get.arguments;
   final DataAuth _dataAuth;
 
@@ -20,6 +21,7 @@ class AlunoDetailsController extends GetxController {
 
   @override
   void onInit() {
+    LoadListenner(loaderState);
     super.onInit();
   }
 
@@ -31,5 +33,15 @@ class AlunoDetailsController extends GetxController {
       lista.clear();
       lista.addAll(_responseResult);
     }
+  }
+
+  Future<void> setTreinosAlunos(String dia, List<dynamic> listaTreinos,
+      Map<String, dynamic> dataTreino) async {
+    loaderState.toggle();
+    final _dataSet = await _dataAuth.setTreinosFromIdAlunoAndDay(
+        dataPage.cpf, dia, listaTreinos, dataTreino);
+    loaderState.toggle();
+    findTreinosFromAlunos();
+    navigator?.pop();
   }
 }

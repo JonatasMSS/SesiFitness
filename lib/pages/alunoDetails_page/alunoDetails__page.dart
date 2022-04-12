@@ -69,6 +69,7 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                         DataListTreino(dia: 'segunda'),
                         DialogEdition(
                           textTitle: "Adicionar Treino",
+                          day: "segunda",
                           child: const SesiacademiaAddtreino(),
                         )
                       ],
@@ -192,10 +193,12 @@ class DialogEdition extends GetView<AlunoDetailsController> {
     Key? key,
     required this.child,
     this.textTitle = "NONE TEXT",
+    required this.day,
   }) : super(key: key);
 
   final Widget child;
   final String textTitle;
+  final String day;
 
   final List<List<Checkboxmodel>> _dadosTreinos = [
     Treinos().getTreinosPeito(),
@@ -207,17 +210,22 @@ class DialogEdition extends GetView<AlunoDetailsController> {
     Treinos().getTreinosAerobio(),
   ];
 
-  RxString data = "".obs;
-  RxString data2 = "".obs;
+  RxString _repData = "".obs;
+  RxString _observacaoData = "".obs;
+  RxString _cadenciaData = "".obs;
+  RxString _cargaData = "".obs;
+  RxString _descansoData = "".obs;
 
-  void itensChecked(List dataIni) {
+  List<dynamic> itensChecked() {
     List<Checkboxmodel> itensChecked = [];
+    List<dynamic> Result = [];
     for (var i in _dadosTreinos) {
       itensChecked.addAll(i.where((dado) => dado.checked));
     }
-    itensChecked.forEach((dado) {
-      dataIni.add(dado.texto);
+    itensChecked.forEach((element) {
+      Result.add(element.texto);
     });
+    return Result;
   }
 
   @override
@@ -365,7 +373,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                       height: 30,
                     ),
                     SesifitnessForm(
-                      Data: data,
+                      Data: _repData,
                       backgroundColor: Colors.grey[350]!,
                       borderSide: Colors.grey[350]!,
                       widthReduce: 30,
@@ -378,7 +386,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                       height: 30,
                     ),
                     SesifitnessForm(
-                      Data: data2,
+                      Data: _observacaoData,
                       backgroundColor: Colors.grey[350]!,
                       borderSide: Colors.grey[350]!,
                       widthReduce: 30,
@@ -390,7 +398,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                       height: 30,
                     ),
                     SesifitnessForm(
-                      Data: data2,
+                      Data: _cadenciaData,
                       backgroundColor: Colors.grey[350]!,
                       borderSide: Colors.grey[350]!,
                       widthReduce: 30,
@@ -402,7 +410,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                       height: 30,
                     ),
                     SesifitnessForm(
-                      Data: data2,
+                      Data: _cargaData,
                       backgroundColor: Colors.grey[350]!,
                       borderSide: Colors.grey[350]!,
                       widthReduce: 30,
@@ -413,14 +421,31 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                     const SizedBox(
                       height: 30,
                     ),
+                    SesifitnessForm(
+                      Data: _descansoData,
+                      backgroundColor: Colors.grey[350]!,
+                      borderSide: Colors.grey[350]!,
+                      widthReduce: 30,
+                      hintText: "Tempo de descanso",
+                      heightCursor: 40,
+                      inputTypeText: TextInputType.text,
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
                     ElevatedButton(
                       onPressed: () {
-                        print(controller.lista);
-                        itensChecked(controller.lista);
-                        print(controller.lista);
-                        print(data);
-                        print(data2);
-                        navigator?.pop();
+                        //print(controller.lista);
+                        //itensChecked(controller.lista);
+                        //print(controller.lista);
+                        Map<String, dynamic> data = {
+                          "repTreino": _repData.value,
+                          "cadencia": _cadenciaData.value,
+                          "observacao": _observacaoData.value,
+                          "carga": _cargaData.value,
+                          "descanso": _descansoData.value,
+                        };
+                        controller.setTreinosAlunos(day, itensChecked(), data);
                       },
                       child: Text("ENVIAR DADOS"),
                     ),

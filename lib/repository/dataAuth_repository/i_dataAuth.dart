@@ -9,4 +9,6 @@ abstract class IDataAuth {
   Future<List<TreinosModel>> findTreinosByIdAndDay(String id, String day);
   Future<List<DayModel>> findAllTreinos(String id);
   Future<List<ProfessorModel>> findAllProfessores();
+  Future<void> setTreinosFromIdAlunoAndDay(String id, String dia,
+      List<dynamic> listaTreinos, Map<String, dynamic> dataTreino);
 }

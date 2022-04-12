@@ -83,4 +83,24 @@ class DataAuth implements IDataAuth {
     final _responseResult = await _dataCollection.doc(id).get();
     return AlunoModel.fromMap(_responseResult.data()!);
   }
+
+  @override
+  Future<void> setTreinosFromIdAlunoAndDay(
+    String id,
+    String dia,
+    List<dynamic> listaTreinos,
+    Map<String, dynamic> dataTreino,
+  ) async {
+    final _dataResponse = _dataCollection
+        .doc(id)
+        .collection('diasSemana')
+        .doc(dia)
+        .collection('treinos');
+    for (var treinoNome in listaTreinos) {
+      await _dataResponse.doc(treinoNome).set(
+            dataTreino,
+            SetOptions(merge: true),
+          );
+    }
+  }
 }
