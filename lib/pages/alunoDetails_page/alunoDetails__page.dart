@@ -81,7 +81,8 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                       titleList: "Terça",
                       containList: [
                         DataListTreino(dia: 'terca'),
-                        SesiacademiaAddtreino(),
+                        DialogEdition(
+                            child: const SesiacademiaAddtreino(), day: 'terca'),
                       ],
                     ),
                     const SizedBox(
@@ -91,7 +92,9 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                       titleList: "Quarta",
                       containList: [
                         DataListTreino(dia: 'quarta'),
-                        SesiacademiaAddtreino(),
+                        DialogEdition(
+                            child: const SesiacademiaAddtreino(),
+                            day: 'quarta'),
                       ],
                     ),
                     const SizedBox(
@@ -101,7 +104,9 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                       titleList: "Quinta",
                       containList: [
                         DataListTreino(dia: 'quinta'),
-                        SesiacademiaAddtreino(),
+                        DialogEdition(
+                            child: const SesiacademiaAddtreino(),
+                            day: 'quinta'),
                       ],
                     ),
                     const SizedBox(
@@ -113,7 +118,8 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                         DataListTreino(
                           dia: 'sexta',
                         ),
-                        SesiacademiaAddtreino(),
+                        DialogEdition(
+                            child: const SesiacademiaAddtreino(), day: 'sexta'),
                       ],
                     ),
                     const SizedBox(
@@ -123,7 +129,9 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                       titleList: "Sábado",
                       containList: [
                         DataListTreino(dia: 'sabado'),
-                        const SesiacademiaAddtreino(),
+                        DialogEdition(
+                            child: const SesiacademiaAddtreino(),
+                            day: 'sabado'),
                       ],
                     ),
                     const SizedBox(
@@ -135,6 +143,9 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                         fontSize: 25,
                         pageRoute: "/realiAvali",
                       ),
+                    ),
+                    const SizedBox(
+                      height: 30,
                     ),
                   ],
                 ),
