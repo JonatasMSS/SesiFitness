@@ -98,8 +98,9 @@ class _SesiacademiaTreinoState extends State<SesiacademiaTreino> {
                       Text(
                         widget.title,
                         style: TextStyle(fontSize: 30),
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Row(
@@ -178,7 +179,7 @@ class _SesiacademiaTreinoState extends State<SesiacademiaTreino> {
                       children: [
                         SvgPicture.asset(
                           "assets/icons/Icon_halter.svg",
-                          height: 40,
+                          height: 35,
                         ),
                         Text(
                           widget.repetition,

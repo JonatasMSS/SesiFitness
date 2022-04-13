@@ -178,7 +178,7 @@ class DataListTreino extends GetView<AlunoDetailsController> {
 
             return SesiacademiaTreino(
               assetImage: 'assets/images/treino.png',
-              pageRoute: '/treinoDetalhado',
+              routerOn: false,
               title: treino.id, //treino.tituloTreino,
               repetition:
                   treino.data()['repTreino'] ?? "Nothing", //treino.repTreino,

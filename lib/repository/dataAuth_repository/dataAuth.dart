@@ -103,4 +103,9 @@ class DataAuth implements IDataAuth {
           );
     }
   }
+
+  @override
+  Future<void> removeTreinoByName(String treinoName) {
+    throw UnimplementedError();
+  }
 }
