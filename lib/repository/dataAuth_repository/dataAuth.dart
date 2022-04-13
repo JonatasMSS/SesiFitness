@@ -105,7 +105,14 @@ class DataAuth implements IDataAuth {
   }
 
   @override
-  Future<void> removeTreinoByName(String treinoName) {
-    throw UnimplementedError();
+  Future<void> removeTreinoByName(
+      String treinoName, String id, String day) async {
+    await _dataCollection
+        .doc(id)
+        .collection('diasSemana')
+        .doc(day)
+        .collection('treinos')
+        .doc(treinoName)
+        .delete();
   }
 }

@@ -38,10 +38,18 @@ class AlunoDetailsController extends GetxController with LoaderMixin {
   Future<void> setTreinosAlunos(String dia, List<dynamic> listaTreinos,
       Map<String, dynamic> dataTreino) async {
     loaderState.toggle();
-    final _dataSet = await _dataAuth.setTreinosFromIdAlunoAndDay(
+    await _dataAuth.setTreinosFromIdAlunoAndDay(
         dataPage.cpf, dia, listaTreinos, dataTreino);
+    await findTreinosFromAlunos();
     loaderState.toggle();
-    findTreinosFromAlunos();
+
     navigator?.pop();
+  }
+
+  Future<void> removeTreino(String treinoName, String day) async {
+    loaderState.toggle();
+    await _dataAuth.removeTreinoByName(treinoName, dataPage.cpf, day);
+    await findTreinosFromAlunos();
+    loaderState.toggle();
   }
 }

@@ -176,12 +176,15 @@ class DataListTreino extends GetView<AlunoDetailsController> {
             final treino =
                 controller.lista[_intToName[dia]!].listaTreinos[index];
 
-            return SesiacademiaTreino(
-              assetImage: 'assets/images/treino.png',
-              routerOn: false,
-              title: treino.id, //treino.tituloTreino,
-              repetition:
-                  treino.data()['repTreino'] ?? "Nothing", //treino.repTreino,
+            return GestureDetector(
+              onLongPress: () => controller.removeTreino(treino.id, dia),
+              child: SesiacademiaTreino(
+                assetImage: 'assets/images/treino.png',
+                routerOn: false,
+                title: treino.id, //treino.tituloTreino,
+                repetition:
+                    treino.data()['repTreino'] ?? "Nothing", //treino.repTreino,
+              ),
             );
           });
     });
@@ -210,22 +213,22 @@ class DialogEdition extends GetView<AlunoDetailsController> {
     Treinos().getTreinosAerobio(),
   ];
 
-  RxString _repData = "".obs;
-  RxString _observacaoData = "".obs;
-  RxString _cadenciaData = "".obs;
-  RxString _cargaData = "".obs;
-  RxString _descansoData = "".obs;
+  final RxString _repData = "".obs;
+  final RxString _observacaoData = "".obs;
+  final RxString _cadenciaData = "".obs;
+  final RxString _cargaData = "".obs;
+  final RxString _descansoData = "".obs;
 
   List<dynamic> itensChecked() {
     List<Checkboxmodel> itensChecked = [];
-    List<dynamic> Result = [];
+    List<dynamic> result = [];
     for (var i in _dadosTreinos) {
       itensChecked.addAll(i.where((dado) => dado.checked));
     }
     itensChecked.forEach((element) {
-      Result.add(element.texto);
+      result.add(element.texto);
     });
-    return Result;
+    return result;
   }
 
   @override
