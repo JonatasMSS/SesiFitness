@@ -27,7 +27,7 @@ class SesiacademiaPagedrawerprofessor extends StatelessWidget {
                     width: 90,
                     height: 90,
                   ),
-                  Text("Professor " + nomeProf,
+                  Text(nomeProf,
                       style: const TextStyle(
                         fontSize: 30,
                         color: Colors.white,
