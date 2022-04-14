@@ -54,8 +54,11 @@ class DataAuth implements IDataAuth {
         await _dataLength.get(); //Coleta todos os documentos do dia da semana.
     //Resultado: [instance, instance, ...]
     for (var dia in _diasSemanaDocs.docs) {
-      final _treinos =
-          await _dataLength.doc(dia.id).collection('treinos').get();
+      final _treinos = await _dataLength
+          .doc(dia.id)
+          .collection('treinos')
+          .orderBy("time")
+          .get();
 
       data.add(DayModel(id: dia.id, listaTreinos: _treinos.docs));
     }

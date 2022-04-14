@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'dart:developer';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:sesi_fitness/models/checkboxModel.dart';
@@ -229,6 +233,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
   final RxString _cadenciaData = "".obs;
   final RxString _cargaData = "".obs;
   final RxString _descansoData = "".obs;
+  List<String> _itens = [];
 
   List<dynamic> itensChecked() {
     List<Checkboxmodel> itensChecked = [];
@@ -240,6 +245,27 @@ class DialogEdition extends GetView<AlunoDetailsController> {
       result.add(element.texto);
     }
     return result;
+  }
+
+  void clearCheckboxes() {
+    _itens.clear();
+    for (var treino in _dadosTreinos) {
+      for (var i = 0; i < treino.length; i++) {
+        if (treino[i].checked) {
+          treino[i].checked = !treino[i].checked;
+        }
+      }
+    }
+  }
+
+  List<String> addItensByOrder(String treinoNameAdd, bool ativo) {
+    if (!_itens.contains(treinoNameAdd) && !ativo) {
+      _itens.add(treinoNameAdd);
+    } else if (_itens.contains(treinoNameAdd) && ativo) {
+      _itens.remove(treinoNameAdd);
+    }
+    print(_itens);
+    return _itens;
   }
 
   @override
@@ -259,12 +285,12 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                   children: [
                     Container(
                       alignment: Alignment.center,
-                      color: Color(0xFF274776),
+                      color: const Color(0xFF274776),
                       width: context.width,
                       height: 80,
                       child: Text(
                         textTitle,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 40,
                           color: Colors.white,
                         ),
@@ -287,6 +313,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
                                   item: _dadosTreinos[0][index],
+                                  addData: addItensByOrder,
                                 );
                               },
                             ),
@@ -302,6 +329,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
                                   item: _dadosTreinos[1][index],
+                                  addData: addItensByOrder,
                                 );
                               },
                             )
@@ -316,7 +344,9 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemCount: Treinos().getTreinosPerna().length,
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
-                                    item: _dadosTreinos[2][index]);
+                                  item: _dadosTreinos[2][index],
+                                  addData: addItensByOrder,
+                                );
                               },
                             )
                           ],
@@ -331,6 +361,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
                                   item: _dadosTreinos[3][index],
+                                  addData: addItensByOrder,
                                 );
                               },
                             )
@@ -346,6 +377,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
                                   item: _dadosTreinos[4][index],
+                                  addData: addItensByOrder,
                                 );
                               },
                             )
@@ -361,6 +393,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
                                   item: _dadosTreinos[5][index],
+                                  addData: addItensByOrder,
                                 );
                               },
                             )
@@ -376,6 +409,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
                                   item: _dadosTreinos[6][index],
+                                  addData: addItensByOrder,
                                 );
                               },
                             )
@@ -448,18 +482,26 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                       height: 30,
                     ),
                     ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         //print(controller.lista);
                         //itensChecked(controller.lista);
                         //print(controller.lista);
-                        Map<String, dynamic> data = {
-                          "repTreino": _repData.value,
-                          "cadencia": _cadenciaData.value,
-                          "observacao": _observacaoData.value,
-                          "carga": _cargaData.value,
-                          "descanso": _descansoData.value,
-                        };
-                        controller.setTreinosAlunos(day, itensChecked(), data);
+
+                        for (var i = 0; i < _itens.length; i++) {
+                          Map<String, dynamic> data = {
+                            "repTreino": _repData.value,
+                            "cadencia": _cadenciaData.value,
+                            "observacao": _observacaoData.value,
+                            "carga": _cargaData.value,
+                            "descanso": _descansoData.value,
+                            "time": Timestamp.now().millisecondsSinceEpoch,
+                          };
+                          final _finaList = [_itens[i]];
+                          await controller.setTreinosAlunos(
+                              day, _finaList, data);
+                        }
+                        clearCheckboxes();
+                        navigator!.pop();
                       },
                       child: const Text("ENVIAR DADOS"),
                     ),
