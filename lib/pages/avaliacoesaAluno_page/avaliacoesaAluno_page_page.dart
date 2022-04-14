@@ -15,7 +15,7 @@ class AvaliacoesaAlunoPagePage extends GetView<AvaliacoesaAlunoPageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: SesiacademiaPagedrawerprofessor(),
-      backgroundColor: Color(0xFFEFEFEF),
+      backgroundColor: const Color(0xFFEFEFEF),
       appBar: SesifitnessAppbar(),
       body: SingleChildScrollView(
         child: Column(
@@ -44,39 +44,66 @@ class AvaliacoesaAlunoPagePage extends GetView<AvaliacoesaAlunoPageController> {
               height: 20,
             ),
             Container(
-                clipBehavior: Clip.hardEdge,
-                width: context.widthTransformer(reducedBy: 5),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey[350]!,
-                      blurRadius: 10,
-                      offset: const Offset(0, 2),
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: 1,
-                    itemBuilder: (_, index) {
-                      return Column(
-                        children: [
-                          widgetAluno(
-                            alunoData: controller.dataPage,
-                            cardVisible: false,
-                          ),
-                          SesiacadeimaListatreinos(
-                            titleList: "27/12/02",
-                            padding: 0,
-                          ),
+              clipBehavior: Clip.hardEdge,
+              width: context.widthTransformer(reducedBy: 5),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey[350]!,
+                    blurRadius: 10,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: 1,
+                itemBuilder: (_, index) {
+                  return Column(
+                    children: [
+                      SesiacadeimaListatreinos(
+                        titleList: "27/12/02",
+                        padding: 0,
+                        containList: const [
+                          DataListAlunos(),
                         ],
-                      );
-                    })),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
     );
+  }
+}
+
+class DataListAlunos extends GetView<AvaliacoesaAlunoPageController> {
+  const DataListAlunos({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        shrinkWrap: true,
+        itemCount: 2,
+        physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (_, index) {
+          return Column(
+            children: [
+              widgetAluno(
+                alunoData: controller.dataPage,
+                cardVisible: false,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+            ],
+          );
+        });
   }
 }
