@@ -146,6 +146,7 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                         text: "Realizar Avaliação",
                         fontSize: 25,
                         pageRoute: "/realiAvali",
+                        event: () {},
                       ),
                     ),
                     const SizedBox(
