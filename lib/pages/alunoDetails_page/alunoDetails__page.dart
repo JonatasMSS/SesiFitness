@@ -236,9 +236,9 @@ class DialogEdition extends GetView<AlunoDetailsController> {
     for (var i in _dadosTreinos) {
       itensChecked.addAll(i.where((dado) => dado.checked));
     }
-    itensChecked.forEach((element) {
+    for (var element in itensChecked) {
       result.add(element.texto);
-    });
+    }
     return result;
   }
 
@@ -461,7 +461,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                         };
                         controller.setTreinosAlunos(day, itensChecked(), data);
                       },
-                      child: Text("ENVIAR DADOS"),
+                      child: const Text("ENVIAR DADOS"),
                     ),
                     const SizedBox(
                       height: 30,
