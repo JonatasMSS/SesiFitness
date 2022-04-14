@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
@@ -232,6 +233,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
   final RxString _cadenciaData = "".obs;
   final RxString _cargaData = "".obs;
   final RxString _descansoData = "".obs;
+  List<String> _itens = [];
 
   List<dynamic> itensChecked() {
     List<Checkboxmodel> itensChecked = [];
@@ -243,6 +245,27 @@ class DialogEdition extends GetView<AlunoDetailsController> {
       result.add(element.texto);
     });
     return result;
+  }
+
+  void clearCheckboxes() {
+    _itens.clear();
+    for (var treino in _dadosTreinos) {
+      for (var i = 0; i < treino.length; i++) {
+        if (treino[i].checked) {
+          treino[i].checked = !treino[i].checked;
+        }
+      }
+    }
+  }
+
+  List<String> addItensByOrder(String treinoNameAdd, bool ativo) {
+    if (!_itens.contains(treinoNameAdd) && !ativo) {
+      _itens.add(treinoNameAdd);
+    } else if (_itens.contains(treinoNameAdd) && ativo) {
+      _itens.remove(treinoNameAdd);
+    }
+    print(_itens);
+    return _itens;
   }
 
   @override
@@ -290,6 +313,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
                                   item: _dadosTreinos[0][index],
+                                  addData: addItensByOrder,
                                 );
                               },
                             ),
@@ -305,6 +329,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
                                   item: _dadosTreinos[1][index],
+                                  addData: addItensByOrder,
                                 );
                               },
                             )
@@ -319,7 +344,9 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemCount: Treinos().getTreinosPerna().length,
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
-                                    item: _dadosTreinos[2][index]);
+                                  item: _dadosTreinos[2][index],
+                                  addData: addItensByOrder,
+                                );
                               },
                             )
                           ],
@@ -334,6 +361,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
                                   item: _dadosTreinos[3][index],
+                                  addData: addItensByOrder,
                                 );
                               },
                             )
@@ -349,6 +377,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
                                   item: _dadosTreinos[4][index],
+                                  addData: addItensByOrder,
                                 );
                               },
                             )
@@ -364,6 +393,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
                                   item: _dadosTreinos[5][index],
+                                  addData: addItensByOrder,
                                 );
                               },
                             )
@@ -379,6 +409,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                               itemBuilder: (_, index) {
                                 return SesiacademiaCheckboxtreino(
                                   item: _dadosTreinos[6][index],
+                                  addData: addItensByOrder,
                                 );
                               },
                             )
@@ -456,7 +487,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                         //itensChecked(controller.lista);
                         //print(controller.lista);
 
-                        for (var i = 0; i < itensChecked().length; i++) {
+                        for (var i = 0; i < _itens.length; i++) {
                           Map<String, dynamic> data = {
                             "repTreino": _repData.value,
                             "cadencia": _cadenciaData.value,
@@ -465,9 +496,12 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                             "descanso": _descansoData.value,
                             "time": Timestamp.now().millisecondsSinceEpoch,
                           };
-                          final List<dynamic> lista = [itensChecked()[i]];
-                          await controller.setTreinosAlunos(day, lista, data);
+                          final _finaList = [_itens[i]];
+                          await controller.setTreinosAlunos(
+                              day, _finaList, data);
                         }
+                        clearCheckboxes();
+                        navigator!.pop();
                       },
                       child: const Text("ENVIAR DADOS"),
                     ),
