@@ -19,12 +19,11 @@ class _SesiacademiaCheckboxtreinoState
     return CheckboxListTile(
         title: Text(
           widget.item.texto,
-          style: TextStyle(fontSize: 25),
+          style: const TextStyle(fontSize: 25),
         ),
         value: widget.item.checked,
         onChanged: (value) {
           setState(() {
-            print("valor alterado!");
             widget.item.checked = value!;
           });
         });

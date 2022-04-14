@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:sesi_fitness/models/checkboxModel.dart';
@@ -259,12 +262,12 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                   children: [
                     Container(
                       alignment: Alignment.center,
-                      color: Color(0xFF274776),
+                      color: const Color(0xFF274776),
                       width: context.width,
                       height: 80,
                       child: Text(
                         textTitle,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 40,
                           color: Colors.white,
                         ),
@@ -448,20 +451,25 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                       height: 30,
                     ),
                     ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         //print(controller.lista);
                         //itensChecked(controller.lista);
                         //print(controller.lista);
-                        Map<String, dynamic> data = {
-                          "repTreino": _repData.value,
-                          "cadencia": _cadenciaData.value,
-                          "observacao": _observacaoData.value,
-                          "carga": _cargaData.value,
-                          "descanso": _descansoData.value,
-                        };
-                        controller.setTreinosAlunos(day, itensChecked(), data);
+
+                        for (var i = 0; i < itensChecked().length; i++) {
+                          Map<String, dynamic> data = {
+                            "repTreino": _repData.value,
+                            "cadencia": _cadenciaData.value,
+                            "observacao": _observacaoData.value,
+                            "carga": _cargaData.value,
+                            "descanso": _descansoData.value,
+                            "time": Timestamp.now().millisecondsSinceEpoch,
+                          };
+                          final List<dynamic> lista = [itensChecked()[i]];
+                          await controller.setTreinosAlunos(day, lista, data);
+                        }
                       },
-                      child: Text("ENVIAR DADOS"),
+                      child: const Text("ENVIAR DADOS"),
                     ),
                     const SizedBox(
                       height: 30,
