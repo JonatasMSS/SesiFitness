@@ -141,17 +141,6 @@ class AlunoDetailsPage extends GetView<AlunoDetailsController> {
                     const SizedBox(
                       height: 30,
                     ),
-                    Center(
-                      child: SesiacademiaRealizaravaliacao(
-                        text: "Realizar Avaliação",
-                        fontSize: 25,
-                        pageRoute: "/realiAvali",
-                        event: () {},
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
                   ],
                 ),
               ),
@@ -169,7 +158,7 @@ class DataListTreino extends GetView<AlunoDetailsController> {
     required this.dia,
   }) : super(key: key);
 
-  String dia;
+  final String dia;
 
   final Map<String, int> _intToName = {
     'segunda': 3,
@@ -236,17 +225,17 @@ class DialogEdition extends GetView<AlunoDetailsController> {
   final RxString _descansoData = "".obs;
   List<String> _itens = [];
 
-  List<dynamic> itensChecked() {
-    List<Checkboxmodel> itensChecked = [];
-    List<dynamic> result = [];
-    for (var i in _dadosTreinos) {
-      itensChecked.addAll(i.where((dado) => dado.checked));
-    }
-    for (var element in itensChecked) {
-      result.add(element.texto);
-    }
-    return result;
-  }
+  // List<dynamic> itensChecked() {
+  //   List<Checkboxmodel> itensChecked = [];
+  //   List<dynamic> result = [];
+  //   for (var i in _dadosTreinos) {
+  //     itensChecked.addAll(i.where((dado) => dado.checked));
+  //   }
+  //   for (var element in itensChecked) {
+  //     result.add(element.texto);
+  //   }
+  //   return result;
+  // }
 
   void clearCheckboxes() {
     _itens.clear();

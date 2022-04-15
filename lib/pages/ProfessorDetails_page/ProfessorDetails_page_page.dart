@@ -14,225 +14,223 @@ class ProfessorDetailsPagePage extends GetView<ProfessorDetailsPageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SesifitnessAppbar(),
-      backgroundColor: Color(0xFFEFEFEF),
+      backgroundColor: const Color(0xFFEFEFEF),
       body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: SesiacademiaAppbarbuttons(
-                      sizeH: 50,
-                      descText: "Avaliações Feitas Por: Professor Carlos",
-                      state: false,
-                      textColor: Colors.black,
-                    ),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: SesiacademiaAppbarbuttons(
+                    sizeH: 50,
+                    descText: "Alunos do professor",
+                    state: false,
+                    textColor: Colors.white,
                   ),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              SesiacadeimaListatreinos(
-                backColor: Color(0xFFDCDCDC),
-                titleList: "27/02/2022",
-                containList: [
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    width: context.widthTransformer(reducedBy: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey[350]!,
-                          blurRadius: 10,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      children: [widgetAluno()],
-                    ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SesiacadeimaListatreinos(
+              backColor: Color(0xFFDCDCDC),
+              titleList: "27/02/2022",
+              containList: [
+                Container(
+                  clipBehavior: Clip.hardEdge,
+                  width: context.widthTransformer(reducedBy: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[350]!,
+                        blurRadius: 10,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  child: Column(
+                    children: [widgetAluno()],
                   ),
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    width: context.widthTransformer(reducedBy: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey[350]!,
-                          blurRadius: 10,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      children: [
-                        widgetAluno(),
-                      ],
-                    ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  clipBehavior: Clip.hardEdge,
+                  width: context.widthTransformer(reducedBy: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[350]!,
+                        blurRadius: 10,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  child: Column(
+                    children: [
+                      widgetAluno(),
+                    ],
                   ),
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    width: context.widthTransformer(reducedBy: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey[350]!,
-                          blurRadius: 10,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      children: [
-                        widgetAluno(),
-                      ],
-                    ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  clipBehavior: Clip.hardEdge,
+                  width: context.widthTransformer(reducedBy: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[350]!,
+                        blurRadius: 10,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  child: Column(
+                    children: [
+                      widgetAluno(),
+                    ],
                   ),
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    width: context.widthTransformer(reducedBy: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey[350]!,
-                          blurRadius: 10,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      children: [
-                        widgetAluno(),
-                      ],
-                    ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  clipBehavior: Clip.hardEdge,
+                  width: context.widthTransformer(reducedBy: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[350]!,
+                        blurRadius: 10,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  child: Column(
+                    children: [
+                      widgetAluno(),
+                    ],
                   ),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              SesiacadeimaListatreinos(
-                backColor: Color(0xFFDCDCDC),
-                titleList: "27/01/2022",
-                containList: [
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    width: context.widthTransformer(reducedBy: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey[350]!,
-                          blurRadius: 10,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      children: [
-                        widgetAluno(),
-                      ],
-                    ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SesiacadeimaListatreinos(
+              backColor: Color(0xFFDCDCDC),
+              titleList: "27/01/2022",
+              containList: [
+                Container(
+                  clipBehavior: Clip.hardEdge,
+                  width: context.widthTransformer(reducedBy: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[350]!,
+                        blurRadius: 10,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  child: Column(
+                    children: [
+                      widgetAluno(),
+                    ],
                   ),
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    width: context.widthTransformer(reducedBy: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey[350]!,
-                          blurRadius: 10,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      children: [
-                        widgetAluno(),
-                      ],
-                    ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  clipBehavior: Clip.hardEdge,
+                  width: context.widthTransformer(reducedBy: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[350]!,
+                        blurRadius: 10,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  child: Column(
+                    children: [
+                      widgetAluno(),
+                    ],
                   ),
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    width: context.widthTransformer(reducedBy: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey[350]!,
-                          blurRadius: 10,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      children: [
-                        widgetAluno(),
-                      ],
-                    ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  clipBehavior: Clip.hardEdge,
+                  width: context.widthTransformer(reducedBy: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[350]!,
+                        blurRadius: 10,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  child: Column(
+                    children: [
+                      widgetAluno(),
+                    ],
                   ),
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    width: context.widthTransformer(reducedBy: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey[350]!,
-                          blurRadius: 10,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      children: [
-                        widgetAluno(),
-                      ],
-                    ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  clipBehavior: Clip.hardEdge,
+                  width: context.widthTransformer(reducedBy: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[350]!,
+                        blurRadius: 10,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  child: Column(
+                    children: [
+                      widgetAluno(),
+                    ],
                   ),
-                ],
-              )
-            ],
-          ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
