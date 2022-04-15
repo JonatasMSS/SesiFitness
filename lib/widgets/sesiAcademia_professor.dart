@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sesi_fitness/models/professorModel/ProfessorModel.dart';
 
 class widgetProfessor extends StatelessWidget {
-  widgetProfessor({
+  const widgetProfessor({
     Key? key,
-    this.title = "Nome Aluno",
-    this.cpf,
+    required this.professorModel,
     this.cardVisible = true,
   }) : super(key: key);
 
-  final String title;
-  final String? cpf;
+  final ProfessorModel professorModel;
   final bool cardVisible;
   @override
   Widget build(BuildContext context) {
@@ -19,17 +18,17 @@ class widgetProfessor extends StatelessWidget {
         child: ListTile(
           onTap: () => Get.toNamed(
             '/professorDetails',
-            arguments: {"name": title},
+            arguments: professorModel,
           ),
           leading: const Icon(Icons.person, size: 40),
           title: Text(
-            title,
+            professorModel.nome,
             style: const TextStyle(
               color: Colors.black,
               fontSize: 25,
             ),
           ),
-          subtitle: Text("CPF: " + (cpf ?? "NO CPF")),
+          subtitle: Text("CPF: " + professorModel.cpf),
         ),
       );
     } else {
@@ -37,13 +36,13 @@ class widgetProfessor extends StatelessWidget {
         onTap: () => Get.toNamed('/professorDetails'),
         leading: const Icon(Icons.person, size: 40),
         title: Text(
-          title,
+          professorModel.nome,
           style: const TextStyle(
             color: Colors.black,
             fontSize: 25,
           ),
         ),
-        subtitle: Text("CPF: " + (cpf ?? "NO CPF")),
+        subtitle: Text("CPF: " + professorModel.cpf),
       );
     }
   }
