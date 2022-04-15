@@ -14,7 +14,6 @@ class AvaliacoesaAlunoPagePage extends GetView<AvaliacoesaAlunoPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: SesiacademiaPagedrawerprofessor(),
       backgroundColor: const Color(0xFFEFEFEF),
       appBar: SesifitnessAppbar(),
       body: SingleChildScrollView(

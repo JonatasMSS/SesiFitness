@@ -12,7 +12,6 @@ class ProfessorDetailsPageController extends GetxController {
 
   @override
   void onInit() {
-    returnProfAluno();
     super.onInit();
   }
 
