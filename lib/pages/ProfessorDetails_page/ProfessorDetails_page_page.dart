@@ -17,40 +17,47 @@ class ProfessorDetailsPagePage extends GetView<ProfessorDetailsPageController> {
     return Scaffold(
       appBar: SesifitnessAppbar(),
       backgroundColor: const Color(0xFFEFEFEF),
-      body: SingleChildScrollView(
-          child: Column(
-        children: [
-          SesiacademiaAppbarbuttons(
-            state: false,
-            descText: "Alunos do Professor " + controller.data['name'],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: 2,
-              shrinkWrap: true,
-              itemBuilder: (_, index) {
-                return Column(
-                  children: [
-                    widgetAluno(
-                      cardVisible: true,
-                      alunoData: AlunoModel(
-                          nome: "Janaina",
-                          cpf: "11111111111",
-                          nascimento: "",
-                          dataMatric: "",
-                          lastPay: ""),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                  ],
-                );
-              }),
-        ],
-      )),
+      body: FutureBuilder(
+        future: controller.returnProfAluno(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return SingleChildScrollView(
+                child: Column(
+              children: [
+                SesiacademiaAppbarbuttons(
+                  state: false,
+                  descText: "Alunos do Professor " + controller.professor.nome,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: controller.professor.listaAlunos.length,
+                    shrinkWrap: true,
+                    itemBuilder: (_, index) {
+                      final AlunoModel _aluno = controller.alunosProf[index];
+                      return Column(
+                        children: [
+                          widgetAluno(
+                            cardVisible: true,
+                            alunoData: _aluno,
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                        ],
+                      );
+                    }),
+              ],
+            ));
+          }
+        },
+      ),
     );
   }
 }
