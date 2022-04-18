@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
+import 'package:sesi_fitness/models/checkboxModel.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_aluno.dart';
+import 'package:sesi_fitness/widgets/sesiFitness_form.dart';
 
 import '../../widgets/sesiAcadeima_listaTreinos.dart';
 import '../../widgets/sesiAcademia.appbarButtons.dart';
@@ -36,23 +38,24 @@ class ProfessorDetailsPagePage extends GetView<ProfessorDetailsPageController> {
                   height: 20,
                 ),
                 ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: controller.professor.listaAlunos.length,
-                    shrinkWrap: true,
-                    itemBuilder: (_, index) {
-                      final AlunoModel _aluno = controller.alunosProf[index];
-                      return Column(
-                        children: [
-                          widgetAluno(
-                            cardVisible: true,
-                            alunoData: _aluno,
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                        ],
-                      );
-                    }),
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: controller.professor.listaAlunos.length,
+                  shrinkWrap: true,
+                  itemBuilder: (_, index) {
+                    final AlunoModel _aluno = controller.alunosProf[index];
+                    return Column(
+                      children: [
+                        widgetAluno(
+                          cardVisible: true,
+                          alunoData: _aluno,
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ],
             ));
           }

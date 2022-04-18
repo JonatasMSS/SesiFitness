@@ -124,7 +124,7 @@ class MinhasAvaliacoesPage extends GetView<MinhasAvaliacoesController> {
                         Row(
                           children: const [
                             Text(
-                              "Circuferência de Cintura:",
+                              "Circunferência de Cintura:",
                               style: TextStyle(fontSize: 25),
                             ),
                             Text(
@@ -136,7 +136,7 @@ class MinhasAvaliacoesPage extends GetView<MinhasAvaliacoesController> {
                         Row(
                           children: const [
                             Text(
-                              "Circuferência de Quadril:",
+                              "Circunferência de Quadril:",
                               style: TextStyle(fontSize: 25),
                             ),
                             Text(
