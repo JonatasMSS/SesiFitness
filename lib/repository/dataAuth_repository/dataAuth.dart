@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
+import 'package:sesi_fitness/models/avaliacaoModel/avaliacaoModel.dart';
 import 'package:sesi_fitness/models/dayModel/dayModel.dart';
 import 'package:sesi_fitness/models/professorModel/ProfessorModel.dart';
 import 'package:sesi_fitness/models/treinosModel/treinosModel.dart';
@@ -118,5 +119,24 @@ class DataAuth implements IDataAuth {
         .collection('treinos')
         .doc(treinoName)
         .delete();
+  }
+
+  @override
+  Future<List<AvaliacaoModel>> getLastAvaliacaoFromAluno(String id) async {
+    final _dataResponse = await _dataCollection
+        .doc(id)
+        .collection('avaliacao')
+        .orderBy('time')
+        .limit(1)
+        .get();
+    return _dataResponse.docs
+        .map((doc) => AvaliacaoModel(
+            id: doc.id,
+            data: doc['time'],
+            avaliFisica: doc['avaliFisica'],
+            habitosVida: doc['habitosVida'],
+            avaliFlex: doc['flex'],
+            avaliForca: doc['avaliForca']))
+        .toList();
   }
 }

@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Avaliacaomodel {
+class AvaliacaoModel {
   String id;
-  Timestamp data;
+  dynamic data;
   Map<String, dynamic> avaliFisica;
   Map<String, dynamic> habitosVida;
-  List<Map<String, dynamic>> avaliFlex;
+  Map<String, dynamic> avaliFlex;
   List<Map<String, dynamic>> avaliForca;
-  Avaliacaomodel({
+  AvaliacaoModel({
     required this.id,
     required this.data,
     required this.avaliFisica,

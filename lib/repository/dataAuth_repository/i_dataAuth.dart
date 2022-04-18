@@ -1,4 +1,5 @@
 import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
+import 'package:sesi_fitness/models/avaliacaoModel/avaliacaoModel.dart';
 import 'package:sesi_fitness/models/dayModel/dayModel.dart';
 import 'package:sesi_fitness/models/professorModel/ProfessorModel.dart';
 import 'package:sesi_fitness/models/treinosModel/treinosModel.dart';
@@ -12,4 +13,5 @@ abstract class IDataAuth {
   Future<void> setTreinosFromIdAlunoAndDay(String id, String dia,
       List<dynamic> listaTreinos, Map<String, dynamic> dataTreino);
   Future<void> removeTreinoByName(String treinoName, String id, String day);
+  Future<List<AvaliacaoModel>> getLastAvaliacaoFromAluno(String id);
 }
