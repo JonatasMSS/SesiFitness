@@ -4,7 +4,6 @@ import 'package:sesi_fitness/widgets/sesiAcademia_aluno.dart';
 import '../../widgets/sesiAcadeima_listaTreinos.dart';
 import '../../widgets/sesiAcademia.appbarButtons.dart';
 import '../../widgets/sesiFitness_appbar.dart';
-import '../avaliacoesaAluno_page/avaliacoesaAluno_page_page.dart';
 import './ProfessorDetails_page_controller.dart';
 
 class ProfessorDetailsPagePage extends GetView<ProfessorDetailsPageController> {

@@ -197,8 +197,8 @@ class DataListTreino extends GetView<AlunoDetailsController> {
                 assetImage: 'assets/images/treino.png',
                 routerOn: false,
                 title: treino.id, //treino.tituloTreino,
-                repetition:
-                    treino.data()['repTreino'] ?? "Nothing", //treino.repTreino,
+                repetition: treino.data()['repTreino'] ?? "Nothing",
+                //treino.repTreino,
               ),
             );
           });
@@ -233,6 +233,7 @@ class DialogEdition extends GetView<AlunoDetailsController> {
   final RxString _cadenciaData = "".obs;
   final RxString _cargaData = "".obs;
   final RxString _descansoData = "".obs;
+  final RxString _serieData = "".obs;
   List<String> _itens = [];
 
   List<dynamic> itensChecked() {
@@ -421,6 +422,19 @@ class DialogEdition extends GetView<AlunoDetailsController> {
                       height: 30,
                     ),
                     SesifitnessForm(
+                      Data: _serieData,
+                      backgroundColor: Colors.grey[350]!,
+                      borderSide: Colors.grey[350]!,
+                      widthReduce: 30,
+                      hintText: "Quantidade de séries",
+                      heightCursor: 40,
+                      inputTypeText: TextInputType.name,
+                      maxDigits: 20,
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    SesifitnessForm(
                       Data: _repData,
                       backgroundColor: Colors.grey[350]!,
                       borderSide: Colors.grey[350]!,
@@ -489,7 +503,8 @@ class DialogEdition extends GetView<AlunoDetailsController> {
 
                         for (var i = 0; i < _itens.length; i++) {
                           Map<String, dynamic> data = {
-                            "repTreino": _repData.value,
+                            "serie": _serieData.value,
+                            "repeticao": _repData.value,
                             "cadencia": _cadenciaData.value,
                             "observacao": _observacaoData.value,
                             "carga": _cargaData.value,
