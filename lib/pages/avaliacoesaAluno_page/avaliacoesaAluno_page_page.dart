@@ -66,9 +66,7 @@ class AvaliacoesaAlunoPagePage extends GetView<AvaliacoesaAlunoPageController> {
                       SesiacadeimaListatreinos(
                         titleList: "27/12/02",
                         padding: 0,
-                        containList: const [
-                          DataListAlunos(),
-                        ],
+                        containList: const [],
                       ),
                     ],
                   );
@@ -79,30 +77,5 @@ class AvaliacoesaAlunoPagePage extends GetView<AvaliacoesaAlunoPageController> {
         ),
       ),
     );
-  }
-}
-
-class DataListAlunos extends GetView<AvaliacoesaAlunoPageController> {
-  const DataListAlunos({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        shrinkWrap: true,
-        itemCount: 2,
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (_, index) {
-          return Column(
-            children: [
-              widgetAluno(
-                alunoData: controller.dataPage,
-                cardVisible: false,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-            ],
-          );
-        });
   }
 }
