@@ -42,6 +42,8 @@ class AlunoDetailsController extends GetxController with LoaderMixin {
         dataPage.cpf, dia, listaTreinos, dataTreino);
     await findTreinosFromAlunos();
     loaderState.toggle();
+
+    navigator?.pop();
   }
 
   Future<void> removeTreino(String treinoName, String day) async {
