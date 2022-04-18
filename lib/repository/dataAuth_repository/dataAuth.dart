@@ -34,7 +34,8 @@ class DataAuth implements IDataAuth {
     return responseResult.docs
         .map((doc) => TreinosModel(
             tituloTreino: doc.id,
-            repTreino: doc['repTreino'],
+            repeticoes: doc['repeticoes'],
+            series: doc['series'],
             carga: doc['carga'],
             cadencia: doc['cadencia'],
             descanso: doc['descanso'],

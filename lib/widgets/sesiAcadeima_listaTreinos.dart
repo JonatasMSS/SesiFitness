@@ -17,7 +17,7 @@ class SesiacadeimaListatreinos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
-      collapsedBackgroundColor: Color(0xFFDCDCDC),
+      collapsedBackgroundColor: const Color(0xFFDCDCDC),
       backgroundColor: backColor,
       childrenPadding: EdgeInsets.only(left: padding ?? 1, right: padding ?? 1),
       title: Text(

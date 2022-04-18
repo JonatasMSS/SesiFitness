@@ -38,8 +38,7 @@ class RodrigoPagePagePage extends GetView<RodrigoPagePageController> {
                     final ProfessorModel _professor =
                         controller.professores[index];
                     return widgetProfessor(
-                      title: _professor.nome,
-                      cpf: _professor.cpf,
+                      professorModel: _professor,
                     );
                   },
                 ),

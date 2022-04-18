@@ -17,7 +17,7 @@ class TreinoDetalhadoPage extends GetView<TreinoDetalhadoController> {
       body: SingleChildScrollView(
         child: Center(
           child: Container(
-            width: context.widthTransformer(reducedBy: 5),
+            width: context.widthTransformer(reducedBy: 3),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: Colors.white,
@@ -32,11 +32,12 @@ class TreinoDetalhadoPage extends GetView<TreinoDetalhadoController> {
               children: [
                 SesiacademiaTreino(
                   assetImage: 'assets/images/treino.png',
-                  title: controller.dataPage['titlePage']!,
-                  repetition: controller.dataPage['repetitions']!,
+                  title: controller.treinoDetalhesDataPage['titlePage']!,
+                  repetition: controller.treinoDetalhesDataPage['repetitions']!,
                 ),
                 Text(
-                  controller.dataPage['titlePage'] ?? "Nenhum texto encontrado",
+                  controller.treinoDetalhesDataPage['titlePage'] ??
+                      "Nenhum texto encontrado",
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 35,
@@ -61,14 +62,14 @@ class TreinoDetalhadoPage extends GetView<TreinoDetalhadoController> {
                 ListTile(
                   leading: SvgPicture.asset('assets/icons/Icon_halter.svg'),
                   title: const Text(
-                    "Carga:",
+                    "Peso:",
                     style: TextStyle(fontSize: 35),
                   ),
                   trailing: Container(
                     width: context.widthTransformer(reducedBy: 60),
                     child: Text(
-                      controller.dataPage['carga'] ?? '0 KG',
-                      style: TextStyle(fontSize: 35),
+                      controller.treinoDetalhesDataPage['carga'] ?? '0 KG',
+                      style: const TextStyle(fontSize: 35),
                     ),
                   ),
                 ),
@@ -84,7 +85,7 @@ class TreinoDetalhadoPage extends GetView<TreinoDetalhadoController> {
                   trailing: Container(
                     width: context.widthTransformer(reducedBy: 65),
                     child: Text(
-                      controller.dataPage['cadencia'] ?? "0",
+                      controller.treinoDetalhesDataPage['cadencia'] ?? "0",
                       style: TextStyle(fontSize: 35),
                     ),
                   ),
@@ -101,7 +102,7 @@ class TreinoDetalhadoPage extends GetView<TreinoDetalhadoController> {
                   trailing: Container(
                     width: context.widthTransformer(reducedBy: 65),
                     child: Text(
-                      controller.dataPage['descanso'] ?? "0 s",
+                      controller.treinoDetalhesDataPage['descanso'] ?? "0 s",
                       style: TextStyle(fontSize: 35),
                     ),
                   ),
@@ -117,7 +118,7 @@ class TreinoDetalhadoPage extends GetView<TreinoDetalhadoController> {
                 Container(
                   padding: const EdgeInsets.all(10),
                   child: Text(
-                    _loremDetails,
+                    controller.treinoDetalhesDataPage['description'] ?? "data",
                     textDirection: TextDirection.ltr,
                     textAlign: TextAlign.justify,
                     style: TextStyle(fontSize: 25),

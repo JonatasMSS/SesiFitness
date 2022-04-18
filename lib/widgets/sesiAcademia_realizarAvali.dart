@@ -2,43 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SesiacademiaRealizaravaliacao extends StatelessWidget {
-  SesiacademiaRealizaravaliacao({
+  const SesiacademiaRealizaravaliacao({
     Key? key,
     this.text = "None",
     this.fontSize,
     this.routeOn = true,
     this.pageRoute = "",
-    this.event,
+    this.dialog,
   }) : super(key: key);
 
   final String text;
   final double? fontSize;
   final bool routeOn;
   final String pageRoute;
-  final Function? event;
+  final Widget? dialog;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        TextButton(
-          style: TextButton.styleFrom(backgroundColor: Color(0xFF2C4E82)),
-          onPressed: () {
-            if (routeOn) {
-              Get.toNamed(pageRoute);
-            } else {
-              event;
-            }
-          },
-          child: Text(
-            text,
-            style: TextStyle(
-              color: Color(0xFFEFEFEF),
-              fontSize: fontSize,
-            ),
-          ),
+    return TextButton(
+      style: TextButton.styleFrom(backgroundColor: const Color(0xFF2C4E82)),
+      onPressed: () {
+        if (routeOn) {
+          Get.toNamed(pageRoute);
+        } else {}
+      },
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Color(0xFFEFEFEF),
+          fontSize: fontSize,
         ),
-      ],
+      ),
     );
   }
 }

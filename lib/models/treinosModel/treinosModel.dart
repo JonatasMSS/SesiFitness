@@ -2,14 +2,16 @@ import 'dart:convert';
 
 class TreinosModel {
   String tituloTreino;
-  String repTreino;
+  String repeticoes;
+  String series;
   String carga;
   String cadencia;
   String descanso;
   String observacao;
   TreinosModel({
     required this.tituloTreino,
-    required this.repTreino,
+    required this.repeticoes,
+    required this.series,
     required this.carga,
     required this.cadencia,
     required this.descanso,
@@ -20,7 +22,8 @@ class TreinosModel {
     final result = <String, dynamic>{};
 
     result.addAll({'tituloTreino': tituloTreino});
-    result.addAll({'repTreino': repTreino});
+    result.addAll({'repeticoes': repeticoes});
+    result.addAll({'series': series});
     result.addAll({'carga': carga});
     result.addAll({'cadencia': cadencia});
     result.addAll({'descanso': descanso});
@@ -32,7 +35,8 @@ class TreinosModel {
   factory TreinosModel.fromMap(Map<String, dynamic> map) {
     return TreinosModel(
       tituloTreino: map['tituloTreino'] ?? '',
-      repTreino: map['repTreino'] ?? '',
+      repeticoes: map['repeticoes'] ?? '',
+      series: map['series'] ?? '',
       carga: map['carga'] ?? '',
       cadencia: map['cadencia'] ?? '',
       descanso: map['descanso'] ?? '',
@@ -47,7 +51,8 @@ class TreinosModel {
 
   TreinosModel copyWith({
     String? tituloTreino,
-    String? repTreino,
+    String? repeticoes,
+    String? series,
     String? carga,
     String? cadencia,
     String? descanso,
@@ -55,7 +60,8 @@ class TreinosModel {
   }) {
     return TreinosModel(
       tituloTreino: tituloTreino ?? this.tituloTreino,
-      repTreino: repTreino ?? this.repTreino,
+      repeticoes: repeticoes ?? this.repeticoes,
+      series: series ?? this.series,
       carga: carga ?? this.carga,
       cadencia: cadencia ?? this.cadencia,
       descanso: descanso ?? this.descanso,
@@ -65,7 +71,7 @@ class TreinosModel {
 
   @override
   String toString() {
-    return 'TreinosModel(tituloTreino: $tituloTreino, repTreino: $repTreino, carga: $carga, cadencia: $cadencia, descanso: $descanso, observacao: $observacao)';
+    return 'TreinosModel(tituloTreino: $tituloTreino, repeticoes: $repeticoes, series: $series, carga: $carga, cadencia: $cadencia, descanso: $descanso, observacao: $observacao)';
   }
 
   @override
@@ -74,7 +80,8 @@ class TreinosModel {
 
     return other is TreinosModel &&
         other.tituloTreino == tituloTreino &&
-        other.repTreino == repTreino &&
+        other.repeticoes == repeticoes &&
+        other.series == series &&
         other.carga == carga &&
         other.cadencia == cadencia &&
         other.descanso == descanso &&
@@ -84,7 +91,8 @@ class TreinosModel {
   @override
   int get hashCode {
     return tituloTreino.hashCode ^
-        repTreino.hashCode ^
+        repeticoes.hashCode ^
+        series.hashCode ^
         carga.hashCode ^
         cadencia.hashCode ^
         descanso.hashCode ^
