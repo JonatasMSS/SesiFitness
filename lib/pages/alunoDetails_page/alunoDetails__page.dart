@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:sesi_fitness/models/checkboxModel.dart';
 import 'package:sesi_fitness/repository/treinos/treinos.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_addTreino.dart';
@@ -187,8 +188,12 @@ class DataListTreino extends GetView<AlunoDetailsController> {
                 assetImage: 'assets/images/treino.png',
                 routerOn: false,
                 title: treino.id, //treino.tituloTreino,
-                repetition: treino.data()['repTreino'] ?? "Nothing",
-                //treino.repTreino,
+                repetition: treino.data()['repeticoes'] ?? "Nothing",
+                series: treino.data()["series"] ?? "Nothing",
+                cadenc: treino.data()["cadencia"] ?? "Nothing",
+                carga: treino.data()["carga"] ?? "Nothing",
+                descanso: treino.data()["descanso"] ?? "Nothing",
+                observ: treino.data()["observacao"] ?? "Nothing",
               ),
             );
           });
@@ -493,8 +498,8 @@ class DialogEdition extends GetView<AlunoDetailsController> {
 
                         for (var i = 0; i < _itens.length; i++) {
                           Map<String, dynamic> data = {
-                            "serie": _serieData.value,
-                            "repeticao": _repData.value,
+                            "series": _serieData.value,
+                            "repeticoes": _repData.value,
                             "cadencia": _cadenciaData.value,
                             "observacao": _observacaoData.value,
                             "carga": _cargaData.value,

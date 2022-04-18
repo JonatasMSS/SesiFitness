@@ -141,7 +141,7 @@ class _SesiacademiaTreinoState extends State<SesiacademiaTreino> {
       return Container(
         margin: const EdgeInsets.all(20),
         width: context.widthTransformer(reducedBy: 10),
-        height: 110,
+        //height: 110,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(13),
@@ -160,40 +160,46 @@ class _SesiacademiaTreinoState extends State<SesiacademiaTreino> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(13),
                 border: Border.all(
-                  color: Color.fromARGB(255, 133, 133, 133),
+                  color: const Color.fromARGB(255, 133, 133, 133),
                   width: 1,
                 ),
               ),
-              width: 100,
-              height: 100,
+              width: 120,
+              height: 120,
               child: Image(
                 image: AssetImage(widget.assetImage),
                 fit: BoxFit.fill,
               ),
             ),
             Expanded(
-              child: Container(
-                height: 109,
+              child: SizedBox(
+                //height: 109,
                 child: Column(
                   children: [
                     Text(
                       widget.title,
-                      style: TextStyle(fontSize: 28),
+                      style: const TextStyle(fontSize: 30),
                       overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
                     ),
-                    SizedBox(
-                      height: 5,
+                    const SizedBox(
+                      height: 2,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        SvgPicture.asset(
-                          "assets/icons/Icon_halter.svg",
-                          height: 35,
-                        ),
                         Text(
-                          widget.repetition,
+                          'Series: ' + widget.repetition,
+                          style: const TextStyle(
+                            fontSize: 28,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          'Repetições: ' + widget.repetition,
                           style: const TextStyle(
                             fontSize: 28,
                           ),
