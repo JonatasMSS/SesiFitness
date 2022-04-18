@@ -48,6 +48,44 @@ void main() async {
   // //   // print(referenceDoc.data());
   // // }
 
+  // await FirebaseFirestore.instance
+  //     .collection('Alunos')
+  //     .doc('11122233345')
+  //     .collection('avaliacao')
+  //     .doc(
+  //         "${DateTime.now().day.toString()}-${DateTime.now().month}-${DateTime.now().year}")
+  //     .set({
+  //   "time": DateTime.now(),
+  //   "avaliFisica": {
+  //     "pa": "PA DATA",
+  //     "fc": "FC DATA",
+  //     "peso": "PESO DATA",
+  //     "estatura": "ESTATURA DATA",
+  //     "imc": "IMC DATA",
+  //     "cirCintura": "CINTURA DATA",
+  //     "cirQuadril": "QUADRIL DATA",
+  //     "gorduraCorporal": "GORDURA DATA",
+  //     "massaMuscular": "MUSCULO DATA",
+  //   },
+  //   "avaliForca": [
+  //     {"exercicio": "DATA 1"},
+  //     {"exercicio": "DATA 2"}
+  //   ],
+  //   "flex": {
+  //     "tentativa 1": "TENTATIVA 1",
+  //     "tentativa 2": "TENTATIVA 2",
+  //     "tentativa 3": "TENTATIVA 3",
+  //   },
+  //   "habitosVida": {
+  //     "alimentacao": "ALIM DATA",
+  //     "ingestaoAlcool": "ALCOOL DATA",
+  //     "tempoSentado": "TEMPO DATA",
+  //     "sono": "SONO DATA",
+  //     "hidratacao": "HIDRA DATA",
+  //     "fumante": "FUMANTE DATA",
+  //   }
+  // }, SetOptions(merge: true)).then((value) => print("DEU"));
+
   runApp(sesiFitnessMAIN());
 }
 
