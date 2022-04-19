@@ -6,10 +6,12 @@ class widgetAluno extends StatelessWidget {
   widgetAluno({
     Key? key,
     this.alunoData,
+    this.route = '/alunoDetails',
     this.cardVisible = true,
   }) : super(key: key);
 
   final AlunoModel? alunoData;
+  final String route;
   final bool cardVisible;
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class widgetAluno extends StatelessWidget {
       return Card(
         child: ListTile(
           onTap: () => Get.toNamed(
-            '/alunoDetails',
+            route,
             arguments: alunoData,
           ),
           leading: const Icon(Icons.person, size: 40),
