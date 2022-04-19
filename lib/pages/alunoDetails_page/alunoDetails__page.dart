@@ -1,15 +1,10 @@
-import 'dart:async';
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:sesi_fitness/models/checkboxModel.dart';
 import 'package:sesi_fitness/repository/treinos/treinos.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_addTreino.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_checkBoxTreino.dart';
-import 'package:sesi_fitness/widgets/sesiAcademia_realizarAvali.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_appbar.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_form.dart';
 import '../../widgets/sesiAcadeima_listaTreinos.dart';
