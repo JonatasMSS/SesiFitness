@@ -9,14 +9,17 @@ class SesiacadeimaListatreinos extends StatelessWidget {
     this.containList,
     this.backColor,
     this.padding,
+    this.initialExpanded = false,
   }) : super(key: key);
   final String titleList;
   final List<Widget>? containList;
   final Color? backColor;
   final double? padding;
+  final bool initialExpanded;
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
+      initiallyExpanded: initialExpanded,
       collapsedBackgroundColor: const Color(0xFFDCDCDC),
       backgroundColor: backColor,
       childrenPadding: EdgeInsets.only(left: padding ?? 1, right: padding ?? 1),
