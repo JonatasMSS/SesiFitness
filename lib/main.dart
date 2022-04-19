@@ -70,8 +70,16 @@ void main() async {
   //     "massaMuscular": "MUSCULO DATA",
   //   },
   //   "avaliForca": [
-  //     {"exercicio": "DATA 1"},
-  //     {"exercicio": "DATA 2"}
+  //     {
+  //       "exercicio": "DATA 1",
+  //       "carga": "0 KG",
+  //       "rep": "10",
+  //     },
+  //     {
+  //       "exercicio": "DATA 2",
+  //       "carga": "0 KG",
+  //       "rep": "10",
+  //     }
   //   ],
   //   "flex": {
   //     "tentativa 1": "TENTATIVA 1",
