@@ -111,7 +111,7 @@ class _SesiacademiaTreinoState extends State<SesiacademiaTreino> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
-                            'Series: ' + widget.repetition,
+                            'Series: ' + widget.series,
                             style: const TextStyle(
                               fontSize: 28,
                             ),
@@ -188,7 +188,7 @@ class _SesiacademiaTreinoState extends State<SesiacademiaTreino> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          'Series: ' + widget.repetition,
+                          'Series: ' + widget.series,
                           style: const TextStyle(
                             fontSize: 28,
                           ),
