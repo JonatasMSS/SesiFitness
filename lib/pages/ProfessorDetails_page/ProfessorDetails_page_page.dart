@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
 import 'package:sesi_fitness/widgets/sesiAcademia_aluno.dart';
 
-import '../../widgets/sesiAcadeima_listaTreinos.dart';
 import '../../widgets/sesiAcademia.appbarButtons.dart';
 import '../../widgets/sesiFitness_appbar.dart';
 
