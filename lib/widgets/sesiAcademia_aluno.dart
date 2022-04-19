@@ -240,6 +240,9 @@ class widgetAluno extends StatelessWidget {
                             ),
                           ],
                         ),
+                        const SizedBox(
+                          height: 30,
+                        ),
                         SesiacadeimaListatreinos(
                           titleList: "Avaliação de Flexibilidade",
                           containList: [
@@ -249,7 +252,54 @@ class widgetAluno extends StatelessWidget {
                               children: [
                                 SesiacadeimaListatreinos(
                                   titleList: "Tentativa 1",
-                                  containList: [ListView()],
+                                  containList: [
+                                    ListView(
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
+                                      shrinkWrap: true,
+                                      children: [
+                                        SesifitnessForm(
+                                          Data: _avalFlex,
+                                          backgroundColor: Colors.grey[350]!,
+                                          borderSide: Colors.grey[350]!,
+                                          widthReduce: 30,
+                                          hintText: "Exercício",
+                                          heightCursor: 40,
+                                          inputTypeText: TextInputType.name,
+                                          maxDigits: 20,
+                                        ),
+                                        const SizedBox(
+                                          height: 30,
+                                        ),
+                                        SesifitnessForm(
+                                          Data: _avalFlex,
+                                          backgroundColor: Colors.grey[350]!,
+                                          borderSide: Colors.grey[350]!,
+                                          widthReduce: 30,
+                                          hintText: "Carga",
+                                          heightCursor: 40,
+                                          inputTypeText: TextInputType.name,
+                                          maxDigits: 20,
+                                        ),
+                                        const SizedBox(
+                                          height: 30,
+                                        ),
+                                        SesifitnessForm(
+                                          Data: _avalFlex,
+                                          backgroundColor: Colors.grey[350]!,
+                                          borderSide: Colors.grey[350]!,
+                                          widthReduce: 30,
+                                          hintText: "Repetição",
+                                          heightCursor: 40,
+                                          inputTypeText: TextInputType.name,
+                                          maxDigits: 20,
+                                        ),
+                                        const SizedBox(
+                                          height: 30,
+                                        ),
+                                      ],
+                                    )
+                                  ],
                                 )
                               ],
                             ),
