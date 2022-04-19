@@ -14,4 +14,5 @@ abstract class IDataAuth {
       List<dynamic> listaTreinos, Map<String, dynamic> dataTreino);
   Future<void> removeTreinoByName(String treinoName, String id, String day);
   Future<List<AvaliacaoModel>> getLastAvaliacaoFromAluno(String id);
+  Future<List<AvaliacaoModel>> getAllAvaliacoesFromAluno(String id);
 }

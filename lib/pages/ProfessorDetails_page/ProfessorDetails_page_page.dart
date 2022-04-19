@@ -46,6 +46,7 @@ class ProfessorDetailsPagePage extends GetView<ProfessorDetailsPageController> {
                           widgetAluno(
                             cardVisible: true,
                             alunoData: _aluno,
+                            route: "/todasAvaliacoesPage",
                           ),
                           const SizedBox(
                             height: 20,

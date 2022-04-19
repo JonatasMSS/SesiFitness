@@ -88,7 +88,7 @@ void main() async {
   //   }
   // }, SetOptions(merge: true)).then((value) => print("DEU"));
 
-  runApp(sesiFitnessMAIN());
+  runApp(const sesiFitnessMAIN());
 }
 
 //Tela main de execução com uso do GetX para direcionamento de paginas

@@ -139,4 +139,23 @@ class DataAuth implements IDataAuth {
             avaliForca: doc['avaliForca']))
         .toList();
   }
+
+  @override
+  Future<List<AvaliacaoModel>> getAllAvaliacoesFromAluno(String id) async {
+    final _responseData = await FirebaseFirestore.instance
+        .collection('Alunos')
+        .doc(id)
+        .collection('avaliacao')
+        .orderBy('time')
+        .get();
+    return _responseData.docs
+        .map((doc) => AvaliacaoModel(
+            id: doc.id,
+            data: doc['time'],
+            avaliFisica: doc['avaliFisica'],
+            habitosVida: doc['habitosVida'],
+            avaliFlex: doc['flex'],
+            avaliForca: doc['avaliForca']))
+        .toList();
+  }
 }

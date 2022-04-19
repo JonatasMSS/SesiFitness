@@ -6,7 +6,7 @@ class AvaliacaoModel {
   Map<String, dynamic> avaliFisica;
   Map<String, dynamic> habitosVida;
   Map<String, dynamic> avaliFlex;
-  List<Map<String, dynamic>> avaliForca;
+  List<dynamic> avaliForca;
   AvaliacaoModel({
     required this.id,
     required this.data,
