@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
@@ -474,9 +476,22 @@ class widgetAluno extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                print(_exercicios);
+                                final Map<String, dynamic> _newMap = {
+                                  "avaliFisica": _avaliFisica,
+                                  "avaliForca": _exercicios,
+                                  "flex": _flexibilidade,
+                                  "habitosVida": _habitosVida,
+                                };
+                                log("Dados de envio:");
+                                log(_newMap.toString());
                               },
+                              style: ElevatedButton.styleFrom(
+                                primary: const Color(0xFF597194),
+                              ),
                               child: const Text("REGISTRAR AVALIAÇÃO"),
+                            ),
+                            const SizedBox(
+                              height: 20,
                             ),
                           ],
                         ),
