@@ -23,7 +23,7 @@ class SesifitnessForm extends StatelessWidget {
       : super(key: key);
 
   final TextEditingController? buttonController;
-  RxString? Data;
+  Rx<String>? Data;
   final String? hintText;
   final double? fontSize;
   final Color borderSide;

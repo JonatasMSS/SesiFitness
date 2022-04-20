@@ -59,15 +59,15 @@ void main() async {
   //     .set({
   //   "time": DateTime.now(),
   //   "avaliFisica": {
-  //     "pa": "PA DATA",
-  //     "fc": "FC DATA",
-  //     "peso": "PESO DATA",
-  //     "estatura": "ESTATURA DATA",
-  //     "imc": "IMC DATA",
-  //     "cirCintura": "CINTURA DATA",
-  //     "cirQuadril": "QUADRIL DATA",
-  //     "gorduraCorporal": "GORDURA DATA",
-  //     "massaMuscular": "MUSCULO DATA",
+  // "pa": "PA DATA",
+  // "fc": "FC DATA",
+  // "peso": "PESO DATA",
+  // "estatura": "ESTATURA DATA",
+  // "imc": "IMC DATA",
+  // "cirCintura": "CINTURA DATA",
+  // "cirQuadril": "QUADRIL DATA",
+  // "gorduraCorporal": "GORDURA DATA",
+  // "massaMuscular": "MUSCULO DATA",
   //   },
   //   "avaliForca": [
   //     {
