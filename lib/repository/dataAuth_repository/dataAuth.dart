@@ -158,4 +158,26 @@ class DataAuth implements IDataAuth {
             avaliForca: doc['avaliForca']))
         .toList();
   }
+
+  @override
+  Future<void> setAlunoAvaliacao(
+    String id,
+    Map<String, dynamic> avaliFisica,
+    List<Map<String, dynamic>> avaliForca,
+    Map<String, dynamic> flex,
+    Map<String, dynamic> habitosVida,
+  ) async {
+    await _dataCollection
+        .doc(id)
+        .collection('avaliacao')
+        .doc(
+            "${DateTime.now().day.toString()}-${DateTime.now().month}-${DateTime.now().year}")
+        .set({
+      "time": DateTime.now(),
+      "avaliFisica": avaliFisica,
+      "avaliForca": avaliForca,
+      "flex": flex,
+      "habitosVida": habitosVida,
+    }, SetOptions(merge: true));
+  }
 }

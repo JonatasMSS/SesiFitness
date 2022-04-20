@@ -39,6 +39,8 @@ class widgetAluno extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
+                  final _idAluno = alunoData!.cpf;
+
                   //Variaveis de Avaliações Físicas
                   final Map<String, RxString> _avaliFisica = {
                     "pa": "".obs,
@@ -395,6 +397,7 @@ class widgetAluno extends StatelessWidget {
                               titleList: "Hábitos de vida",
                               containList: [
                                 SesifitnessForm(
+                                  //buttonController: _EChabito,
                                   Data: _habitosVida['alimentacao'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
@@ -476,14 +479,59 @@ class widgetAluno extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                final Map<String, dynamic> _newMap = {
-                                  "avaliFisica": _avaliFisica,
-                                  "avaliForca": _exercicios,
-                                  "flex": _flexibilidade,
-                                  "habitosVida": _habitosVida,
+                                final Map<String, dynamic> _newAvaliFisica = {
+                                  "pa": _avaliFisica['pa']!.value,
+                                  "fc": _avaliFisica['fc']!.value,
+                                  "peso": _avaliFisica['peso']?.value,
+                                  "estatura": _avaliFisica['estatura']!.value,
+                                  "imc": _avaliFisica['imc']!.value,
+                                  "cirCintura":
+                                      _avaliFisica['cirCintura']!.value,
+                                  "cirQuadril":
+                                      _avaliFisica['cirQuadril']!.value,
+                                  "gorduraCorporal":
+                                      _avaliFisica['gorduraCorporal']!.value,
+                                  "massaMuscular":
+                                      _avaliFisica['massaMuscular']!.value,
+                                };
+                                final List<Map<String, dynamic>>
+                                    _newAvaliForca = [];
+                                for (var value in _exercicios) {
+                                  _newAvaliForca.add({
+                                    "exercicio": value['exercicio']!.value,
+                                    "carga": value['carga']!.value,
+                                    "rep": value['rep']!.value,
+                                  });
+                                }
+                                final Map<String, dynamic> _newflex = {
+                                  "tentativa 1":
+                                      _flexibilidade['tentativa 1']!.value,
+                                  "tentativa 2":
+                                      _flexibilidade['tentativa 2']!.value,
+                                  "tentativa 3":
+                                      _flexibilidade['tentativa 3']!.value,
+                                };
+                                final Map<String, dynamic> _newHabitos = {
+                                  "alimentacao":
+                                      _habitosVida['alimentacao']!.value,
+                                  "fumante": _habitosVida['fumante']!.value,
+                                  "hidratacao":
+                                      _habitosVida['hidratacao']!.value,
+                                  "ingestaoAlcool":
+                                      _habitosVida['ingestaoAlcool']!.value,
+                                  "sono": _habitosVida['sono']!.value,
+                                  "tempoSentado":
+                                      _habitosVida['tempoSentado']!.value,
                                 };
                                 log("Dados de envio:");
-                                log(_newMap.toString());
+                                log("Avaliação Fisica");
+                                log(_newAvaliFisica.toString());
+                                log("Avaliacao Forca");
+                                log(_newAvaliForca.toString());
+                                log("Avaliacao Flexibilidade");
+                                log(_newflex.toString());
+                                log("Avaliacao habitosVida");
+                                log(_newHabitos.toString());
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: const Color(0xFF597194),
