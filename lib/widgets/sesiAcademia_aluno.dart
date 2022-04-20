@@ -38,16 +38,18 @@ class widgetAluno extends StatelessWidget {
                 context: context,
                 builder: (BuildContext context) {
                   //Variaveis de Avaliações Físicas
-                  final RxString _pa = "".obs,
-                      _fc = "".obs,
-                      _peso = "".obs,
-                      _estatura = "".obs,
-                      _imc = "".obs,
-                      _cirCintura = "".obs,
-                      _cirQuadril = "".obs,
-                      _gorduraCorporal = "".obs,
-                      _massaMuscular = "".obs;
-
+                  final Map<String, RxString> _avaliFisica = {
+                    "pa": "".obs,
+                    "fc": "".obs,
+                    "peso": "".obs,
+                    "estatura": "".obs,
+                    "imc": "".obs,
+                    "cirCintura": "".obs,
+                    "cirQuadril": "".obs,
+                    "gorduraCorporal": "".obs,
+                    "massaMuscular": "".obs,
+                  };
+                  //Variaveis de Execicios
                   final List<Map<String, RxString>> _exercicios = [
                     {
                       "exercicio": "Exercicio".obs,
@@ -55,7 +57,19 @@ class widgetAluno extends StatelessWidget {
                       "rep": "rep".obs,
                     }
                   ].obs;
-
+                  final Map<String, RxString> _flexibilidade = {
+                    "tentativa 1": "0".obs,
+                    "tentativa 2": "0".obs,
+                    "tentativa 3": "0".obs,
+                  };
+                  final Map<String, RxString> _habitosVida = {
+                    "alimentacao": "".obs,
+                    "fumante": "".obs,
+                    "hidratacao": "".obs,
+                    "ingestaoAlcool": "".obs,
+                    "sono": "".obs,
+                    "tempoSentado": "".obs,
+                  };
                   return StatefulBuilder(builder: (context, setState) {
                     return Dialog(
                       clipBehavior: Clip.hardEdge,
@@ -85,7 +99,7 @@ class widgetAluno extends StatelessWidget {
                               titleList: "Avaliação Fisica",
                               containList: [
                                 SesifitnessForm(
-                                  Data: _pa,
+                                  Data: _avaliFisica['pa'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -98,7 +112,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
-                                  Data: _fc,
+                                  Data: _avaliFisica['fc'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -111,7 +125,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
-                                  Data: _peso,
+                                  Data: _avaliFisica['peso'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -124,7 +138,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
-                                  Data: _estatura,
+                                  Data: _avaliFisica['estatura'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -137,7 +151,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
-                                  Data: _imc,
+                                  Data: _avaliFisica['imc'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -150,7 +164,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
-                                  Data: _cirCintura,
+                                  Data: _avaliFisica['cirCintura'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -163,7 +177,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
-                                  Data: _cirQuadril,
+                                  Data: _avaliFisica['cirQuadril'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -176,7 +190,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
-                                  Data: _gorduraCorporal,
+                                  Data: _avaliFisica['gorduraCorporal'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -189,7 +203,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
-                                  Data: _massaMuscular,
+                                  Data: _avaliFisica['massaMuscular'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -312,7 +326,7 @@ class widgetAluno extends StatelessWidget {
                                           height: 30,
                                         ),
                                         SesifitnessForm(
-                                          Data: _avalFlex,
+                                          Data: _flexibilidade['tentativa 1'],
                                           backgroundColor: Colors.grey[350]!,
                                           borderSide: Colors.grey[350]!,
                                           widthReduce: 30,
@@ -333,7 +347,7 @@ class widgetAluno extends StatelessWidget {
                                           height: 30,
                                         ),
                                         SesifitnessForm(
-                                          Data: _avalFlex,
+                                          Data: _flexibilidade['tentativa 2'],
                                           backgroundColor: Colors.grey[350]!,
                                           borderSide: Colors.grey[350]!,
                                           widthReduce: 30,
@@ -354,7 +368,7 @@ class widgetAluno extends StatelessWidget {
                                           height: 30,
                                         ),
                                         SesifitnessForm(
-                                          Data: _avalFlex,
+                                          Data: _flexibilidade['tentativa 3'],
                                           backgroundColor: Colors.grey[350]!,
                                           borderSide: Colors.grey[350]!,
                                           widthReduce: 30,
@@ -379,7 +393,7 @@ class widgetAluno extends StatelessWidget {
                               titleList: "Hábitos de vida",
                               containList: [
                                 SesifitnessForm(
-                                  Data: _avalHvida,
+                                  Data: _habitosVida['alimentacao'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -392,7 +406,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
-                                  Data: _avalHvida,
+                                  Data: _habitosVida['ingestaoAlcool'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -405,7 +419,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
-                                  Data: _avalHvida,
+                                  Data: _habitosVida['tempoSentado'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -418,7 +432,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
-                                  Data: _avalHvida,
+                                  Data: _habitosVida['sono'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -431,7 +445,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
-                                  Data: _avalHvida,
+                                  Data: _habitosVida['hidratacao'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
@@ -444,7 +458,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
-                                  Data: _avalHvida,
+                                  Data: _habitosVida['fumante'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
                                   widthReduce: 30,
