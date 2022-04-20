@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sesi_fitness/models/alunoModel/alunoModel.dart';
+import 'package:sesi_fitness/repository/dataAuth_repository/dataAuth.dart';
+import 'package:sesi_fitness/utils/loader/LoaderState.dart';
 import 'package:sesi_fitness/widgets/sesiFitness_form.dart';
 
 import 'sesiAcadeima_listaTreinos.dart';
@@ -14,12 +16,14 @@ class widgetAluno extends StatelessWidget {
     this.route = '/alunoDetails',
     this.cardVisible = true,
     this.dialog = false,
+    this.crudData,
   }) : super(key: key);
 
   final AlunoModel? alunoData;
   final String route;
   final bool cardVisible;
   final bool dialog;
+  final DataAuth? crudData;
 
   final RxString _avalFlex = "".obs;
   final RxString _avalHvida = "".obs;
@@ -40,6 +44,16 @@ class widgetAluno extends StatelessWidget {
                 context: context,
                 builder: (BuildContext context) {
                   final _idAluno = alunoData!.cpf;
+
+                  final _ECPa = TextEditingController();
+                  final _ECFc = TextEditingController();
+                  final _ECpeso = TextEditingController();
+                  final _ECestatura = TextEditingController();
+                  final _ECimc = TextEditingController();
+                  final _ECcintura = TextEditingController();
+                  final _ECquadril = TextEditingController();
+                  final _ECgordura = TextEditingController();
+                  final _ECmusculo = TextEditingController();
 
                   //Variaveis de Avaliações Físicas
                   final Map<String, RxString> _avaliFisica = {
@@ -103,6 +117,7 @@ class widgetAluno extends StatelessWidget {
                               titleList: "Avaliação Fisica",
                               containList: [
                                 SesifitnessForm(
+                                  buttonController: _ECPa,
                                   Data: _avaliFisica['pa'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
@@ -116,6 +131,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
+                                  buttonController: _ECFc,
                                   Data: _avaliFisica['fc'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
@@ -129,6 +145,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
+                                  buttonController: _ECpeso,
                                   Data: _avaliFisica['peso'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
@@ -142,6 +159,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
+                                  buttonController: _ECestatura,
                                   Data: _avaliFisica['estatura'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
@@ -155,6 +173,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
+                                  buttonController: _ECimc,
                                   Data: _avaliFisica['imc'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
@@ -168,6 +187,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
+                                  buttonController: _ECcintura,
                                   Data: _avaliFisica['cirCintura'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
@@ -181,6 +201,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
+                                  buttonController: _ECquadril,
                                   Data: _avaliFisica['cirQuadril'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
@@ -194,6 +215,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
+                                  buttonController: _ECgordura,
                                   Data: _avaliFisica['gorduraCorporal'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
@@ -207,6 +229,7 @@ class widgetAluno extends StatelessWidget {
                                   height: 30,
                                 ),
                                 SesifitnessForm(
+                                  buttonController: _ECmusculo,
                                   Data: _avaliFisica['massaMuscular'],
                                   backgroundColor: Colors.grey[350]!,
                                   borderSide: Colors.grey[350]!,
@@ -523,15 +546,15 @@ class widgetAluno extends StatelessWidget {
                                   "tempoSentado":
                                       _habitosVida['tempoSentado']!.value,
                                 };
-                                log("Dados de envio:");
-                                log("Avaliação Fisica");
-                                log(_newAvaliFisica.toString());
-                                log("Avaliacao Forca");
-                                log(_newAvaliForca.toString());
-                                log("Avaliacao Flexibilidade");
-                                log(_newflex.toString());
-                                log("Avaliacao habitosVida");
-                                log(_newHabitos.toString());
+
+                                crudData?.setAlunoAvaliacao(
+                                  _idAluno,
+                                  _newAvaliFisica,
+                                  _newAvaliForca,
+                                  _newflex,
+                                  _newHabitos,
+                                );
+                                navigator?.pop();
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: const Color(0xFF597194),

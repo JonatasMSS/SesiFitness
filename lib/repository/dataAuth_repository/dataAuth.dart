@@ -126,7 +126,7 @@ class DataAuth implements IDataAuth {
     final _dataResponse = await _dataCollection
         .doc(id)
         .collection('avaliacao')
-        .orderBy('time')
+        .orderBy('time', descending: true)
         .limit(1)
         .get();
     return _dataResponse.docs
@@ -178,6 +178,7 @@ class DataAuth implements IDataAuth {
       "avaliForca": avaliForca,
       "flex": flex,
       "habitosVida": habitosVida,
-    }, SetOptions(merge: true));
+    }, SetOptions(merge: true)).then(
+            (value) => print("Envio de dados concluido"));
   }
 }

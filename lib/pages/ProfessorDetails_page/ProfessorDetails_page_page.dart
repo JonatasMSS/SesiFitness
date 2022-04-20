@@ -45,6 +45,7 @@ class ProfessorDetailsPagePage extends GetView<ProfessorDetailsPageController> {
                           widgetAluno(
                             cardVisible: true,
                             alunoData: _aluno,
+                            crudData: controller.dataAuth,
                             dialog: true,
                             route: "/todasAvaliacoesPage",
                           ),
@@ -54,6 +55,17 @@ class ProfessorDetailsPagePage extends GetView<ProfessorDetailsPageController> {
                         ],
                       );
                     }),
+                const SizedBox(
+                  height: 40,
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(10),
+                  child: const Text(
+                    "Pressione e segure em um aluno para realizar uma avaliação",
+                    style: TextStyle(fontSize: 25),
+                  ),
+                ),
               ],
             ));
           }
