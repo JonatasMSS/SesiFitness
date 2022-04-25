@@ -23,7 +23,7 @@ class SesiacademiaPagedrawerprofessor extends StatelessWidget {
               child: Column(
                 children: [
                   const Image(
-                    image: AssetImage('assets/images/Ellipse 2.png'),
+                    image: AssetImage('assets/images/MENINOLOGO.png'),
                     width: 90,
                     height: 90,
                   ),
