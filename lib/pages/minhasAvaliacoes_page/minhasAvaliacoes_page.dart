@@ -63,7 +63,10 @@ class MinhasAvaliacoesPage extends GetView<MinhasAvaliacoesController> {
                       ),
                       child: Column(
                         children: [
-                          Image.asset('assets/images/Ellipse 2.png'),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Image.asset('assets/images/logo.png'),
                           SesiacadeimaListatreinos(
                             padding: 10,
                             titleList: "Avaliação Física",
