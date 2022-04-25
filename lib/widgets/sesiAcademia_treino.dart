@@ -79,6 +79,7 @@ class _SesiacademiaTreinoState extends State<SesiacademiaTreino> {
           child: Row(
             children: [
               Container(
+                clipBehavior: Clip.hardEdge,
                 margin: const EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(13),
@@ -156,6 +157,7 @@ class _SesiacademiaTreinoState extends State<SesiacademiaTreino> {
         child: Row(
           children: [
             Container(
+              clipBehavior: Clip.hardEdge,
               margin: const EdgeInsets.only(left: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(13),
