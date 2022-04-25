@@ -31,7 +31,7 @@ class TreinoDetalhadoPage extends GetView<TreinoDetalhadoController> {
             child: Column(
               children: [
                 SesiacademiaTreino(
-                  assetImage: 'assets/images/treino.png',
+                  assetImage: 'assets/images/braco.png',
                   title: controller.treinoDetalhesDataPage['titlePage']!,
                   repetition: controller.treinoDetalhesDataPage['repetitions']!,
                 ),

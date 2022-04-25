@@ -141,7 +141,7 @@ class DataListTreino extends GetView<MeusTreinosController> {
             final treino =
                 controller.treinosAluno[_intToName[dia]!].listaTreinos[index];
             return SesiacademiaTreino(
-              assetImage: 'assets/images/treino.png',
+              assetImage: 'assets/images/braco.png',
               pageRoute: '/treinoDetalhado',
               title: treino.id, //treino.tituloTreino,
               repetition: treino.data()['repeticoes'] ?? "NO DATA",
