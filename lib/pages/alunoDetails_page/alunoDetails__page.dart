@@ -180,7 +180,7 @@ class DataListTreino extends GetView<AlunoDetailsController> {
             return GestureDetector(
               onLongPress: () => controller.removeTreino(treino.id, dia),
               child: SesiacademiaTreino(
-                assetImage: 'assets/images/treino.png',
+                assetImage: 'assets/images/braco.png',
                 routerOn: false,
                 title: treino.id, //treino.tituloTreino,
                 repetition: treino.data()['repeticoes'] ?? "Nothing",
