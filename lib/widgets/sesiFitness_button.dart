@@ -63,10 +63,6 @@ class SesifitnessButton extends StatelessWidget {
       );
       Get.offAndToNamed('/rodrigoPage');
     }
-    // if (!alunoData
-    //     .any((element) => element.cpf == cpf && cpf != "1" && cpf != "00")) {
-    //   Get.snackbar("Erro", "Usuário não encontrado");
-    // }
   }
 
   @override
